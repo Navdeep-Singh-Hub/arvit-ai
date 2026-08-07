@@ -8,6 +8,7 @@ import { WHO_WE_HELP, TABLET_FIT_LABEL, type Condition } from "@/lib/data/who-we
 import { AUDIENCE_COPY } from "@/lib/audience/content";
 import { useAudience } from "@/components/providers/audience-provider";
 import { THERAPY_PROGRESS_ENABLED } from "@/lib/flags";
+import { cn } from "@/lib/utils";
 
 function filterConditions(audience: "adult" | "child" | null): Condition[] {
   if (!THERAPY_PROGRESS_ENABLED || audience === "adult" || !audience) {
