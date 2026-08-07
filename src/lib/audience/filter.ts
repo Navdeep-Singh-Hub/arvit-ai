@@ -4,7 +4,7 @@ import { PREBOOK_PRODUCTS, type PrebookProduct, type PrebookProductId } from "@/
 import { THERAPY_PROGRESS_ENABLED } from "@/lib/flags";
 
 export function productIdForAudience(audience: Audience | null): PrebookProductId | null {
-  // Therapy Progress temporarily off — only AAC App is offered
+  // Therapy Progress temporarily off — only AAC Device is offered
   if (!THERAPY_PROGRESS_ENABLED) return "aac-app";
   if (audience === "adult") return "aac-app";
   if (audience === "child") return "therapy-app";
@@ -57,18 +57,18 @@ export function getAudienceNavGroups(audience: Audience | null): NavGroup[] {
   if (!THERAPY_PROGRESS_ENABLED || audience === "adult" || !audience) {
     return [
       {
-        label: "AAC App",
+        label: "AAC Device",
         description: "Adult communication tools",
         items: [
           {
-            label: "AAC App",
+            label: "AAC Device",
             href: "/aac-communication",
             description: "Symbol boards, voice, prediction — built for adults.",
           },
           {
             label: "Pre-book AAC",
             href: "/#tablets",
-            description: "Reserve the Adult AAC App.",
+            description: "Reserve the Adult AAC Device.",
           },
           {
             label: "AAC features",
@@ -154,7 +154,7 @@ export function getAudienceNavGroups(audience: Audience | null): NavGroup[] {
 export function getAudienceFooterPlatform(audience: Audience | null) {
   if (!THERAPY_PROGRESS_ENABLED || audience === "adult" || !audience) {
     return [
-      { label: "AAC App", href: "/aac-communication" },
+      { label: "AAC Device", href: "/aac-communication" },
       { label: "Pre-book / Cart", href: "/cart" },
       { label: "Features", href: "/features" },
       { label: "For Therapists", href: "/therapists" },

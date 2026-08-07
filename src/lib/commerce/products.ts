@@ -20,7 +20,7 @@ export type PrebookProduct = {
 export const PREBOOK_PRODUCTS: PrebookProduct[] = [
   {
     id: "aac-app",
-    name: "AAC App",
+    name: "AAC Device",
     shortName: "AAC",
     audience: "For adults",
     tagline: "Communication, first and always",

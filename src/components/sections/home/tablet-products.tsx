@@ -31,18 +31,18 @@ function ProductCard({ product }: { product: PrebookProduct }) {
     >
       <div className="flex flex-col border border-black/10 bg-white p-8 sm:p-12">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="text-eyebrow inline-flex items-center gap-1.5 text-muted-foreground">
+          <span className="text-eyebrow inline-flex items-center gap-1.5 text-black/55">
             <Tablet className="size-3.5" />
             {product.audience}
           </span>
           {product.comingSoon ? (
-            <span className="text-eyebrow bg-black px-2.5 py-1 text-white">Coming soon</span>
+            <span className="text-eyebrow bg-[#000000] px-2.5 py-1 !text-[#ffffff]">Coming soon</span>
           ) : null}
         </div>
 
         <h3 className="text-h3 mt-8 text-black">{product.name}</h3>
         <p className="mt-3 text-lg font-medium tracking-tight text-black/70">{product.tagline}</p>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-black/60">
           {product.description}
         </p>
 
@@ -60,13 +60,13 @@ function ProductCard({ product }: { product: PrebookProduct }) {
 
         <div className="mt-12 flex flex-col gap-8 border-t border-black/10 pt-10 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-eyebrow text-muted-foreground">
+            <p className="text-eyebrow text-black/55">
               {product.comingSoon ? "Pre-book price" : "Price"}
             </p>
             <p className="mt-2 text-[clamp(2.5rem,5vw,3.5rem)] font-normal tracking-tight text-black">
               {formatProductPrice(product)}
             </p>
-            <p className="mt-2 text-xs text-muted-foreground">
+            <p className="mt-2 text-xs text-black/50">
               {product.comingSoon
                 ? "Inclusive INR · ships when ready"
                 : "Inclusive price in INR"}

@@ -63,7 +63,7 @@ function StepCard({
       className="absolute inset-0 flex items-center"
       aria-hidden={true}
     >
-      <article className="card-glow glass w-full max-w-2xl rounded-3xl p-7 sm:p-9">
+      <article className="w-full max-w-2xl rounded-3xl border border-black/10 bg-white p-7 text-black sm:p-9">
         <StepContent step={step} />
       </article>
     </motion.div>
@@ -129,7 +129,7 @@ export function HowItWorks() {
           />
           <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {HOW_IT_WORKS.map((step) => (
-              <article key={step.step} className="card-glow glass rounded-3xl p-7">
+              <article key={step.step} className="rounded-3xl border border-black/10 bg-white p-7 text-black">
                 <StepContent step={step} />
               </article>
             ))}
@@ -155,7 +155,7 @@ export function HowItWorks() {
             {/* Mobile / tablet: readable stacked list */}
             <div className="space-y-5 lg:hidden">
               {HOW_IT_WORKS.map((step) => (
-                <article key={step.step} className="card-glow glass rounded-3xl p-7">
+                <article key={step.step} className="rounded-3xl border border-black/10 bg-white p-7 text-black">
                   <StepContent step={step} />
                 </article>
               ))}

@@ -18,7 +18,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     audience: "adult",
     quote:
-      "After the stroke, the AAC App felt built for adults — not a children's toy with big icons. He builds full phrases again.",
+      "After the stroke, the AAC Device felt built for adults — not a children's toy with big icons. He builds full phrases again.",
     name: "Daniel K., M.S. CCC-SLP",
     role: "Speech-Language Pathologist",
     initials: "DK",

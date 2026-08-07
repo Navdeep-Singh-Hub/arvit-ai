@@ -17,14 +17,14 @@ export function FeaturesPageContent() {
     return (
       <>
         <PageHero
-          eyebrow="AAC App features"
+          eyebrow="AAC Device features"
           eyebrowIcon={LayoutGrid}
           title="Built for adult communication"
-          description="Every capability below belongs to the Adult AAC App — no pediatric therapy modules mixed in."
+          description="Every capability below belongs to the Adult AAC Device — no pediatric therapy modules mixed in."
         />
         <FeatureCategoryGrid
           category="AAC Tablet"
-          eyebrow="AAC App"
+          eyebrow="AAC Device"
           title="Communication, first and always"
           description="Symbol boards, prediction, personalized voice, emergency phrases, and adult-first tools."
         />

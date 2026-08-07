@@ -260,7 +260,7 @@ export function AudienceGate() {
               >
                 {THERAPY_PROGRESS_ENABLED
                   ? "Choose once — the site adapts copy, product focus, features, and CTAs to your path. You can switch any time from the nav."
-                  : "ARVIT is focused on the Adult AAC App right now. Enter to explore boards, voice, and pre-booking."}
+                  : "ARVIT is focused on the Adult AAC Device right now. Enter to explore boards, voice, and pre-booking."}
               </motion.p>
             </div>
 

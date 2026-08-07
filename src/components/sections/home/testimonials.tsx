@@ -76,7 +76,7 @@ export function Testimonials() {
               type="button"
               aria-label="Previous testimonial"
               onClick={() => emblaApi?.scrollPrev()}
-              className="glass flex size-10 items-center justify-center rounded-full text-foreground transition-transform hover:scale-105 active:scale-95"
+              className="flex size-10 items-center justify-center rounded-full border border-black/15 bg-white text-black transition-transform hover:scale-105 active:scale-95"
             >
               <ChevronLeft className="size-4" />
             </button>
@@ -103,7 +103,7 @@ export function Testimonials() {
               type="button"
               aria-label="Next testimonial"
               onClick={() => emblaApi?.scrollNext()}
-              className="glass flex size-10 items-center justify-center rounded-full text-foreground transition-transform hover:scale-105 active:scale-95"
+              className="flex size-10 items-center justify-center rounded-full border border-black/15 bg-white text-black transition-transform hover:scale-105 active:scale-95"
             >
               <ChevronRight className="size-4" />
             </button>

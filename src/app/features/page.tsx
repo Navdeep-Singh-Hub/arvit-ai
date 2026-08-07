@@ -4,7 +4,7 @@ import { FeaturesPageContent } from "@/components/sections/features/features-pag
 export const metadata: Metadata = {
   title: "Features",
   description:
-    "ARVIT AI product features for your path — Adult AAC App or Child AAC + Therapy Progress App.",
+    "ARVIT AI product features for your path — Adult AAC Device or Child AAC + Therapy Progress App.",
 };
 
 export default function FeaturesPage() {

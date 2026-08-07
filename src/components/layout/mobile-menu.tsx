@@ -129,7 +129,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                 className="w-full justify-center"
                 onClick={onClose}
               >
-                AAC App
+                AAC Device
               </ButtonLink>
               <ButtonLink
                 href="/#tablets"

@@ -39,14 +39,14 @@ export const AUDIENCE_COPY: Record<Audience, AudienceCopy> = {
     shortLabel: "Adults",
     productId: "aac-app",
     productHref: "/aac-communication",
-    productPageLabel: "AAC App",
+    productPageLabel: "AAC Device",
     eyebrow: "Adult AAC",
     heroTitle: "Unlock clearer communication with ARVIT",
     heroDescription:
       "The AAC system for adults — symbol boards, AI voice, phrase prediction, and personalization in one focused product.",
     primaryCta: "Pre-book now",
     primaryHref: "/#tablets",
-    secondaryCta: "Explore AAC App",
+    secondaryCta: "Explore AAC Device",
     tabletsEyebrow: "Membership app",
     tabletsTitle: "Wear ARVIT daily, improve how you communicate",
     tabletsDescription:
@@ -58,17 +58,17 @@ export const AUDIENCE_COPY: Record<Audience, AudienceCopy> = {
     whoTitle: "Built for adult communication journeys",
     whoDescription:
       "Stroke recovery, ALS, progressive conditions, and lifelong non-speaking adults — tools that respect dignity and independence.",
-    ctaTitle: "Ready to pre-book the AAC App?",
+    ctaTitle: "Ready to pre-book the AAC Device?",
     ctaDescription:
-      "Reserve the Adult AAC App, book a live walkthrough, or ask our team anything.",
-    ctaPrimaryLabel: "Pre-book AAC App",
+      "Reserve the Adult AAC Device, book a live walkthrough, or ask our team anything.",
+    ctaPrimaryLabel: "Pre-book AAC Device",
     ctaPrimaryHref: "/#tablets",
     footerBlurb:
-      "ARVIT AI builds the Adult AAC App for people who need a clear, reliable voice — boards, speech, and personalization without pediatric noise.",
-    navPrimaryLabel: "AAC App",
+      "ARVIT AI builds the Adult AAC Device for people who need a clear, reliable voice — boards, speech, and personalization without pediatric noise.",
+    navPrimaryLabel: "AAC Device",
     navPrimaryHref: "/aac-communication",
     videoBlurb:
-      "We're finishing the Adult AAC product tour. Book a live demo and we'll walk you through the AAC App end to end.",
+      "We're finishing the Adult AAC product tour. Book a live demo and we'll walk you through the AAC Device end to end.",
     switchHint: "Adult mode",
   },
   child: {
@@ -117,7 +117,7 @@ export const GATE_OPTIONS = [
     subtitle: "Or I care for an adult",
     description:
       "Dedicated AAC — boards, AI voice, phrase prediction, and tools designed for adult communication.",
-    product: "AAC App",
+    product: "AAC Device",
     highlights: ["Symbol & picture boards", "AI text-to-speech", "Voice personalization", "Adult-first design"],
     accent: "secondary" as const,
   },

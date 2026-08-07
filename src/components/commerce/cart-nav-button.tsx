@@ -19,7 +19,7 @@ export function CartNavButton({ className }: { className?: string }) {
     >
       <ShoppingCart className="size-5" />
       {count > 0 ? (
-        <span className="absolute -right-0.5 -top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-brand-primary px-1 text-[10px] font-bold text-white">
+        <span className="absolute -right-0.5 -top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#000000] px-1 text-[10px] font-bold text-[#ffffff]">
           {count > 99 ? "99+" : count}
         </span>
       ) : null}

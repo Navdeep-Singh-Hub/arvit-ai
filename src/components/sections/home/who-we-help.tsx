@@ -8,7 +8,6 @@ import { WHO_WE_HELP, TABLET_FIT_LABEL, type Condition } from "@/lib/data/who-we
 import { AUDIENCE_COPY } from "@/lib/audience/content";
 import { useAudience } from "@/components/providers/audience-provider";
 import { THERAPY_PROGRESS_ENABLED } from "@/lib/flags";
-import { cn } from "@/lib/utils";
 
 function filterConditions(audience: "adult" | "child" | null): Condition[] {
   if (!THERAPY_PROGRESS_ENABLED || audience === "adult" || !audience) {
@@ -31,7 +30,7 @@ function MarqueeRow({
 }) {
   const loop = [...items, ...items];
   const fitLabel =
-    audience === "adult" ? "AAC App" : audience === "child" ? "Therapy App" : null;
+    audience === "adult" ? "AAC Device" : audience === "child" ? "Therapy App" : null;
   return (
     <div className="mask-fade-edges overflow-hidden py-2">
       <div
@@ -44,13 +43,13 @@ function MarqueeRow({
         {loop.map((condition, index) => (
           <div
             key={`${condition.title}-${index}`}
-            className="glass flex shrink-0 items-center gap-2.5 rounded-full px-4 py-2.5"
+            className="flex shrink-0 items-center gap-2.5 rounded-full border border-black/10 bg-black px-4 py-2.5 text-white"
           >
-            <span className="flex size-8 items-center justify-center rounded-full bg-brand-primary/10 text-brand-primary dark:text-brand-primary-light">
+            <span className="flex size-8 items-center justify-center rounded-full bg-white/15 text-white">
               <condition.icon className="size-3.5" />
             </span>
-            <span className="text-sm font-medium whitespace-nowrap text-foreground">{condition.title}</span>
-            <span className="text-[10px] font-semibold tracking-wide text-muted-foreground uppercase whitespace-nowrap">
+            <span className="text-sm font-medium whitespace-nowrap text-white">{condition.title}</span>
+            <span className="text-[10px] font-semibold tracking-wide text-white/70 uppercase whitespace-nowrap">
               {fitLabel ?? TABLET_FIT_LABEL[condition.tablet]}
             </span>
           </div>
@@ -99,23 +98,17 @@ export function WhoWeHelp() {
         >
           {conditions.map((condition) => (
             <StaggerItem key={condition.title} className="h-full">
-              <div className="card-glow group h-full rounded-2xl p-5 transition-transform duration-300 hover:-translate-y-1.5">
+              <div className="group h-full rounded-2xl border border-black/10 bg-white p-5 transition-transform duration-300 hover:-translate-y-1.5">
                 <div className="flex items-start justify-between gap-2">
-                  <span className="flex size-10 items-center justify-center rounded-xl bg-brand-primary/10 text-brand-primary transition-colors duration-300 group-hover:bg-gradient-brand group-hover:text-white dark:text-brand-primary-light">
+                  <span className="flex size-10 items-center justify-center rounded-xl bg-black text-white">
                     <condition.icon className="size-5" />
                   </span>
-                  <span
-                    className={cn(
-                      "rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase",
-                      effective === "adult" && "bg-brand-secondary/15 text-brand-secondary",
-                      effective === "child" && "bg-brand-primary/15 text-brand-primary"
-                    )}
-                  >
-                    {effective === "adult" ? "AAC App" : "Therapy App"}
+                  <span className="rounded-full bg-black px-2.5 py-1 text-[10px] font-semibold tracking-wide text-white uppercase">
+                    {effective === "adult" ? "AAC Device" : "Therapy App"}
                   </span>
                 </div>
-                <p className="mt-4 text-sm font-semibold text-foreground">{condition.title}</p>
-                <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{condition.description}</p>
+                <p className="mt-4 text-sm font-semibold text-black">{condition.title}</p>
+                <p className="mt-1.5 text-xs leading-relaxed text-black/60">{condition.description}</p>
               </div>
             </StaggerItem>
           ))}

@@ -8,9 +8,9 @@ export type FaqItem = {
 export const FAQ: FaqItem[] = [
   {
     audience: "adult",
-    question: "What is the ARVIT AAC App?",
+    question: "What is the ARVIT AAC Device?",
     answer:
-      "The AAC App is ARVIT's dedicated adult communication product — symbol boards, text-to-speech, phrase prediction, and voice personalization for people who are non-speaking or have lost speech.",
+      "The AAC Device is ARVIT's dedicated adult communication product — symbol boards, text-to-speech, phrase prediction, and voice personalization for people who are non-speaking or have lost speech.",
   },
   {
     audience: "child",
@@ -20,7 +20,7 @@ export const FAQ: FaqItem[] = [
   },
   {
     audience: "adult",
-    question: "Who is the AAC App for?",
+    question: "Who is the AAC Device for?",
     answer:
       "Adults who are non-speaking or have lost speech — including stroke recovery, ALS, cerebral palsy, TBI, and progressive neurological conditions. Caregivers and clinicians can support them, but the product is adult-first.",
   },
@@ -62,7 +62,7 @@ export const FAQ: FaqItem[] = [
   },
   {
     audience: "adult",
-    question: "How do I get started with the AAC App?",
+    question: "How do I get started with the AAC Device?",
     answer:
       "Pre-book from the homepage or contact our team for a live walkthrough. Most adults and clinics are onboarded quickly after a short demo.",
   },

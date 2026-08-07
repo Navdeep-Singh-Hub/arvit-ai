@@ -59,7 +59,7 @@ export const NAV_GROUPS: NavGroup[] = [
       {
         label: "Pre-book apps",
         href: "/cart",
-        description: "Reserve the AAC App or AAC + Therapy Progress App.",
+        description: "Reserve the AAC Device or AAC + Therapy Progress App.",
       },
       {
         label: "All features",

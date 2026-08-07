@@ -23,9 +23,9 @@ export default function AacCommunicationPage() {
       <AacFeaturesShowcase />
       <AacWhoItHelps />
       <CtaBand
-        title="Ready to pre-book the AAC App?"
-        description="Reserve the Adult AAC App, book a live walkthrough, or talk with our team. Built for adult communicators."
-        primaryLabel="Pre-book AAC App"
+        title="Ready to pre-book the AAC Device?"
+        description="Reserve the Adult AAC Device, book a live walkthrough, or talk with our team. Built for adult communicators."
+        primaryLabel="Pre-book AAC Device"
         primaryHref="/#tablets"
         secondaryLabel="Contact us"
         secondaryHref="/contact"

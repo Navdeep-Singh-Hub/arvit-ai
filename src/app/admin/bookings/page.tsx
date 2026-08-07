@@ -75,7 +75,7 @@ export default function AdminBookingsPage() {
             <p className="text-sm font-semibold tracking-wide text-brand-primary uppercase">Admin</p>
             <h1 className="mt-2 text-3xl font-semibold tracking-tight text-foreground">Pre-bookings</h1>
             <p className="mt-2 text-muted-foreground">
-              All AAC App and AAC + Therapy Progress App reservations.
+              All AAC Device and AAC + Therapy Progress App reservations.
             </p>
           </div>
           <div className="flex gap-2">

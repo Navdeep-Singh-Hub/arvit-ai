@@ -20,7 +20,7 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
           Pre-booking received
         </h1>
         <p className="mt-3 text-muted-foreground">
-          Thanks — our team will follow up by email to confirm your AAC App and/or AAC + Therapy Progress
+          Thanks — our team will follow up by email to confirm your AAC Device and/or AAC + Therapy Progress
           App reservation.
         </p>
         {id ? (

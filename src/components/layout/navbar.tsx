@@ -115,7 +115,7 @@ export function Navbar() {
             })}
 
             <NavItem href="/aac-communication" active={pathname === "/aac-communication"}>
-              AAC App
+              AAC Device
             </NavItem>
             <NavItem href="/contact" active={pathname === "/contact"}>
               Contact

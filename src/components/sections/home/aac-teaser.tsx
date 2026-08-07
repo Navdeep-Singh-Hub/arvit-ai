@@ -15,7 +15,7 @@ export function AacTeaser() {
         <div>
           <SectionHeading
             align="left"
-            eyebrow="AAC App"
+            eyebrow="AAC Device"
             title="Giving adults a voice"
             description="A dedicated AAC experience for people who are non-speaking or have lost speech — stroke, ALS, cerebral palsy, TBI, and more."
             titleClassName="text-white"
@@ -38,7 +38,7 @@ export function AacTeaser() {
               magnetic={false}
               className="text-nav h-12 min-h-12 rounded-none !text-black"
             >
-              Explore the AAC App
+              Explore the AAC Device
               <ArrowRight className="size-4" />
             </ButtonLink>
           </Reveal>

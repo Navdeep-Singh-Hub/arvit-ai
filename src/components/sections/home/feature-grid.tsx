@@ -59,8 +59,10 @@ export function FeatureGrid() {
                   />
                   <ArrowUpRight className="size-4 opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
-                <h3 className="mt-8 text-lg font-semibold tracking-tight">{feature.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-white/60">
+                <h3 className="mt-8 text-lg font-semibold tracking-tight text-black transition-colors group-hover:text-white">
+                  {feature.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-black/60 transition-colors group-hover:text-white/65">
                   {feature.description}
                 </p>
               </Link>
