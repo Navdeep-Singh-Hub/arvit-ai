@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local booking store
 /data/bookings.json
+
+.vercel
+.env*
