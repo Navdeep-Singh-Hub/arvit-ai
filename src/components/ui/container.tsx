@@ -6,9 +6,9 @@ type ContainerProps = React.ComponentProps<"div"> & {
 
 /** Default max width 1280px per design system. */
 const sizes = {
-  default: "max-w-[1280px]",
+  default: "max-w-[1400px]",
   narrow: "max-w-3xl",
-  wide: "max-w-[1280px]",
+  wide: "max-w-[1400px]",
 };
 
 export function Container({ className, size = "default", ...props }: ContainerProps) {

@@ -1,57 +1,86 @@
 export type FaqItem = {
   question: string;
   answer: string;
+  /** Which audience experiences show this FAQ. Omit = both. */
+  audience?: "adult" | "child" | "both";
 };
 
 export const FAQ: FaqItem[] = [
   {
-    question: "What exactly is ARVIT AI?",
+    audience: "adult",
+    question: "What is the ARVIT AAC App?",
     answer:
-      "ARVIT AI builds two purpose-built therapy tablets. The AAC Tablet is for adults who need dedicated communication support. The Therapy Tablet is for children and includes AAC plus AI speech therapy, occupational therapy games that track body landmarks, special education, education videos, and progress tracking for parents and therapists.",
+      "The AAC App is ARVIT's dedicated adult communication product — symbol boards, text-to-speech, phrase prediction, and voice personalization for people who are non-speaking or have lost speech.",
   },
   {
-    question: "What's the difference between the two tablets?",
+    audience: "child",
+    question: "What is the AAC + Therapy Progress App?",
     answer:
-      "The AAC Tablet focuses on communication — symbol boards, text-to-speech, phrase prediction, and voice personalization for adults. The Therapy Tablet includes AAC and adds our AI speech model, OT landmark games, special ed, education videos, and live therapy progress so families and clinicians can see growth over time.",
+      "It's ARVIT's child experience: AAC plus AI speech therapy, occupational therapy games that track body landmarks, special education, education videos, and live progress for parents and therapists.",
   },
   {
+    audience: "adult",
+    question: "Who is the AAC App for?",
+    answer:
+      "Adults who are non-speaking or have lost speech — including stroke recovery, ALS, cerebral palsy, TBI, and progressive neurological conditions. Caregivers and clinicians can support them, but the product is adult-first.",
+  },
+  {
+    audience: "child",
     question: "Does AI replace my child's therapist?",
     answer:
-      "No. The Therapy Tablet extends a therapist's reach — it does not replace clinical judgment. Plans and progress stay reviewable by licensed clinicians, who keep control over goals, pacing, and decisions.",
+      "No. The Therapy App extends a therapist's reach — it does not replace clinical judgment. Plans and progress stay reviewable by licensed clinicians.",
   },
   {
-    question: "Who is each tablet for?",
+    audience: "child",
+    question: "How does speech therapy work?",
     answer:
-      "Choose the AAC Tablet for adults who are non-speaking or have lost speech (stroke, ALS, cerebral palsy, TBI, and more). Choose the Therapy Tablet for children who need AAC alongside speech, occupational therapy, special education, and measurable progress.",
+      "Our AI speech model listens, analyzes, and guides articulation and language practice in real time — adaptive feedback every session, not a fixed playlist.",
   },
   {
-    question: "How does speech therapy work on the Therapy Tablet?",
-    answer:
-      "We use our own AI speech model to listen, analyze, and guide articulation and language practice in real time — so children get adaptive feedback in every session, not a one-size-fits-all playlist.",
-  },
-  {
+    audience: "child",
     question: "How does occupational therapy work?",
     answer:
-      "OT on the Therapy Tablet uses games that track landmarks of the child's body, so motor and daily-living practice is interactive, measurable, and adjusted to how they move — not just on-screen taps.",
+      "OT games track landmarks of the child's body so motor and daily-living practice is interactive, measurable, and adjusted to how they move.",
   },
   {
-    question: "Is my family's or patient's data secure?",
-    answer:
-      "Yes. Data is encrypted in transit and at rest, access is role-based, and actions are logged. Both tablets are built for clinical-grade protection from day one.",
-  },
-  {
+    audience: "adult",
     question: "Can AAC work offline?",
     answer:
-      "Yes. Core AAC — symbol boards, phrase prediction, and text-to-speech — works offline on both tablets, so communication never depends on a connection.",
+      "Yes. Core AAC — symbol boards, phrase prediction, and text-to-speech — works offline so communication never depends on a connection.",
   },
   {
-    question: "How do I get started?",
+    audience: "child",
+    question: "Can AAC work offline on the Therapy App?",
     answer:
-      "Book a demo and we'll help you pick AAC Tablet or Therapy Tablet for your use case — whether you're a family, therapist, school, or health system. Most deployments are onboarded within a week.",
+      "Yes. Core AAC works offline on the Therapy App, so communication never depends on a connection.",
   },
   {
-    question: "Do you work with schools, clinics, and hospitals?",
+    audience: "both",
+    question: "Is my data secure?",
     answer:
-      "Yes. We deploy either tablet (or both) through Solutions for schools, private practices, and hospital systems, with onboarding and admin tooling for teams.",
+      "Yes. Data is encrypted in transit and at rest, access is role-based, and actions are logged for clinical-grade protection.",
+  },
+  {
+    audience: "adult",
+    question: "How do I get started with the AAC App?",
+    answer:
+      "Pre-book from the homepage or contact our team for a live walkthrough. Most adults and clinics are onboarded quickly after a short demo.",
+  },
+  {
+    audience: "child",
+    question: "How do I get started with Therapy?",
+    answer:
+      "Pre-book from the homepage or book a demo. We'll match the Therapy App to your child's care plan — families and practices onboard in about a week.",
+  },
+  {
+    audience: "both",
+    question: "Do you work with clinics and hospitals?",
+    answer:
+      "Yes. We deploy through Solutions for private practices and health systems, with onboarding and admin tooling for teams.",
   },
 ];
+
+export function getFaqForAudience(audience: "adult" | "child" | null): FaqItem[] {
+  if (!audience) return FAQ.filter((f) => f.audience === "both" || !f.audience);
+  return FAQ.filter((f) => !f.audience || f.audience === "both" || f.audience === audience);
+}

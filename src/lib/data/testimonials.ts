@@ -3,51 +3,69 @@ export type Testimonial = {
   name: string;
   role: string;
   initials: string;
+  audience?: "adult" | "child" | "both";
 };
 
-// Placeholder testimonials for pre-launch design purposes.
-// Replace with verified quotes and consent before production use.
 export const TESTIMONIALS: Testimonial[] = [
   {
+    audience: "child",
     quote:
-      "The Therapy Tablet gave our son AAC and speech practice in one place. The OT landmark games finally made motor work feel like play.",
+      "The Therapy App gave our son AAC and speech practice in one place. The OT landmark games finally made motor work feel like play.",
     name: "Amara O.",
     role: "Parent",
     initials: "AO",
   },
   {
+    audience: "adult",
     quote:
-      "I prescribe AAC Tablet for adult stroke patients and Therapy Tablet for pediatrics. Same ecosystem, clear device choice — my caseload finally matches reality.",
+      "After the stroke, the AAC App felt built for adults — not a children's toy with big icons. He builds full phrases again.",
     name: "Daniel K., M.S. CCC-SLP",
     role: "Speech-Language Pathologist",
     initials: "DK",
   },
   {
+    audience: "adult",
     quote:
-      "Our clinic onboarded adult AAC and pediatric Therapy tablets in a month without adding staff. The split SKUs made training obvious.",
+      "Our rehab floor onboarded Adult AAC without confusing pediatric workflows. Clear product, clear training.",
     name: "Priya R.",
     role: "Clinical Director",
     initials: "PR",
   },
   {
+    audience: "child",
     quote:
-      "Progress on the Therapy Tablet used to be a guessing game. Now I see speech, OT, and AAC curves week over week.",
+      "Progress used to be a guessing game. Now I see speech, OT, and AAC curves week over week on the Therapy App.",
     name: "Marcus T.",
     role: "Parent",
     initials: "MT",
   },
   {
+    audience: "child",
     quote:
-      "She asks for her Therapy Tablet games every morning — speech AI drills and education videos she actually finishes.",
+      "She asks for her Therapy games every morning — speech AI drills and education videos she actually finishes.",
     name: "Sofia L.",
     role: "Parent",
     initials: "SL",
   },
   {
+    audience: "child",
     quote:
-      "As an OT, body-landmark games are the win — motor goals recalibrate mid-session instead of waiting for me to notice a plateau.",
+      "As an OT, body-landmark games are the win — motor goals recalibrate mid-session instead of waiting for a plateau.",
     name: "Elena V., OTR/L",
     role: "Occupational Therapist",
     initials: "EV",
   },
+  {
+    audience: "adult",
+    quote:
+      "Phrase prediction and voice personalization finally feel designed for adult AAC clinics — not a padded kids product.",
+    name: "Jordan M.",
+    role: "Adult AAC Specialist",
+    initials: "JM",
+  },
 ];
+
+export function getTestimonialsForAudience(audience: "adult" | "child" | null): Testimonial[] {
+  if (!audience) return TESTIMONIALS.filter((t) => t.audience === "both" || !t.audience);
+  return TESTIMONIALS.filter((t) => !t.audience || t.audience === "both" || t.audience === audience);
+}

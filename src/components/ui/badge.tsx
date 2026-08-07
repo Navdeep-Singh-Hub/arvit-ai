@@ -10,12 +10,11 @@ export function Badge({ className, icon: Icon, variant = "default", children, ..
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide",
-        variant === "default" &&
-          "border border-brand-primary/20 bg-brand-primary/8 text-brand-primary dark:text-brand-primary-light",
-        variant === "outline" && "border border-border text-muted-foreground",
-        variant === "solid" && "bg-brand-primary text-white shadow-sm",
-        variant === "glass" && "glass text-foreground/80",
+        "text-eyebrow inline-flex items-center gap-1.5 px-2.5 py-1",
+        variant === "default" && "bg-black text-white",
+        variant === "outline" && "border border-black/15 text-muted-foreground",
+        variant === "solid" && "bg-black text-white",
+        variant === "glass" && "border border-white/20 bg-black text-white",
         className
       )}
       {...props}

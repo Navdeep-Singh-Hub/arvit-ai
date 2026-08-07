@@ -7,23 +7,29 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useLenis } from "lenis/react";
 import { cn } from "@/lib/utils";
-import { CTA, NAV_GROUPS } from "@/lib/constants";
+import { CTA } from "@/lib/constants";
 import { ButtonLink } from "@/components/ui/button";
+import { AudienceSwitcher } from "@/components/audience/audience-switcher";
+import { getAudienceNavGroups } from "@/lib/audience/filter";
 
 type MobileMenuProps = {
   open: boolean;
   onClose: () => void;
 };
 
-const SECTIONS = [
-  { label: "", items: [{ label: "Home", href: "/" }, { label: "About", href: "/about" }] },
-  ...NAV_GROUPS.map((group) => ({ label: group.label, items: group.items })),
-  { label: "", items: [{ label: "Contact", href: "/contact" }] },
-];
-
 export function MobileMenu({ open, onClose }: MobileMenuProps) {
   const pathname = usePathname();
   const lenis = useLenis();
+  const navGroups = getAudienceNavGroups("adult");
+
+  const sections = [
+    { label: "", items: [{ label: "Home", href: "/" }, { label: "About", href: "/about" }] },
+    ...navGroups.map((group) => ({
+      label: group.label,
+      items: group.items.map((i) => ({ label: i.label, href: i.href })),
+    })),
+    { label: "", items: [{ label: "Contact", href: "/contact" }] },
+  ];
 
   useEffect(() => {
     const original = document.body.style.overflow;
@@ -85,7 +91,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             </div>
 
             <nav aria-label="Mobile" className="mt-2 flex flex-1 flex-col gap-1">
-              {SECTIONS.map((section, index) => (
+              {sections.map((section, index) => (
                 <div key={index} className={cn(section.label && "mt-4 border-t border-border/60 pt-4")}>
                   {section.label ? (
                     <p className="mb-1 px-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
@@ -94,9 +100,10 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                   ) : null}
                   {section.items.map((item) => (
                     <Link
-                      key={item.href}
+                      key={`${item.href}-${item.label}`}
                       href={item.href}
                       aria-current={pathname === item.href ? "page" : undefined}
+                      onClick={onClose}
                       className={cn(
                         "block rounded-xl px-3 py-3 text-base font-medium transition-colors",
                         pathname === item.href
@@ -112,11 +119,26 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             </nav>
 
             <div className="mt-6 flex flex-col gap-3 border-t border-border/60 pt-6">
-              <ButtonLink href="/contact" variant="outline" magnetic={false} className="w-full justify-center">
-                {CTA.bookDemo}
+              <div className="flex justify-center">
+                <AudienceSwitcher />
+              </div>
+              <ButtonLink
+                href="/aac-communication"
+                variant="outline"
+                magnetic={false}
+                className="w-full justify-center"
+                onClick={onClose}
+              >
+                AAC App
               </ButtonLink>
-              <ButtonLink href="/contact" variant="gradient" magnetic={false} className="w-full justify-center">
-                {CTA.getStarted}
+              <ButtonLink
+                href="/#tablets"
+                variant="gradient"
+                magnetic={false}
+                className="w-full justify-center"
+                onClick={onClose}
+              >
+                {CTA.preBook}
               </ButtonLink>
             </div>
           </motion.div>

@@ -7,21 +7,42 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-
-const ROLES = [
-  "Parent (Therapy Tablet)",
-  "Adult / Caregiver (AAC Tablet)",
-  "Therapist",
-  "School or Clinic",
-  "Hospital / Health System",
-  "Other",
-];
+import { useAudience } from "@/components/providers/audience-provider";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function ContactForm() {
+  const { audience } = useAudience();
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const roles =
+    audience === "adult"
+      ? [
+          "Adult communicator",
+          "Caregiver (Adult AAC)",
+          "Therapist / SLP",
+          "Clinic / Rehab",
+          "Hospital / Health System",
+          "Other",
+        ]
+      : audience === "child"
+        ? [
+            "Parent / Caregiver",
+            "Therapist",
+            "School",
+            "Clinic",
+            "Hospital / Health System",
+            "Other",
+          ]
+        : [
+            "Adult / Caregiver (AAC)",
+            "Parent (Therapy)",
+            "Therapist",
+            "School or Clinic",
+            "Hospital / Health System",
+            "Other",
+          ];
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -103,7 +124,7 @@ export function ContactForm() {
           <option value="" disabled>
             Select one
           </option>
-          {ROLES.map((role) => (
+          {roles.map((role) => (
             <option key={role} value={role}>
               {role}
             </option>

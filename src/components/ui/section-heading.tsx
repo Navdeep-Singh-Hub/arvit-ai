@@ -1,6 +1,5 @@
 import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/motion/reveal";
 
 type SectionHeadingProps = {
@@ -13,31 +12,37 @@ type SectionHeadingProps = {
   titleClassName?: string;
 };
 
+/** WHOOP-style section heads: huge type, left bias optional, open space */
 export function SectionHeading({
   eyebrow,
-  eyebrowIcon,
   title,
   description,
-  align = "center",
+  align = "left",
   className,
   titleClassName,
 }: SectionHeadingProps) {
   return (
-    <div className={cn("max-w-3xl", align === "center" ? "mx-auto text-center" : "text-left", className)}>
+    <div
+      className={cn(
+        "max-w-5xl",
+        align === "center" ? "mx-auto text-center" : "text-left",
+        className
+      )}
+    >
       {eyebrow ? (
         <Reveal>
-          <Badge icon={eyebrowIcon}>{eyebrow}</Badge>
+          <p className="text-eyebrow text-muted-foreground">{eyebrow}</p>
         </Reveal>
       ) : null}
       <Reveal delay={0.06}>
-        <h2 className={cn("text-h2 mt-4 text-balance text-foreground", titleClassName)}>{title}</h2>
+        <h2 className={cn("text-h2 mt-5 text-balance text-foreground", titleClassName)}>{title}</h2>
       </Reveal>
       {description ? (
         <Reveal delay={0.12}>
           <p
             className={cn(
-              "text-body-lg mt-4 text-balance text-muted-foreground",
-              align === "center" && "mx-auto max-w-2xl"
+              "text-body-lg mt-8 max-w-xl text-pretty text-muted-foreground",
+              align === "center" && "mx-auto"
             )}
           >
             {description}

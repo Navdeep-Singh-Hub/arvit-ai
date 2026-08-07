@@ -6,10 +6,17 @@ import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { TESTIMONIALS } from "@/lib/data/testimonials";
+import { getTestimonialsForAudience } from "@/lib/data/testimonials";
+import { useAudience } from "@/components/providers/audience-provider";
+import { THERAPY_PROGRESS_ENABLED } from "@/lib/flags";
 import { cn } from "@/lib/utils";
 
 export function Testimonials() {
+  const { audience } = useAudience();
+  const effective =
+    THERAPY_PROGRESS_ENABLED && audience === "child" ? "child" : "adult";
+  const list = getTestimonialsForAudience(effective);
+
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" }, [
     Autoplay({ delay: 5500, stopOnInteraction: true, stopOnMouseEnter: true }),
   ]);
@@ -22,19 +29,24 @@ export function Testimonials() {
 
   useEffect(() => {
     if (!emblaApi) return;
+    emblaApi.reInit();
     emblaApi.on("select", onSelect);
     emblaApi.on("reInit", onSelect);
-  }, [emblaApi, onSelect]);
+    onSelect();
+  }, [emblaApi, onSelect, list]);
 
   return (
-    <section className="relative section-pad">
+    <section className="section-pad section-light border-t border-black/5">
       <Container>
-        <SectionHeading eyebrow="Loved by families and therapists" title="Real progress, in their own words" />
+        <SectionHeading
+          eyebrow="Stories from your path"
+          title="Real progress, in their own words"
+        />
 
-        <div className="relative mt-16">
+        <div className="relative mt-16" key={effective}>
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="-ml-4 flex sm:-ml-6">
-              {TESTIMONIALS.map((testimonial) => (
+              {list.map((testimonial) => (
                 <div
                   key={testimonial.name}
                   className="min-w-0 shrink-0 grow-0 basis-full pl-4 sm:basis-1/2 sm:pl-6 lg:basis-1/3"
@@ -69,7 +81,7 @@ export function Testimonials() {
               <ChevronLeft className="size-4" />
             </button>
             <div className="flex items-center">
-              {TESTIMONIALS.map((testimonial, index) => (
+              {list.map((testimonial, index) => (
                 <button
                   key={testimonial.name}
                   type="button"

@@ -5,22 +5,28 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { StaggerGroup, StaggerItem } from "@/components/motion/stagger";
 import { AccordionItem } from "@/components/ui/accordion";
-import { FAQ } from "@/lib/data/faq";
+import { getFaqForAudience } from "@/lib/data/faq";
+import { useAudience } from "@/components/providers/audience-provider";
+import { THERAPY_PROGRESS_ENABLED } from "@/lib/flags";
 
 export function Faq() {
+  const { audience } = useAudience();
+  const effective =
+    THERAPY_PROGRESS_ENABLED && audience === "child" ? "child" : "adult";
+  const items = getFaqForAudience(effective);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative section-pad">
+    <section className="section-pad section-light border-t border-black/5">
       <Container size="narrow">
         <SectionHeading
           eyebrow="FAQ"
-          title="Answers before you ask"
-          description="Still curious about something? Reach out and our team will get back to you within one business day."
+          title="Answers for your path"
+          description="Questions tailored to the experience you chose — adult AAC or child therapy."
         />
 
-        <StaggerGroup className="mt-14 space-y-4">
-          {FAQ.map((item, index) => (
+        <StaggerGroup key={effective} className="mt-14 space-y-4">
+          {items.map((item, index) => (
             <StaggerItem key={item.question}>
               <AccordionItem
                 question={item.question}

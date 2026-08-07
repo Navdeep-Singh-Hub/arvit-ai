@@ -10,7 +10,7 @@ export function ScrollProgressBar() {
   return (
     <motion.div
       aria-hidden="true"
-      className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-gradient-brand"
+      className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-white"
       style={{ scaleX }}
     />
   );

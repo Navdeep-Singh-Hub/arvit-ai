@@ -4,39 +4,31 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown, Menu, ShoppingBag } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { CTA, NAV_GROUPS } from "@/lib/constants";
 import { Logo } from "@/components/icons/logo";
 import { ButtonLink } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { MobileMenu } from "@/components/layout/mobile-menu";
+import { useCart } from "@/components/commerce/cart-provider";
+import { AudienceSwitcher } from "@/components/audience/audience-switcher";
+import { useAudience } from "@/components/providers/audience-provider";
+import { getAudienceNavGroups } from "@/lib/audience/filter";
 
 export function Navbar() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [prevPathname, setPrevPathname] = useState(pathname);
   const closeTimer = useRef<number | null>(null);
+  const { audience } = useAudience();
+  const navGroups = getAudienceNavGroups(audience);
+  const { count } = useCart();
 
-  // Close any open menus on navigation. Adjusting state during render (rather
-  // than in an Effect) avoids an extra render pass — see
-  // https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes
   if (pathname !== prevPathname) {
     setPrevPathname(pathname);
     setOpenGroup(null);
     setMobileOpen(false);
   }
-
-  useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 12);
-    }
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
@@ -58,105 +50,126 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50">
-        <div className="mx-auto mt-3 max-w-[1280px] px-4 sm:px-6 lg:px-8">
-          <div
-            className={cn(
-              "flex h-[4.5rem] items-center justify-between rounded-2xl border px-4 transition-all duration-250 sm:h-20 sm:px-5",
-              scrolled
-                ? "glass border-white/25 shadow-[0_8px_32px_rgb(15_23_42_/_0.08)]"
-                : "border-transparent bg-transparent"
-            )}
-          >
-            <Link href="/" aria-label="ARVIT AI — home" className="shrink-0">
-              <Logo />
-            </Link>
+      <header className="fixed inset-x-0 top-0 z-50 bg-black text-white">
+        <div className="mx-auto flex h-14 max-w-[1400px] items-center justify-between gap-4 px-4 sm:h-16 sm:px-6 lg:px-8">
+          <Link href="/" aria-label="ARVIT AI — home" className="shrink-0">
+            <Logo className="text-white" />
+          </Link>
 
-            <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
-              <NavItem href="/about" active={pathname === "/about"}>
-                About
-              </NavItem>
+          <nav aria-label="Primary" className="hidden flex-1 items-center justify-center gap-1 lg:flex">
+            <NavItem href="/about" active={pathname === "/about"}>
+              About
+            </NavItem>
 
-              {NAV_GROUPS.map((group) => {
-                const isOpen = openGroup === group.label;
-                const isActive = group.items.some((item) => item.href === pathname);
-                return (
-                  <div
-                    key={group.label}
-                    className="relative"
-                    onMouseEnter={() => openGroupNow(group.label)}
-                    onMouseLeave={scheduleClose}
+            {navGroups.map((group) => {
+              const isOpen = openGroup === group.label;
+              const isActive = group.items.some((item) => item.href === pathname);
+              return (
+                <div
+                  key={group.label}
+                  className="relative"
+                  onMouseEnter={() => openGroupNow(group.label)}
+                  onMouseLeave={scheduleClose}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenGroup(isOpen ? null : group.label)}
+                    aria-expanded={isOpen}
+                    className={cn(
+                      "text-nav flex items-center gap-1 px-3 py-2 transition-opacity hover:opacity-70",
+                      isActive ? "text-white" : "text-white/80"
+                    )}
                   >
-                    <button
-                      type="button"
-                      onClick={() => setOpenGroup(isOpen ? null : group.label)}
-                      aria-expanded={isOpen}
-                      className={cn(
-                        "flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                        isActive ? "text-brand-primary" : "text-foreground/80 hover:text-foreground"
-                      )}
-                    >
-                      {group.label}
-                      <ChevronDown
-                        className={cn("size-3.5 transition-transform duration-300", isOpen && "rotate-180")}
-                      />
-                    </button>
+                    {group.label}
+                    <ChevronDown
+                      className={cn("size-3 transition-transform duration-200", isOpen && "rotate-180")}
+                    />
+                  </button>
 
-                    <AnimatePresence>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                          transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                          className="glass-strong absolute left-1/2 top-full z-10 mt-3 w-80 -translate-x-1/2 rounded-2xl p-2 shadow-2xl"
-                        >
-                          {group.items.map((item) => (
-                            <Link
-                              key={item.href}
-                              href={item.href}
-                              className="block rounded-xl px-4 py-3 transition-colors hover:bg-foreground/[0.04]"
-                            >
-                              <p className="text-sm font-medium text-foreground">{item.label}</p>
-                              <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
-                                {item.description}
-                              </p>
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              })}
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 6 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute left-1/2 top-full z-10 mt-3 w-80 -translate-x-1/2 border border-white/10 bg-black p-2 shadow-2xl"
+                      >
+                        {group.items.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-4 py-3 transition-colors hover:bg-white/5"
+                          >
+                            <p className="text-sm font-semibold text-white">{item.label}</p>
+                            <p className="mt-0.5 text-xs leading-relaxed text-white/50">
+                              {item.description}
+                            </p>
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
 
-              <NavItem href="/contact" active={pathname === "/contact"}>
-                Contact
-              </NavItem>
-            </nav>
+            <NavItem href="/aac-communication" active={pathname === "/aac-communication"}>
+              AAC App
+            </NavItem>
+            <NavItem href="/contact" active={pathname === "/contact"}>
+              Contact
+            </NavItem>
+          </nav>
 
-            <div className="hidden items-center gap-2 lg:flex">
-              <ThemeToggle />
-              <ButtonLink href="/contact" variant="outline" size="sm" magnetic={false}>
-                {CTA.bookDemo}
-              </ButtonLink>
-              <ButtonLink href="/contact" variant="gradient" size="sm">
-                {CTA.getStarted}
-              </ButtonLink>
-            </div>
+          <div className="hidden items-center gap-3 text-white lg:flex">
+            <AudienceSwitcher />
+            <Link
+              href="/cart"
+              aria-label={`Cart${count ? `, ${count} items` : ""}`}
+              className="relative flex size-9 items-center justify-center text-white transition-opacity hover:opacity-70"
+            >
+              <ShoppingBag className="size-[18px] stroke-[1.5]" />
+              {count > 0 ? (
+                <span className="absolute -right-0.5 -top-0.5 flex size-4 items-center justify-center rounded-full bg-white text-[10px] font-bold text-black">
+                  {count}
+                </span>
+              ) : null}
+            </Link>
+            <ButtonLink
+              href="/#tablets"
+              variant="white"
+              size="sm"
+              magnetic={false}
+              className="text-nav h-9 min-h-9 rounded-none px-4 !text-black"
+            >
+              Pre-book
+            </ButtonLink>
+          </div>
 
-            <div className="flex items-center gap-1 lg:hidden">
-              <ThemeToggle />
-              <button
-                type="button"
-                aria-label="Open menu"
-                aria-expanded={mobileOpen}
-                onClick={() => setMobileOpen(true)}
-                className="flex size-10 items-center justify-center rounded-full text-foreground hover:bg-muted"
-              >
-                <Menu className="size-5" />
-              </button>
-            </div>
+          <div className="flex items-center gap-1 lg:hidden">
+            <AudienceSwitcher className="mr-0.5" />
+            <Link
+              href="/cart"
+              aria-label="Cart"
+              className="relative flex size-10 items-center justify-center text-white"
+            >
+              <ShoppingBag className="size-5 stroke-[1.5]" />
+              {count > 0 ? (
+                <span className="absolute right-1 top-1 flex size-4 items-center justify-center rounded-full bg-white text-[10px] font-bold text-black">
+                  {count}
+                </span>
+              ) : null}
+            </Link>
+            <button
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen(true)}
+              className="flex size-10 items-center justify-center text-white"
+            >
+              <Menu className="size-5" />
+            </button>
           </div>
         </div>
       </header>
@@ -172,18 +185,11 @@ function NavItem({ href, active, children }: { href: string; active: boolean; ch
       href={href}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "relative rounded-full px-4 py-2 text-sm font-medium transition-colors",
-        active ? "text-brand-primary" : "text-foreground/80 hover:text-foreground"
+        "text-nav px-3 py-2 transition-opacity hover:opacity-70",
+        active ? "text-white" : "text-white/80"
       )}
     >
-      <span className="relative z-10">{children}</span>
-      {active && (
-        <motion.span
-          layoutId="nav-active-pill"
-          className="absolute inset-0 rounded-full bg-brand-primary/10"
-          transition={{ type: "spring", stiffness: 350, damping: 30 }}
-        />
-      )}
+      {children}
     </Link>
   );
 }

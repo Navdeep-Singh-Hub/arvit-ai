@@ -8,27 +8,30 @@ import { cn } from "@/lib/utils";
 import { useMagnetic } from "@/hooks/use-magnetic";
 
 export const buttonVariants = cva(
-  "group/btn relative isolate inline-flex shrink-0 select-none items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-xl font-medium tracking-tight outline-none transition-[transform,background-color,color,border-color,box-shadow] duration-250 ease-out focus-visible:ring-2 focus-visible:ring-brand-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0 hover:-translate-y-0.5",
+  "group/btn relative isolate inline-flex shrink-0 select-none items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-none font-semibold outline-none transition-[transform,background-color,color,border-color,opacity] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
+        /* Explicit hex + !color so parent text-white (hero/nav) never wins */
         gradient:
-          "bg-brand-primary text-white shadow-[0_8px_24px_-8px_rgb(79_70_229_/_0.45)] hover:bg-brand-primary-dim hover:shadow-[0_12px_28px_-8px_rgb(79_70_229_/_0.5)]",
+          "bg-[#000000] !text-[#ffffff] hover:bg-[#1a1a1a] hover:!text-[#ffffff]",
         solid:
-          "bg-brand-primary text-white shadow-[0_8px_24px_-8px_rgb(79_70_229_/_0.4)] hover:bg-brand-primary-dim",
-        white: "bg-white text-brand-ink shadow-[0_8px_24px_-10px_rgb(15_23_42_/_0.2)] hover:bg-slate-50",
+          "bg-[#000000] !text-[#ffffff] hover:bg-[#1a1a1a] hover:!text-[#ffffff]",
+        white:
+          "bg-[#ffffff] !text-[#000000] hover:bg-[#f0f0f0] hover:!text-[#000000]",
         outline:
-          "border border-border bg-white/80 text-foreground hover:border-brand-primary/40 hover:bg-white hover:text-brand-primary",
+          "border border-black bg-transparent !text-[#000000] hover:bg-[#000000] hover:!text-[#ffffff]",
         "outline-invert":
-          "border border-white/20 bg-white/5 text-white hover:border-white/40 hover:bg-white/10",
-        ghost: "text-foreground hover:bg-muted",
-        glass: "glass text-foreground hover:bg-white/70",
+          "border border-white bg-transparent !text-[#ffffff] hover:bg-[#ffffff] hover:!text-[#000000]",
+        ghost: "!text-inherit hover:bg-black/5",
+        glass:
+          "border border-white/30 bg-transparent !text-[#ffffff] hover:bg-[#ffffff] hover:!text-[#000000]",
       },
       size: {
-        sm: "h-11 min-h-11 px-4 text-sm",
-        default: "h-12 min-h-12 px-6 text-sm",
-        lg: "h-12 min-h-12 px-7 text-[0.95rem]",
-        xl: "h-14 min-h-12 px-8 text-base",
+        sm: "h-10 min-h-10 px-4 text-xs uppercase tracking-wide",
+        default: "h-12 min-h-12 px-6 text-sm uppercase tracking-wide",
+        lg: "h-12 min-h-12 px-7 text-sm uppercase tracking-wide",
+        xl: "h-14 min-h-12 px-8 text-sm uppercase tracking-wide",
         icon: "size-12 min-h-12 min-w-12",
       },
     },
@@ -121,7 +124,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(buttonVariants({ variant, size }), className)}
         {...props}
       >
-        <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
+        <span className="relative z-10 inline-flex items-center gap-2 text-inherit [&_svg]:text-inherit">{children}</span>
         {rippleLayer}
       </motion.button>
     );
@@ -176,7 +179,7 @@ export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
         className={cn(buttonVariants({ variant, size }), className)}
         {...props}
       >
-        <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
+        <span className="relative z-10 inline-flex items-center gap-2 text-inherit [&_svg]:text-inherit">{children}</span>
         {rippleLayer}
       </MotionLink>
     );

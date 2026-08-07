@@ -5,26 +5,18 @@ import { STATS } from "@/lib/data/stats";
 
 export function Stats() {
   return (
-    <section className="relative py-8 sm:py-12">
-      <Container>
-        <div className="glass-strong relative overflow-hidden rounded-[2.5rem] px-6 py-14 sm:px-12">
-          <div
-            aria-hidden="true"
-            className="bg-gradient-brand pointer-events-none absolute inset-0 opacity-[0.06]"
-          />
-          <StaggerGroup className="relative grid grid-cols-2 gap-8 sm:grid-cols-4">
-            {STATS.map((stat) => (
-              <StaggerItem key={stat.label} className="text-center">
-                <p className="text-4xl font-bold tracking-tight text-gradient sm:text-5xl">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                </p>
-                <p className="mt-2 text-xs font-medium uppercase tracking-wider text-muted-foreground sm:text-sm">
-                  {stat.label}
-                </p>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
-        </div>
+    <section className="border-y border-black/10 bg-white py-16 sm:py-20">
+      <Container className="max-w-[1400px]">
+        <StaggerGroup className="grid grid-cols-2 gap-10 sm:grid-cols-4 sm:gap-6">
+          {STATS.map((stat) => (
+            <StaggerItem key={stat.label} className="text-left sm:text-center">
+              <p className="text-[clamp(2.5rem,5vw,3.75rem)] font-normal tracking-tight text-black">
+                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+              </p>
+              <p className="text-eyebrow mt-3 text-muted-foreground">{stat.label}</p>
+            </StaggerItem>
+          ))}
+        </StaggerGroup>
       </Container>
     </section>
   );

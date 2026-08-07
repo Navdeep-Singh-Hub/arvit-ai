@@ -23,11 +23,11 @@ export default function AacCommunicationPage() {
       <AacFeaturesShowcase />
       <AacWhoItHelps />
       <CtaBand
-        title="Need AAC for a child instead?"
-        description="The Therapy Tablet includes full AAC alongside speech AI, OT landmark games, and progress tracking. Or book a demo of the Adult AAC Tablet."
-        primaryLabel="Explore Therapy Tablet"
-        primaryHref="/ai-therapy"
-        secondaryLabel="Book AAC Tablet demo"
+        title="Ready to pre-book the AAC App?"
+        description="Reserve the Adult AAC App, book a live walkthrough, or talk with our team. Built for adult communicators."
+        primaryLabel="Pre-book AAC App"
+        primaryHref="/#tablets"
+        secondaryLabel="Contact us"
         secondaryHref="/contact"
       />
     </>

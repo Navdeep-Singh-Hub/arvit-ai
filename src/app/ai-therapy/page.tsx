@@ -32,8 +32,12 @@ export default function AiTherapyPage() {
         description="Speech AI, OT landmark games, special ed, education videos, AAC, and progress — designed as one tablet experience, not a pile of apps."
       />
       <CtaBand
-        title="See the Therapy Tablet in a live session"
+        title="See the Therapy App in a live session"
         description="Book a walkthrough and watch assessment turn into adaptive speech, OT, and learning practice in real time."
+        primaryLabel="Pre-book Therapy App"
+        primaryHref="/#tablets"
+        secondaryLabel="Contact us"
+        secondaryHref="/contact"
       />
     </>
   );
