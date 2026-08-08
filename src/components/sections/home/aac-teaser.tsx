@@ -4,10 +4,10 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
 import { StaggerGroup, StaggerItem } from "@/components/motion/stagger";
-import { AacBoard } from "@/components/illustrations/aac-board";
+import { TabletViewer } from "@/components/three/tablet-viewer";
 import { AAC_FEATURES } from "@/lib/data/aac-features";
 
-/** Adult-path AAC teaser — WHOOP dual-tone (black media + white copy optional split). */
+/** Adult-path AAC teaser — WHOOP dual-tone with live product tablet. */
 export function AacTeaser() {
   return (
     <section className="section-dark section-pad">
@@ -45,8 +45,8 @@ export function AacTeaser() {
         </div>
 
         <Reveal delay={0.1} className="relative">
-          <div className="relative border border-white/10 bg-white/[0.03] p-4 sm:p-6">
-            <AacBoard className="w-full" />
+          <div className="relative aspect-[4/3] min-h-[280px] sm:min-h-[360px]">
+            <TabletViewer variant="dark" size="default" interactive className="absolute inset-0 h-full w-full" />
           </div>
         </Reveal>
       </Container>
