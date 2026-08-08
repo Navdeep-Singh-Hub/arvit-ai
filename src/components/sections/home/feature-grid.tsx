@@ -50,7 +50,7 @@ export function FeatureGrid() {
             <StaggerItem key={feature.title} className="h-full">
               <Link
                 href={feature.href ?? "/features"}
-                className="group flex h-full flex-col bg-white p-8 transition-colors hover:bg-black hover:text-white sm:p-10"
+                className="group flex h-full flex-col bg-white p-5 transition-colors hover:bg-black hover:text-white sm:p-8 md:p-10"
               >
                 <div className="flex items-start justify-between gap-3">
                   <feature.icon

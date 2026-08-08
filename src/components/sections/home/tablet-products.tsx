@@ -31,7 +31,7 @@ function ProductCard({ product }: { product: PrebookProduct }) {
       className="mx-auto w-full max-w-5xl"
     >
       <div className="grid grid-cols-1 border border-black/10 bg-white lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
-        <div className="relative min-h-[280px] border-b border-black/10 bg-[#f4f4f4] sm:min-h-[360px] lg:min-h-full lg:border-b-0 lg:border-r">
+        <div className="relative min-h-[220px] border-b border-black/10 bg-[#f4f4f4] sm:min-h-[300px] lg:min-h-[min(100%,420px)] lg:border-b-0 lg:border-r">
           <TabletViewer
             variant="light"
             size="card"
@@ -41,8 +41,8 @@ function ProductCard({ product }: { product: PrebookProduct }) {
           />
         </div>
 
-        <div className="flex flex-col p-8 sm:p-12">
-          <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-col p-5 sm:p-8 md:p-12">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <span className="text-eyebrow inline-flex items-center gap-1.5 text-black/55">
               <Tablet className="size-3.5" />
               {product.audience}
@@ -52,15 +52,15 @@ function ProductCard({ product }: { product: PrebookProduct }) {
             ) : null}
           </div>
 
-          <h3 className="text-h3 mt-8 text-black">{product.name}</h3>
-          <p className="mt-3 text-lg font-medium tracking-tight text-black/70">{product.tagline}</p>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-black/60">{product.description}</p>
+          <h3 className="text-h3 mt-6 text-black sm:mt-8">{product.name}</h3>
+          <p className="mt-2 text-base font-medium tracking-tight text-black/70 sm:mt-3 sm:text-lg">{product.tagline}</p>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-black/60 sm:mt-6 sm:text-base">{product.description}</p>
 
-          <ul className="mt-10 grid grid-cols-1 gap-px border border-black/10 bg-black/10 sm:grid-cols-2">
+          <ul className="mt-6 grid grid-cols-1 gap-px border border-black/10 bg-black/10 sm:mt-10 sm:grid-cols-2">
             {highlights.map(({ icon: Icon, label }) => (
               <li
                 key={label}
-                className="flex items-center gap-3 bg-white px-4 py-4 text-sm font-medium text-black"
+                className="flex items-center gap-3 bg-white px-3 py-3.5 text-sm font-medium text-black sm:px-4 sm:py-4"
               >
                 <Icon className="size-4 shrink-0 text-black" strokeWidth={1.75} />
                 {label}
@@ -68,12 +68,12 @@ function ProductCard({ product }: { product: PrebookProduct }) {
             ))}
           </ul>
 
-          <div className="mt-12 flex flex-col gap-8 border-t border-black/10 pt-10 sm:flex-row sm:items-end sm:justify-between">
+          <div className="mt-8 flex flex-col gap-6 border-t border-black/10 pt-8 sm:mt-12 sm:gap-8 sm:pt-10 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-eyebrow text-black/55">
                 {product.comingSoon ? "Pre-book price" : "Price"}
               </p>
-              <p className="mt-2 text-[clamp(2.5rem,5vw,3.5rem)] font-normal tracking-tight text-black">
+              <p className="mt-2 text-[clamp(2rem,8vw,3.5rem)] font-normal tracking-tight text-black">
                 {formatProductPrice(product)}
               </p>
               <p className="mt-2 text-xs text-black/50">
@@ -89,7 +89,7 @@ function ProductCard({ product }: { product: PrebookProduct }) {
             </Link>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-6 sm:mt-8">
             <AddToCartButton
               productId={product.id}
               label={`Pre-book ${product.shortName}`}

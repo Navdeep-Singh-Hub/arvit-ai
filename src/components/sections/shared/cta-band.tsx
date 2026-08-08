@@ -29,13 +29,13 @@ export function CtaBand({
         <Reveal delay={0.08}>
           <p className="text-body-lg mt-8 max-w-lg text-white/60">{description}</p>
         </Reveal>
-        <Reveal delay={0.16} className="mt-12 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <Reveal delay={0.16} className="mt-8 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:items-center">
           <ButtonLink
             href={primaryHref}
             size="xl"
             variant="white"
             magnetic={false}
-            className="text-nav h-12 min-h-12 rounded-none !text-black"
+            className="text-nav h-12 min-h-12 w-full rounded-none !text-black sm:w-auto"
           >
             {primaryLabel}
           </ButtonLink>
@@ -44,7 +44,7 @@ export function CtaBand({
             size="xl"
             variant="outline-invert"
             magnetic={false}
-            className="text-nav h-12 min-h-12 rounded-none"
+            className="text-nav h-12 min-h-12 w-full rounded-none sm:w-auto"
           >
             {secondaryLabel}
           </ButtonLink>

@@ -17,7 +17,7 @@ type PageHeroProps = {
 
 export function PageHero({ eyebrow, eyebrowIcon, title, description, align = "center", children }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden pb-20 pt-40 sm:pb-24 sm:pt-48">
+    <section className="relative overflow-hidden pb-14 pt-28 sm:pb-24 sm:pt-48">
       <AuroraBackground variant="subtle" />
       <div
         aria-hidden="true"
@@ -29,12 +29,12 @@ export function PageHero({ eyebrow, eyebrowIcon, title, description, align = "ce
             <Badge icon={eyebrowIcon}>{eyebrow}</Badge>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="text-display mt-6 text-balance text-foreground">{title}</h1>
+            <h1 className="text-display mt-4 text-balance text-foreground sm:mt-6">{title}</h1>
           </Reveal>
           <Reveal delay={0.18}>
             <p
               className={cn(
-                "text-body-lg mt-6 text-balance text-muted-foreground",
+                "text-body-lg mt-4 text-pretty text-muted-foreground sm:mt-6",
                 align === "center" && "mx-auto max-w-2xl"
               )}
             >

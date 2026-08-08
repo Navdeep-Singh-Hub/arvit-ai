@@ -95,20 +95,20 @@ export function WhoWeHelp() {
       <Container>
         <StaggerGroup
           key={`who-${effective}`}
-          className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
+          className="mt-10 grid grid-cols-1 gap-3 sm:mt-14 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4"
         >
           {conditions.map((condition) => (
             <StaggerItem key={condition.title} className="h-full">
-              <div className="group h-full rounded-2xl border border-black/10 bg-white p-5 transition-transform duration-300 hover:-translate-y-1.5">
+              <div className="group h-full rounded-2xl border border-black/10 bg-white p-4 transition-transform duration-300 hover:-translate-y-1.5 sm:p-5">
                 <div className="flex items-start justify-between gap-2">
-                  <span className="flex size-10 items-center justify-center rounded-xl bg-black text-white">
-                    <condition.icon className="size-5" />
+                  <span className="flex size-9 items-center justify-center rounded-xl bg-black text-white sm:size-10">
+                    <condition.icon className="size-4 sm:size-5" />
                   </span>
-                  <span className="rounded-full bg-black px-2.5 py-1 text-[10px] font-semibold tracking-wide text-white uppercase">
+                  <span className="rounded-full bg-black px-2 py-1 text-[9px] font-semibold tracking-wide text-white uppercase sm:px-2.5 sm:text-[10px]">
                     {effective === "adult" ? "AAC Device" : "Therapy App"}
                   </span>
                 </div>
-                <p className="mt-4 text-sm font-semibold text-black">{condition.title}</p>
+                <p className="mt-3 text-sm font-semibold text-black sm:mt-4">{condition.title}</p>
                 <p className="mt-1.5 text-xs leading-relaxed text-black/60">{condition.description}</p>
               </div>
             </StaggerItem>

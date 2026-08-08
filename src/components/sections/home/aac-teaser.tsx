@@ -11,7 +11,7 @@ import { AAC_FEATURES } from "@/lib/data/aac-features";
 export function AacTeaser() {
   return (
     <section className="section-dark section-pad">
-      <Container className="relative grid max-w-[1400px] grid-cols-1 items-center gap-16 lg:grid-cols-2">
+      <Container className="relative grid max-w-[1400px] grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <SectionHeading
             align="left"
@@ -22,21 +22,21 @@ export function AacTeaser() {
             className="[&_p]:text-white/55"
           />
 
-          <StaggerGroup className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <StaggerGroup className="mt-8 grid grid-cols-1 gap-2.5 sm:mt-10 sm:grid-cols-2 sm:gap-3">
             {AAC_FEATURES.slice(0, 6).map((feature) => (
-              <StaggerItem key={feature.title} className="flex items-center gap-3 border border-white/10 px-4 py-3">
+              <StaggerItem key={feature.title} className="flex items-center gap-3 border border-white/10 px-3 py-2.5 sm:px-4 sm:py-3">
                 <feature.icon className="size-4 shrink-0 text-white" strokeWidth={1.5} />
                 <span className="text-sm text-white/85">{feature.title}</span>
               </StaggerItem>
             ))}
           </StaggerGroup>
 
-          <Reveal delay={0.25} className="mt-10">
+          <Reveal delay={0.25} className="mt-8 sm:mt-10">
             <ButtonLink
               href="/aac-communication"
               variant="white"
               magnetic={false}
-              className="text-nav h-12 min-h-12 rounded-none !text-black"
+              className="text-nav h-12 min-h-12 w-full rounded-none !text-black sm:w-auto"
             >
               Explore the AAC Device
               <ArrowRight className="size-4" />
@@ -45,7 +45,7 @@ export function AacTeaser() {
         </div>
 
         <Reveal delay={0.1} className="relative">
-          <div className="relative aspect-[4/3] min-h-[280px] sm:min-h-[360px]">
+          <div className="relative mx-auto aspect-[4/3] min-h-[220px] w-full max-w-md sm:min-h-[300px] sm:max-w-none">
             <TabletViewer variant="dark" size="default" interactive className="absolute inset-0 h-full w-full" />
           </div>
         </Reveal>

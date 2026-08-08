@@ -77,7 +77,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 320, damping: 34 }}
-            className="glass-strong fixed inset-y-0 right-0 z-[80] flex w-full max-w-sm flex-col overflow-y-auto p-6 lg:hidden"
+            className="fixed inset-y-0 right-0 z-[80] flex w-full max-w-sm flex-col overflow-y-auto border-l border-black/10 bg-white p-5 text-black sm:p-6 lg:hidden"
           >
             <div className="flex items-center justify-end">
               <button

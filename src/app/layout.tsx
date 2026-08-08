@@ -76,14 +76,16 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
   themeColor: "#000000",
   colorScheme: "light",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={montserrat.variable}>
-      <body className="flex min-h-screen flex-col bg-background text-foreground antialiased">
+      <body className="flex min-h-dvh flex-col overflow-x-clip bg-background text-foreground antialiased">
         <Providers>
           <Preloader />
           <ScrollProgressBar />

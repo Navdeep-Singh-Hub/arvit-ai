@@ -51,9 +51,9 @@ export function Navbar() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 bg-black text-white">
-        <div className="mx-auto flex h-14 max-w-[1400px] items-center justify-between gap-4 px-4 sm:h-16 sm:px-6 lg:px-8">
-          <Link href="/" aria-label="ARVIT AI — home" className="shrink-0">
-            <Logo className="text-white" />
+        <div className="mx-auto flex h-14 max-w-[1400px] items-center justify-between gap-2 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:px-8">
+          <Link href="/" aria-label="ARVIT AI — home" className="min-w-0 shrink-0">
+            <Logo className="text-white [&_span]:text-[0.95rem] sm:[&_span]:text-[1.05rem]" markClassName="size-6 sm:size-7" />
           </Link>
 
           <nav aria-label="Primary" className="hidden flex-1 items-center justify-center gap-1 lg:flex">
@@ -147,16 +147,16 @@ export function Navbar() {
             </ButtonLink>
           </div>
 
-          <div className="flex items-center gap-1 lg:hidden">
-            <AudienceSwitcher className="mr-0.5" />
+          <div className="flex min-w-0 items-center gap-0.5 sm:gap-1 lg:hidden">
+            <AudienceSwitcher className="mr-0.5 max-w-[7.5rem] truncate px-2 py-1.5 text-[0.65rem] sm:max-w-none sm:px-3 sm:text-[0.8125rem]" />
             <Link
               href="/cart"
               aria-label="Cart"
-              className="relative flex size-10 items-center justify-center text-white"
+              className="relative flex size-9 shrink-0 items-center justify-center text-white sm:size-10"
             >
               <ShoppingBag className="size-5 stroke-[1.5]" />
               {count > 0 ? (
-                <span className="absolute right-1 top-1 flex size-4 items-center justify-center rounded-full bg-white text-[10px] font-bold text-black">
+                <span className="absolute right-0.5 top-0.5 flex size-4 items-center justify-center rounded-full bg-white text-[10px] font-bold text-black sm:right-1 sm:top-1">
                   {count}
                 </span>
               ) : null}
@@ -166,7 +166,7 @@ export function Navbar() {
               aria-label="Open menu"
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen(true)}
-              className="flex size-10 items-center justify-center text-white"
+              className="flex size-9 shrink-0 items-center justify-center text-white sm:size-10"
             >
               <Menu className="size-5" />
             </button>

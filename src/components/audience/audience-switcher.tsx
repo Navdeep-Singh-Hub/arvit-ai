@@ -19,15 +19,15 @@ export function AudienceSwitcher({ className }: { className?: string }) {
       onClick={openGate}
       whileTap={{ scale: 0.97 }}
       className={cn(
-        "text-nav inline-flex items-center gap-2 border border-white/20 px-3 py-1.5 text-white/80 transition-colors hover:border-white/50 hover:text-white",
+        "text-nav inline-flex max-w-full items-center gap-1.5 border border-white/20 px-2.5 py-1.5 text-white/80 transition-colors hover:border-white/50 hover:text-white sm:gap-2 sm:px-3",
         className
       )}
       aria-label={`${copy.switchHint}. Change audience.`}
     >
-        <span className="size-1.5 rounded-full bg-white" />
+      <span className="size-1.5 shrink-0 rounded-full bg-white" />
       <span className="hidden sm:inline">{copy.switchHint}</span>
-      <span className="sm:hidden">{copy.shortLabel}</span>
-      <RefreshCw className="size-3 opacity-60" />
+      <span className="truncate sm:hidden">{audience === "adult" ? "Adult" : "Child"}</span>
+      <RefreshCw className="size-3 shrink-0 opacity-60" />
     </motion.button>
   );
 }

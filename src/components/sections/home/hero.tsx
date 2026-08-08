@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   motion,
   useMotionTemplate,
@@ -18,18 +18,27 @@ import { TabletViewer } from "@/components/three/tablet-viewer";
 import { AUDIENCE_COPY } from "@/lib/audience/content";
 import { useAudience } from "@/components/providers/audience-provider";
 
-/** Thick springs = viscous / glassy motion */
 const springSoft = { stiffness: 42, damping: 28, mass: 0.72 };
 const springCursor = { stiffness: 50, damping: 30, mass: 0.55 };
 
 /**
- * Hero: big glassy tablet that glides with cursor + scroll; copy stays left.
+ * Hero: mobile stack (copy → full device); desktop split with glassy motion.
  */
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const { audience, copy, ready } = useAudience();
   const active = copy ?? AUDIENCE_COPY.adult;
+  const [allowParallax, setAllowParallax] = useState(false);
+
+  // Desktop-only cursor/parallax — phones use simple vertical stack + light scroll
+  useEffect(() => {
+    const mq = window.matchMedia("(pointer: fine) and (min-width: 1024px)");
+    const sync = () => setAllowParallax(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -38,14 +47,14 @@ export function Hero() {
 
   const smoothScroll = useSpring(scrollYProgress, springSoft);
 
-  const copyY = useTransform(smoothScroll, [0, 1], [0, 48]);
-  const copyOpacity = useTransform(smoothScroll, [0, 0.75], [1, 0.12]);
+  const copyY = useTransform(smoothScroll, [0, 1], [0, allowParallax ? 48 : 24]);
+  const copyOpacity = useTransform(smoothScroll, [0, 0.75], [1, allowParallax ? 0.12 : 0.4]);
 
-  const scrollModelY = useTransform(smoothScroll, [0, 1], [0, 110]);
-  const scrollModelX = useTransform(smoothScroll, [0, 1], [0, 20]);
-  const modelRotate = useTransform(smoothScroll, [0, 1], [0, -11]);
-  const modelScaleScroll = useTransform(smoothScroll, [0, 1], [1, 0.9]);
-  const modelOpacity = useTransform(smoothScroll, [0, 0.9], [1, 0.35]);
+  const scrollModelY = useTransform(smoothScroll, [0, 1], [0, allowParallax ? 110 : 40]);
+  const scrollModelX = useTransform(smoothScroll, [0, 1], [0, allowParallax ? 20 : 0]);
+  const modelRotate = useTransform(smoothScroll, [0, 1], [0, allowParallax ? -11 : -4]);
+  const modelScaleScroll = useTransform(smoothScroll, [0, 1], [1, allowParallax ? 0.9 : 0.96]);
+  const modelOpacity = useTransform(smoothScroll, [0, 0.9], [1, allowParallax ? 0.35 : 0.55]);
 
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
@@ -54,11 +63,11 @@ export function Hero() {
 
   const stageX = useTransform(
     [softCursorX, scrollModelX],
-    ([cursor, scroll]: number[]) => cursor + scroll
+    ([cursor, scroll]: number[]) => (allowParallax ? cursor : 0) + scroll
   );
   const stageY = useTransform(
     [softCursorY, scrollModelY],
-    ([cursor, scroll]: number[]) => cursor + scroll
+    ([cursor, scroll]: number[]) => (allowParallax ? cursor : 0) + scroll
   );
 
   const glareX = useTransform(softCursorX, [-28, 28], [42, 78]);
@@ -70,7 +79,7 @@ export function Hero() {
   const sheen = useMotionTemplate`radial-gradient(circle 34% at ${sheenX} ${sheenY}, rgb(255 255 255 / 0.28), transparent 68%)`;
 
   const handlePointerMove = (event: React.PointerEvent<HTMLElement>) => {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion || !allowParallax) return;
     const rect = event.currentTarget.getBoundingClientRect();
     const nx = (event.clientX - rect.left) / rect.width - 0.5;
     const ny = (event.clientY - rect.top) / rect.height - 0.5;
@@ -88,22 +97,23 @@ export function Hero() {
       ref={sectionRef}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className="relative isolate min-h-[100svh] overflow-hidden bg-black text-white"
+      className="relative isolate overflow-x-clip overflow-y-hidden bg-black text-white"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <motion.div className="absolute inset-0" style={{ background: glare }} />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_58%_at_78%_46%,rgb(255_255_255_/_0.11),transparent_56%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_58%_at_50%_70%,rgb(255_255_255_/_0.1),transparent_56%)] lg:bg-[radial-gradient(ellipse_75%_58%_at_78%_46%,rgb(255_255_255_/_0.11),transparent_56%)]" />
         <div className="absolute bottom-0 left-0 right-0 h-[44%] bg-gradient-to-t from-black via-black/75 to-transparent" />
       </div>
 
-      <Container className="relative z-10 grid min-h-[100svh] max-w-[1400px] grid-cols-1 items-center gap-6 py-28 sm:py-24 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] lg:gap-2 lg:py-14 xl:gap-6">
+      <Container className="relative z-10 flex min-h-[100svh] max-w-[1400px] flex-col justify-end gap-8 pb-10 pt-24 sm:gap-10 sm:pb-14 sm:pt-28 lg:grid lg:min-h-[100svh] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] lg:items-center lg:gap-4 lg:py-16 xl:gap-8">
+        {/* Copy — full width on phone, left column on desktop */}
         <motion.div
           key={audience ?? "default"}
           initial={ready && audience ? { opacity: 0, y: 16 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
           style={prefersReducedMotion ? undefined : { y: copyY, opacity: copyOpacity }}
-          className="w-full max-w-[20rem] sm:max-w-[24rem] lg:max-w-[28rem] xl:max-w-[30rem]"
+          className="order-1 w-full max-w-none sm:max-w-lg lg:order-none lg:max-w-[30rem] xl:max-w-[32rem]"
         >
           <Reveal>
             <p className="text-nav text-white/55">ARVIT AI</p>
@@ -111,28 +121,29 @@ export function Hero() {
 
           <SplitHeading
             as="h1"
-            className="text-display mt-5 text-balance text-white sm:mt-7 sm:max-w-[11ch] md:max-w-[12ch]"
+            className="text-display mt-4 max-w-[14ch] text-balance text-white sm:mt-6 sm:max-w-[12ch] md:max-w-[13ch]"
           >
             {active.heroTitle}
           </SplitHeading>
 
-          <Reveal delay={0.15} className="mt-6 sm:mt-8">
-            <p className="text-body-lg max-w-[28ch] text-white/65 sm:max-w-sm">{active.heroDescription}</p>
+          <Reveal delay={0.15} className="mt-5 sm:mt-7">
+            <p className="text-body-lg max-w-md text-pretty text-white/65">{active.heroDescription}</p>
           </Reveal>
 
-          <Reveal delay={0.28} className="mt-9 sm:mt-11">
+          <Reveal delay={0.28} className="mt-8 sm:mt-10">
             <ButtonLink
               href={active.primaryHref}
               size="xl"
               variant="white"
               magnetic={false}
-              className="text-nav h-12 min-h-12 rounded-none px-8 !text-black"
+              className="text-nav h-12 min-h-12 w-full max-w-xs rounded-none px-8 !text-black sm:w-auto"
             >
               {active.primaryCta}
             </ButtonLink>
           </Reveal>
         </motion.div>
 
+        {/* Device — centered, fully in viewport on mobile (no negative desktop shifts) */}
         <motion.div
           aria-hidden
           style={
@@ -146,19 +157,21 @@ export function Hero() {
                   opacity: modelOpacity,
                 }
           }
-          className="relative -translate-x-6 -translate-y-4 h-[min(58svh,500px)] w-full will-change-transform sm:-translate-x-10 sm:-translate-y-6 sm:h-[min(66svh,580px)] md:-translate-x-16 md:-translate-y-8 lg:-translate-x-20 lg:-translate-y-12 lg:h-[min(82svh,720px)] lg:w-full xl:-translate-x-24 xl:-translate-y-14"
+          className="order-2 relative mx-auto h-[min(42svh,320px)] w-full max-w-[360px] will-change-transform sm:h-[min(48svh,400px)] sm:max-w-[420px] lg:order-none lg:mx-0 lg:h-[min(72svh,640px)] lg:max-w-none lg:-translate-x-10 lg:-translate-y-8 xl:-translate-x-16 xl:-translate-y-10"
         >
-          <motion.div
-            className="pointer-events-none absolute inset-0 z-[2] mix-blend-soft-light"
-            style={prefersReducedMotion ? undefined : { background: sheen }}
-          />
+          {allowParallax ? (
+            <motion.div
+              className="pointer-events-none absolute inset-0 z-[2] mix-blend-soft-light"
+              style={{ background: sheen }}
+            />
+          ) : null}
           <TabletViewer
             variant="dark"
             size="hero"
-            followPointer
+            followPointer={!!allowParallax}
             scrollProgress={smoothScroll}
             defer
-            className="h-full w-full scale-[1.12] sm:scale-[1.18] lg:scale-[1.28]"
+            className="h-full w-full scale-100 sm:scale-[1.04] lg:scale-[1.16]"
           />
         </motion.div>
       </Container>
