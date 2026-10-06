@@ -19,7 +19,7 @@ export function AacTeaser() {
             title="Giving adults a voice"
             description="A dedicated AAC experience for people who are non-speaking or have lost speech — stroke, ALS, cerebral palsy, TBI, and more."
             titleClassName="text-white"
-            className="[&_p]:text-white/55"
+            className="[&_.text-body-lg]:text-white/70"
           />
 
           <StaggerGroup className="mt-8 grid grid-cols-1 gap-2.5 sm:mt-10 sm:grid-cols-2 sm:gap-3">
@@ -34,9 +34,9 @@ export function AacTeaser() {
           <Reveal delay={0.25} className="mt-8 sm:mt-10">
             <ButtonLink
               href="/aac-communication"
-              variant="white"
+              variant="gradient"
               magnetic={false}
-              className="text-nav h-12 min-h-12 w-full rounded-none !text-black sm:w-auto"
+              className="text-nav h-12 min-h-12 w-full px-8 sm:w-auto"
             >
               Explore the AAC Device
               <ArrowRight className="size-4" />

@@ -19,6 +19,8 @@ export type Condition = {
   icon: LucideIcon;
   title: string;
   description: string;
+  adult?: string;
+  child?: string;
   tablet: TabletFit;
 };
 
@@ -26,73 +28,81 @@ export const WHO_WE_HELP: Condition[] = [
   {
     icon: Puzzle,
     title: "Autism",
-    description: "Therapy Tablet — AAC plus speech AI, OT landmark games, and special-ed pathways on the spectrum.",
+    description: "Therapy App — AAC plus speech AI, OT landmark games, and special-ed pathways on the spectrum.",
     tablet: "therapy",
   },
   {
     icon: Zap,
     title: "ADHD",
-    description: "Therapy Tablet — focus and executive-function support in short, gamified sessions.",
+    description: "Therapy App — focus and executive-function support in short, gamified sessions.",
     tablet: "therapy",
   },
   {
     icon: Ear,
     title: "Speech Delay",
-    description: "Therapy Tablet — our AI speech model for early articulation and expressive language.",
+    description: "Therapy App — our AI speech model for early articulation and expressive language.",
     tablet: "therapy",
   },
   {
     icon: Users2,
     title: "Developmental Delay",
-    description: "Therapy Tablet — milestone-based speech, motor, special ed, and AAC practice.",
+    description: "Therapy App — milestone-based speech, motor, special ed, and AAC practice.",
     tablet: "therapy",
   },
   {
     icon: Accessibility,
     title: "Cerebral Palsy",
-    description: "AAC Tablet for adult communication; Therapy Tablet when pediatric motor + AAC practice is needed.",
+    description: "AAC Device for adult communication; Therapy App when a child also needs motor practice.",
+    adult: "AAC Device for adult communication when movement and speech are both limited.",
+    child: "Therapy App for motor practice, speech, and AAC when a child has cerebral palsy.",
     tablet: "both",
   },
   {
     icon: HeartPulse,
     title: "Stroke Survivors",
-    description: "AAC Tablet — dedicated adult communication for speech and language recovery pathways.",
+    description: "AAC Device for adult communication during speech and language recovery.",
     tablet: "aac",
   },
   {
     icon: Activity,
     title: "ALS",
-    description: "AAC Tablet — progressive adult AAC that adapts as communication needs change.",
+    description: "AAC Device that adapts as adult communication needs change.",
     tablet: "aac",
   },
   {
     icon: MicOff,
     title: "Apraxia",
-    description: "Therapy Tablet for pediatric motor-speech drills; AAC Tablet when adult communication is primary.",
+    description: "Therapy App for pediatric motor-speech practice; AAC Device when adult communication is primary.",
+    adult: "AAC Device when adult apraxia makes speech unreliable.",
+    child: "Therapy App for pediatric motor-speech practice, with AAC when words are hard to say.",
     tablet: "both",
   },
   {
     icon: Dna,
     title: "Down Syndrome",
-    description: "Therapy Tablet — speech, cognitive, special ed, and AAC paced for steady progress.",
+    description: "Therapy App — speech, cognitive, special ed, and AAC paced for steady progress.",
     tablet: "therapy",
   },
   {
     icon: BrainCircuit,
     title: "Traumatic Brain Injury",
-    description: "AAC Tablet for adult neuro-recovery communication; Therapy Tablet for pediatric rehab goals.",
+    description: "AAC Device for adult neuro recovery; Therapy App for pediatric rehab.",
+    adult: "AAC Device for communication during adult neuro recovery.",
+    child: "Therapy App for pediatric rehab — speech, motor, and AAC in one plan.",
     tablet: "both",
   },
   {
     icon: MessageSquareOff,
     title: "Non-speaking Individuals",
-    description: "AAC Tablet for adults; Therapy Tablet when children need AAC alongside therapy progress.",
+    description: "AAC Device for adults; Therapy App when children need AAC alongside therapy.",
+    adult: "AAC Device for adults who communicate without speech.",
+    child: "Therapy App when a child needs AAC alongside speech and learning practice.",
     tablet: "both",
   },
 ];
 
 export const TABLET_FIT_LABEL: Record<TabletFit, string> = {
-  therapy: "Therapy Tablet",
-  aac: "AAC Tablet",
-  both: "Both tablets",
+  therapy: "Therapy App",
+  aac: "AAC Device",
+  both: "Both products",
 };

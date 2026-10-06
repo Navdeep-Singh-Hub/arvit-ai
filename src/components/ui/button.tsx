@@ -8,15 +8,15 @@ import { cn } from "@/lib/utils";
 import { useMagnetic } from "@/hooks/use-magnetic";
 
 export const buttonVariants = cva(
-  "group/btn relative isolate inline-flex shrink-0 select-none items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-none font-semibold outline-none transition-[transform,background-color,color,border-color,opacity] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
+  "group/btn relative isolate inline-flex shrink-0 select-none items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full font-semibold outline-none transition-[transform,background-color,color,border-color,opacity] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-[#0c8f86] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f3eee6] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         /* Explicit hex + !color so parent text-white (hero/nav) never wins */
         gradient:
-          "bg-[#000000] !text-[#ffffff] hover:bg-[#1a1a1a] hover:!text-[#ffffff]",
+          "bg-[#c2410c] !text-[#ffffff] hover:bg-[#9a3412] hover:!text-[#ffffff]",
         solid:
-          "bg-[#000000] !text-[#ffffff] hover:bg-[#1a1a1a] hover:!text-[#ffffff]",
+          "bg-[#0e1418] !text-[#ffffff] hover:bg-[#1c2630] hover:!text-[#ffffff]",
         white:
           "bg-[#ffffff] !text-[#000000] hover:bg-[#f0f0f0] hover:!text-[#000000]",
         outline:

@@ -31,7 +31,7 @@ export function SectionHeading({
     >
       {eyebrow ? (
         <Reveal>
-          <p className="text-eyebrow text-black/55">{eyebrow}</p>
+          <p className="text-eyebrow !text-[#0a6b64] [.section-dark_&]:!text-[#5eead4]">{eyebrow}</p>
         </Reveal>
       ) : null}
       <Reveal delay={0.06}>
@@ -41,7 +41,7 @@ export function SectionHeading({
         <Reveal delay={0.12}>
           <p
             className={cn(
-              "text-body-lg mt-8 max-w-xl text-pretty text-black/60",
+              "text-body-lg mt-8 max-w-xl text-pretty text-[#12151a]/65 [.section-dark_&]:!text-white/70",
               align === "center" && "mx-auto"
             )}
           >

@@ -50,7 +50,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 bg-black text-white">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0e1418]/90 text-white backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-[1400px] items-center justify-between gap-2 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:px-8">
           <Link href="/" aria-label="ARVIT AI — home" className="min-w-0 shrink-0">
             <Logo className="text-white [&_span]:text-[0.95rem] sm:[&_span]:text-[1.05rem]" markClassName="size-6 sm:size-7" />
@@ -114,8 +114,8 @@ export function Navbar() {
               );
             })}
 
-            <NavItem href="/aac-communication" active={pathname === "/aac-communication"}>
-              AAC Device
+            <NavItem href="/catalog" active={pathname === "/catalog"}>
+              Catalog
             </NavItem>
             <NavItem href="/contact" active={pathname === "/contact"}>
               Contact
@@ -131,17 +131,17 @@ export function Navbar() {
             >
               <ShoppingBag className="size-[18px] stroke-[1.5]" />
               {count > 0 ? (
-                <span className="absolute -right-0.5 -top-0.5 flex size-4 items-center justify-center rounded-full bg-white text-[10px] font-bold text-black">
+                <span className="absolute -right-0.5 -top-0.5 flex size-4 items-center justify-center rounded-full bg-[#c2410c] text-[10px] font-bold text-white">
                   {count}
                 </span>
               ) : null}
             </Link>
             <ButtonLink
               href="/#tablets"
-              variant="white"
+              variant="gradient"
               size="sm"
               magnetic={false}
-              className="text-nav h-9 min-h-9 rounded-none px-4 !text-black"
+              className="text-nav h-9 min-h-9 px-4"
             >
               Pre-book
             </ButtonLink>
@@ -156,7 +156,7 @@ export function Navbar() {
             >
               <ShoppingBag className="size-5 stroke-[1.5]" />
               {count > 0 ? (
-                <span className="absolute right-0.5 top-0.5 flex size-4 items-center justify-center rounded-full bg-white text-[10px] font-bold text-black sm:right-1 sm:top-1">
+                <span className="absolute right-0.5 top-0.5 flex size-4 items-center justify-center rounded-full bg-[#c2410c] text-[10px] font-bold text-white sm:right-1 sm:top-1">
                   {count}
                 </span>
               ) : null}

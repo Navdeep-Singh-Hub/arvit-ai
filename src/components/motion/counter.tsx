@@ -28,7 +28,6 @@ export function AnimatedCounter({ value, suffix = "", prefix = "", className }: 
       }
       return;
     }
-    motionValue.set(0);
     motionValue.set(value);
   }, [isInView, value, motionValue, prefersReducedMotion, prefix, suffix]);
 
@@ -45,7 +44,7 @@ export function AnimatedCounter({ value, suffix = "", prefix = "", className }: 
   return (
     <span ref={ref} className={className} aria-label={`${prefix}${value}${suffix}`}>
       {prefix}
-      {prefersReducedMotion && isInView ? formatNumber(value) : "0"}
+      {formatNumber(value)}
       {suffix}
     </span>
   );

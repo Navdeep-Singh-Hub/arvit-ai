@@ -34,7 +34,7 @@ export function Preloader() {
           key="preloader"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0e1418]"
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -47,7 +47,7 @@ export function Preloader() {
                 initial={{ x: "-100%" }}
                 animate={{ x: "100%" }}
                 transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
-                className="h-full w-full bg-white"
+                className="h-full w-full bg-[#e4572e]"
               />
             </div>
           </motion.div>

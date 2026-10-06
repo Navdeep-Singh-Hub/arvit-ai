@@ -52,12 +52,12 @@ export function Testimonials() {
                   className="min-w-0 shrink-0 grow-0 basis-full pl-4 sm:basis-1/2 sm:pl-6 lg:basis-1/3"
                 >
                   <div className="card-glow flex h-full flex-col rounded-3xl p-7">
-                    <Quote className="size-8 fill-brand-primary/15 text-brand-primary/30" />
+                    <Quote className="size-8 fill-[#c2410c]/15 text-[#c2410c]" />
                     <p className="mt-4 flex-1 text-[0.95rem] leading-relaxed text-foreground/85">
                       &ldquo;{testimonial.quote}&rdquo;
                     </p>
                     <div className="mt-6 flex items-center gap-3">
-                      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-sm font-semibold text-white">
+                      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#0a6b64] text-sm font-semibold text-white">
                         {testimonial.initials}
                       </span>
                       <div>
@@ -86,7 +86,7 @@ export function Testimonials() {
                   key={testimonial.name}
                   type="button"
                   aria-label={`Go to testimonial ${index + 1}`}
-                  aria-current={index === selectedIndex}
+                  aria-current={index === selectedIndex ? "true" : undefined}
                   onClick={() => emblaApi?.scrollTo(index)}
                   className="flex items-center justify-center p-2.5"
                 >

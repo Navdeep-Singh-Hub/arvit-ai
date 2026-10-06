@@ -47,12 +47,12 @@ export const AUDIENCE_COPY: Record<Audience, AudienceCopy> = {
     primaryCta: "Pre-book now",
     primaryHref: "/#tablets",
     secondaryCta: "Explore AAC Device",
-    tabletsEyebrow: "Membership app",
-    tabletsTitle: "Wear ARVIT daily, improve how you communicate",
+    tabletsEyebrow: "AAC Device",
+    tabletsTitle: "A device built for an adult voice",
     tabletsDescription:
       "A purpose-built adult AAC experience. Pre-book today for boards, speech, and caregiver tools without pediatric clutter.",
-    featuresEyebrow: "How it works",
-    featuresTitle: "What makes ARVIT different makes it better",
+    featuresEyebrow: "Capabilities",
+    featuresTitle: "Boards, voice, and prediction in one device",
     featuresDescription:
       "Symbol boards, AI voice, phrase prediction, caregiver tools, and secure cloud sync — tuned for adult AAC.",
     whoTitle: "Built for adult communication journeys",
@@ -84,12 +84,12 @@ export const AUDIENCE_COPY: Record<Audience, AudienceCopy> = {
     primaryCta: "Pre-book now",
     primaryHref: "/#tablets",
     secondaryCta: "Explore Therapy App",
-    tabletsEyebrow: "Membership app",
-    tabletsTitle: "Use ARVIT daily, improve your child’s progress",
+    tabletsEyebrow: "Therapy App",
+    tabletsTitle: "Therapy progress a family can follow",
     tabletsDescription:
       "Speech, motor, learning, and communication in one progressive app — pre-book while the product finishes.",
-    featuresEyebrow: "How it works",
-    featuresTitle: "What makes ARVIT different makes it better",
+    featuresEyebrow: "Capabilities",
+    featuresTitle: "Speech, movement, learning, and AAC together",
     featuresDescription:
       "Speech AI, OT landmark games, special ed pathways, AAC on the same app, and dashboards parents and clinicians use.",
     whoTitle: "Support for every stage of development",

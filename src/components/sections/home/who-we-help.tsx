@@ -44,9 +44,9 @@ function MarqueeRow({
         {loop.map((condition, index) => (
           <div
             key={`${condition.title}-${index}`}
-            className="flex shrink-0 items-center gap-2.5 rounded-full border border-black/10 bg-black px-4 py-2.5 text-white"
+            className="flex shrink-0 items-center gap-2.5 rounded-full bg-[#12151a] px-4 py-2.5 text-white"
           >
-            <span className="flex size-8 items-center justify-center rounded-full bg-white/15 text-white">
+            <span className="flex size-8 items-center justify-center rounded-full bg-[#0a6b64] text-white">
               <condition.icon className="size-3.5" />
             </span>
             <span className="text-sm font-medium whitespace-nowrap text-white">{condition.title}</span>
@@ -99,17 +99,19 @@ export function WhoWeHelp() {
         >
           {conditions.map((condition) => (
             <StaggerItem key={condition.title} className="h-full">
-              <div className="group h-full rounded-2xl border border-black/10 bg-white p-4 transition-transform duration-300 hover:-translate-y-1.5 sm:p-5">
+              <div className="group h-full rounded-2xl border border-[#12151a]/8 bg-[#fffdf9] p-4 shadow-[0_18px_40px_-28px_rgb(18_21_26_/_0.35)] transition-transform duration-300 hover:-translate-y-1.5 sm:p-5">
                 <div className="flex items-start justify-between gap-2">
-                  <span className="flex size-9 items-center justify-center rounded-xl bg-black text-white sm:size-10">
+                  <span className="flex size-9 items-center justify-center rounded-xl bg-[#0a6b64] text-white sm:size-10">
                     <condition.icon className="size-4 sm:size-5" />
                   </span>
-                  <span className="rounded-full bg-black px-2 py-1 text-[9px] font-semibold tracking-wide text-white uppercase sm:px-2.5 sm:text-[10px]">
+                  <span className="rounded-full bg-[#12151a] px-2 py-1 text-[9px] font-semibold tracking-wide text-white uppercase sm:px-2.5 sm:text-[10px]">
                     {effective === "adult" ? "AAC Device" : "Therapy App"}
                   </span>
                 </div>
                 <p className="mt-3 text-sm font-semibold text-black sm:mt-4">{condition.title}</p>
-                <p className="mt-1.5 text-xs leading-relaxed text-black/60">{condition.description}</p>
+                <p className="mt-1.5 text-xs leading-relaxed text-black/60">
+                  {(effective === "child" ? condition.child : condition.adult) ?? condition.description}
+                </p>
               </div>
             </StaggerItem>
           ))}

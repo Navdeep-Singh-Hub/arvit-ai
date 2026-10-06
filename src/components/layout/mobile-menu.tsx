@@ -11,6 +11,7 @@ import { CTA } from "@/lib/constants";
 import { ButtonLink } from "@/components/ui/button";
 import { AudienceSwitcher } from "@/components/audience/audience-switcher";
 import { getAudienceNavGroups } from "@/lib/audience/filter";
+import { useAudience } from "@/components/providers/audience-provider";
 
 type MobileMenuProps = {
   open: boolean;
@@ -20,10 +21,13 @@ type MobileMenuProps = {
 export function MobileMenu({ open, onClose }: MobileMenuProps) {
   const pathname = usePathname();
   const lenis = useLenis();
-  const navGroups = getAudienceNavGroups("adult");
+  const { audience, copy } = useAudience();
+  const navGroups = getAudienceNavGroups(audience);
+  const productHref = copy?.productHref ?? "/aac-communication";
+  const productLabel = copy?.productPageLabel ?? "AAC Device";
 
   const sections = [
-    { label: "", items: [{ label: "Home", href: "/" }, { label: "About", href: "/about" }] },
+    { label: "", items: [{ label: "Home", href: "/" }, { label: "About", href: "/about" }, { label: "Catalog", href: "/catalog" }] },
     ...navGroups.map((group) => ({
       label: group.label,
       items: group.items.map((i) => ({ label: i.label, href: i.href })),
@@ -123,13 +127,13 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                 <AudienceSwitcher />
               </div>
               <ButtonLink
-                href="/aac-communication"
+                href={productHref}
                 variant="outline"
                 magnetic={false}
                 className="w-full justify-center"
                 onClick={onClose}
               >
-                AAC Device
+                {productLabel}
               </ButtonLink>
               <ButtonLink
                 href="/#tablets"

@@ -33,9 +33,9 @@ export function CtaBand({
           <ButtonLink
             href={primaryHref}
             size="xl"
-            variant="white"
+            variant="gradient"
             magnetic={false}
-            className="text-nav h-12 min-h-12 w-full rounded-none !text-black sm:w-auto"
+            className="text-nav h-12 min-h-12 w-full px-8 sm:w-auto"
           >
             {primaryLabel}
           </ButtonLink>

@@ -71,7 +71,7 @@ function InteractiveOption({
       onBlur={() => onHover(null)}
       onClick={() => onSelect(option.id)}
       className={cn(
-        "group relative flex w-full flex-col overflow-hidden border border-white/15 bg-white/[0.04] p-6 text-left outline-none sm:p-8",
+        "group relative flex w-full flex-col overflow-hidden rounded-3xl border border-white/15 bg-white/[0.04] p-6 text-left outline-none sm:p-8",
         "transition-colors duration-200",
         "focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black",
         single && "md:mx-auto md:max-w-md",
@@ -80,7 +80,12 @@ function InteractiveOption({
       )}
     >
       <div className="relative flex items-start justify-between gap-3">
-        <span className="flex size-12 items-center justify-center bg-white text-black">
+        <span
+          className={cn(
+            "flex size-12 items-center justify-center rounded-2xl text-white",
+            option.id === "child" ? "bg-[#c2410c]" : "bg-[#0c8f86]"
+          )}
+        >
           {option.id === "adult" ? <UserRound className="size-6" /> : <Sparkles className="size-6" />}
         </span>
         <span className="text-eyebrow border border-white/20 px-2.5 py-1 text-white/70">
@@ -102,16 +107,16 @@ function InteractiveOption({
           return (
             <li
               key={label}
-              className="flex items-center gap-2.5 border border-white/10 bg-black/40 px-3 py-2.5 text-xs font-medium text-white/80"
+              className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-black/40 px-3 py-2.5 text-xs font-medium text-white/80"
             >
-              <Icon className="size-3.5 shrink-0 text-white" />
+              <Icon className="size-3.5 shrink-0 text-[#5eead4]" />
               {label}
             </li>
           );
         })}
       </ul>
 
-      <span className="text-nav relative mt-8 inline-flex w-full items-center justify-center gap-2 bg-white px-5 py-3.5 !text-black transition-colors group-hover:bg-white/90">
+      <span className="text-nav relative mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#c2410c] px-5 py-3.5 !text-white transition-colors group-hover:bg-[#9a3412]">
         Continue
         <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
       </span>
@@ -177,8 +182,8 @@ export function AudienceGate() {
               className={cn(
                 "absolute -right-1/4 bottom-0 size-[70vmax] rounded-full blur-[120px] transition-colors duration-700",
                 hovered === "child" || picking === "child"
-                  ? "bg-brand-primary/25"
-                  : "bg-white/[0.04]"
+                  ? "bg-[#c2410c]/35"
+                  : "bg-[#c2410c]/12"
               )}
               animate={
                 prefersReducedMotion
@@ -231,7 +236,7 @@ export function AudienceGate() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
-                className="mx-auto flex size-14 items-center justify-center bg-white text-black"
+                className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-white"
               >
                 <LogoMark className="size-8" />
               </motion.div>
@@ -248,7 +253,7 @@ export function AudienceGate() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.24 }}
-                className="mt-3 text-3xl font-bold tracking-tight text-balance text-white sm:text-4xl md:text-5xl"
+                className="mt-3 text-3xl font-medium tracking-tight text-balance text-white sm:text-4xl md:text-5xl"
               >
                 {THERAPY_PROGRESS_ENABLED ? "Who is ARVIT for today?" : "Continue with Adult AAC"}
               </motion.h2>

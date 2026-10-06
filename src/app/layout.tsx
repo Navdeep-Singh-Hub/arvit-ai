@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Montserrat } from "next/font/google";
+import { Fraunces, Outfit } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/constants";
 import { Providers } from "@/components/providers/providers";
@@ -11,12 +11,20 @@ import { Footer } from "@/components/layout/footer";
 import { BackToTop } from "@/components/layout/back-to-top";
 import { PageTransition } from "@/components/providers/page-transition";
 
-/** Geometric sans close to WHOOP’s Proxima Nova feel */
-const montserrat = Montserrat({
+/** Precise UI sans */
+const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
+});
+
+/** Soft editorial display — human, not a generic geometric sans */
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 const TITLE = `${SITE.name} — AAC Tablet & Therapy Tablet`;
@@ -77,14 +85,14 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#000000",
+  themeColor: "#0E1418",
   colorScheme: "light",
   viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={montserrat.variable}>
+    <html lang="en" suppressHydrationWarning className={`${outfit.variable} ${fraunces.variable}`}>
       <body className="flex min-h-dvh flex-col overflow-x-clip bg-background text-foreground antialiased">
         <Providers>
           <Preloader />

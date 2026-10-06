@@ -88,7 +88,7 @@ export const FEATURES: Feature[] = [
   },
   {
     icon: Tablet,
-    title: "Adult AAC Tablet",
+    title: "Adult AAC Device",
     description:
       "A dedicated device for adults who are non-speaking or have lost speech — communication first, without pediatric therapy clutter.",
     category: "AAC Tablet",

@@ -29,7 +29,7 @@ export function BackToTop() {
           onClick={() =>
             lenis ? lenis.scrollTo(0, { duration: 1.2 }) : window.scrollTo({ top: 0, behavior: "smooth" })
           }
-          className="fixed bottom-6 right-6 z-40 flex size-11 items-center justify-center border border-black/15 bg-white text-black md:bottom-8 md:right-8"
+          className="fixed bottom-6 right-6 z-40 flex size-11 items-center justify-center rounded-full bg-[#0e1418] text-white shadow-[0_12px_30px_-12px_rgb(14_20_24_/_0.7)] md:bottom-8 md:right-8"
         >
           <ArrowUp className="size-5" />
         </motion.button>

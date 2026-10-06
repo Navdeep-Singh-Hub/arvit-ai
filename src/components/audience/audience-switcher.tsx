@@ -24,7 +24,7 @@ export function AudienceSwitcher({ className }: { className?: string }) {
       )}
       aria-label={`${copy.switchHint}. Change audience.`}
     >
-      <span className="size-1.5 shrink-0 rounded-full bg-white" />
+      <span className="size-1.5 shrink-0 rounded-full bg-[#5eead4]" />
       <span className="hidden sm:inline">{copy.switchHint}</span>
       <span className="truncate sm:hidden">{audience === "adult" ? "Adult" : "Child"}</span>
       <RefreshCw className="size-3 shrink-0 opacity-60" />

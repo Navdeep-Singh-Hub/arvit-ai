@@ -15,12 +15,12 @@ export function Footer() {
   const platformLinks = getAudienceFooterPlatform(audience);
 
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-[#0e1418] text-white">
       <Container className="max-w-[1400px] py-16 sm:py-20">
         <div className="grid grid-cols-1 gap-14 border-b border-white/10 pb-14 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
             <Logo className="text-white" />
-            <p className="mt-5 text-sm leading-relaxed text-white/50">{blurb}</p>
+            <p className="mt-5 text-sm leading-relaxed text-white/70">{blurb}</p>
             <div className="mt-6 flex items-center gap-3">
               {SOCIAL_LINKS.map((social) => {
                 const Icon = SOCIAL_ICON_MAP[social.icon];
@@ -49,10 +49,10 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col items-start justify-between gap-4 pt-8 sm:flex-row sm:items-center">
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-white/60">
             © {year} {SITE.legalName}
           </p>
-          <p className="text-xs text-white/40">{SITE.email}</p>
+          <p className="text-xs text-white/60">{SITE.email}</p>
         </div>
       </Container>
     </footer>
@@ -68,7 +68,7 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <p className="text-eyebrow text-white/40">{title}</p>
+      <p className="text-eyebrow !text-[#5eead4]">{title}</p>
       <ul className="mt-5 space-y-3">
         {links.map((link) => (
           <li key={link.href + link.label}>

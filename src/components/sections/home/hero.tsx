@@ -97,12 +97,14 @@ export function Hero() {
       ref={sectionRef}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className="relative isolate overflow-x-clip overflow-y-hidden bg-black text-white"
+      className="relative isolate overflow-x-clip overflow-y-hidden bg-[#0e1418] text-white"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <motion.div className="absolute inset-0" style={{ background: glare }} />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_58%_at_50%_70%,rgb(255_255_255_/_0.1),transparent_56%)] lg:bg-[radial-gradient(ellipse_75%_58%_at_78%_46%,rgb(255_255_255_/_0.11),transparent_56%)]" />
-        <div className="absolute bottom-0 left-0 right-0 h-[44%] bg-gradient-to-t from-black via-black/75 to-transparent" />
+        <div className="absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-[#0c8f86]/25 blur-3xl" />
+        <div className="absolute bottom-0 right-[8%] h-80 w-80 rounded-full bg-[#c2410c]/20 blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_72%_42%,rgb(255_255_255_/_0.06),transparent_58%)]" />
+        <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-[#0e1418] via-[#0e1418]/70 to-transparent" />
       </div>
 
       <Container className="relative z-10 flex min-h-[100svh] max-w-[1400px] flex-col justify-end gap-8 pb-10 pt-24 sm:gap-10 sm:pb-14 sm:pt-28 lg:grid lg:min-h-[100svh] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)] lg:items-center lg:gap-4 lg:py-16 xl:gap-8">
@@ -116,7 +118,10 @@ export function Hero() {
           className="order-1 w-full max-w-none sm:max-w-lg lg:order-none lg:max-w-[30rem] xl:max-w-[32rem]"
         >
           <Reveal>
-            <p className="text-nav text-white/55">ARVIT AI</p>
+            <p className="text-eyebrow inline-flex items-center gap-2 !text-[#5eead4]">
+              <span className="size-1.5 rounded-full bg-[#e4572e]" />
+              ARVIT AI
+            </p>
           </Reveal>
 
           <SplitHeading
@@ -134,9 +139,9 @@ export function Hero() {
             <ButtonLink
               href={active.primaryHref}
               size="xl"
-              variant="white"
+              variant="gradient"
               magnetic={false}
-              className="text-nav h-12 min-h-12 w-full max-w-xs rounded-none px-8 !text-black sm:w-auto"
+              className="text-nav h-12 min-h-12 w-full max-w-xs px-8 sm:w-auto"
             >
               {active.primaryCta}
             </ButtonLink>

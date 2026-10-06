@@ -11,7 +11,7 @@ export function LogoMark({ className }: LogoMarkProps) {
       <rect x="1" y="1" width="38" height="38" rx="2" fill="#ffffff" />
       <path
         d="M7 21h4.4l2.6-6.5L18 27l3.6-14 2.6 8h5.8"
-        stroke="#000000"
+        stroke="#c2410c"
         strokeWidth="2.4"
         strokeLinecap="round"
         strokeLinejoin="round"

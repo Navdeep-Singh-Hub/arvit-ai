@@ -94,6 +94,7 @@ export const NAV_GROUPS: NavGroup[] = [
 export const FOOTER_LINKS = {
   company: [
     { label: "About", href: "/about" },
+    { label: "Catalog", href: "/catalog" },
     { label: "Features", href: "/features" },
     { label: "Solutions", href: "/solutions" },
     { label: "Careers", href: "/careers" },
