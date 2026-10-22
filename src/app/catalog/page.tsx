@@ -4,7 +4,7 @@ import { ProductCatalog } from "@/components/sections/catalog/product-catalog";
 export const metadata: Metadata = {
   title: "Catalog",
   description:
-    "ARVIT AI product catalog — the Adult AAC Device and the Child AAC + Therapy Progress App, with prices and what each includes.",
+    "ARVIT AI catalog — one AAC Device for children and parents, with price and what it includes.",
 };
 
 export default function CatalogPage() {

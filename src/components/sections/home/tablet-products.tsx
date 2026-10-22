@@ -109,14 +109,8 @@ export function TabletProducts() {
   const active = copy ?? AUDIENCE_COPY.adult;
   const products = getAudienceProducts(audience);
 
-  if (!ready || !audience) {
-    return (
-      <section id="tablets" className="section-pad section-light border-t border-black/5">
-        <Container>
-          <p className="text-center text-muted-foreground">Choose Adult or Child to see your system.</p>
-        </Container>
-      </section>
-    );
+  if (!ready) {
+    return <section id="tablets" className="section-pad" aria-hidden />;
   }
 
   return (

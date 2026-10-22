@@ -11,14 +11,14 @@ import { TESTIMONIALS } from "@/lib/data/testimonials";
 export const metadata: Metadata = {
   title: "For Parents",
   description:
-    "The ARVIT AI Therapy Tablet brings AAC, AI speech therapy, OT landmark games, special education, and clear progress home — built alongside your child's care team.",
+    "The ARVIT AI AAC Device brings boards, voice, practice, and clear progress home — built for your child and written for you.",
 };
 
 const PARENT_BENEFITS = [
   {
     icon: Smartphone,
-    title: "One Therapy Tablet",
-    description: "AAC, speech AI, OT games, special ed, and videos on a single child device — not five apps to manage.",
+    title: "One AAC Device",
+    description: "Boards, voice, speech practice, and games on a single device — not five apps to manage.",
   },
   {
     icon: Mic,
@@ -38,7 +38,7 @@ const PARENT_BENEFITS = [
   {
     icon: MessageCircle,
     title: "AAC included",
-    description: "If your child needs another way to communicate, it's already on the same Therapy Tablet.",
+    description: "If your child needs another way to communicate, it's already on the same device.",
   },
   {
     icon: ShieldCheck,
@@ -65,12 +65,12 @@ export default function ParentsPage() {
       <PageHero
         eyebrow="For Parents"
         eyebrowIcon={Heart}
-        title="The Therapy Tablet that fits into everyday life"
-        description="You don't need a clinical background. ARVIT turns your care team's plan into short Therapy Tablet sessions — speech AI, OT landmark games, special ed, AAC, and progress you can actually read."
+        title="The AAC Device that fits into everyday life"
+        description="You don't need a clinical background. ARVIT turns your care team's plan into short sessions on one device — boards, voice, practice, and progress you can actually read."
       />
       <ParentDashboardShowcase />
       <BenefitList
-        eyebrow="Why Parents Choose the Therapy Tablet"
+        eyebrow="Why parents choose the AAC Device"
         title="Everything your child needs on one device"
         items={PARENT_BENEFITS}
       />
@@ -79,9 +79,9 @@ export default function ParentsPage() {
       )}
       <Faq />
       <CtaBand
-        title="Ready to bring the Therapy Tablet home?"
-        description="Book a demo and we'll show how it fits your family's routine — or compare with the Adult AAC Tablet."
-        secondaryLabel="Compare tablets"
+        title="Ready to bring the AAC Device home?"
+        description="Book a demo and we'll show how it fits your family's routine — for your child and for you."
+        secondaryLabel="See the device"
         secondaryHref="/#tablets"
       />
     </>

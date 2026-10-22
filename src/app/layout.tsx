@@ -27,7 +27,7 @@ const fraunces = Fraunces({
   weight: ["400", "500", "600", "700"],
 });
 
-const TITLE = `${SITE.name} — AAC Tablet & Therapy Tablet`;
+const TITLE = `${SITE.name} — AAC Device for children & parents`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),

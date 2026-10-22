@@ -16,16 +16,16 @@ export type PrebookProduct = {
   accent: "secondary" | "primary";
 };
 
-/** Apps available for pre-booking. */
+/** One AAC Device. therapy-app is kept so older carts still resolve. */
 export const PREBOOK_PRODUCTS: PrebookProduct[] = [
   {
     id: "aac-app",
     name: "AAC Device",
     shortName: "AAC",
-    audience: "For adults",
-    tagline: "Communication, first and always",
+    audience: "For children & parents",
+    tagline: "Communication for your child. Progress you can follow.",
     description:
-      "Dedicated AAC for adults who are non-speaking or have lost their voice — symbol boards, text-to-speech, phrase prediction, and voice personalization.",
+      "One device with symbol boards, text-to-speech, and phrase prediction for your child — plus live progress and home practice for parents.",
     // ₹24,999
     priceCents: 2_499_900,
     currency: "INR",
@@ -35,20 +35,22 @@ export const PREBOOK_PRODUCTS: PrebookProduct[] = [
   },
   {
     id: "therapy-app",
-    name: "AAC + Therapy Progress App",
-    shortName: "Therapy",
-    audience: "For children",
-    tagline: "AAC plus therapy progress in one app",
+    name: "AAC Device",
+    shortName: "AAC",
+    audience: "For children & parents",
+    tagline: "Communication for your child. Progress you can follow.",
     description:
-      "AAC with AI speech therapy, OT landmark games, special education, education videos, and live progress for parents and therapists.",
-    // ₹27,999 — product not shipping yet; pre-booking open
-    priceCents: 2_799_900,
+      "One device with symbol boards, text-to-speech, and phrase prediction for your child — plus live progress and home practice for parents.",
+    priceCents: 2_499_900,
     currency: "INR",
-    comingSoon: true,
-    href: "/ai-therapy",
+    comingSoon: false,
+    href: "/aac-communication",
     accent: "primary",
   },
 ];
+
+/** The device offered on the site. */
+export const CATALOG_PRODUCTS = PREBOOK_PRODUCTS.filter((product) => product.id === "aac-app");
 
 export function getPrebookProduct(id: string): PrebookProduct | undefined {
   return PREBOOK_PRODUCTS.find((product) => product.id === id);

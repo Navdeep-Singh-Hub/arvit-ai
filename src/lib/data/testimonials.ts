@@ -8,64 +8,39 @@ export type Testimonial = {
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    audience: "child",
+    audience: "both",
     quote:
-      "The Therapy App gave our son AAC and speech practice in one place. The OT landmark games finally made motor work feel like play.",
+      "Our son uses the boards and voice. I finally see speech and AAC in one place — not five apps to check after school.",
     name: "Amara O.",
     role: "Parent",
     initials: "AO",
   },
   {
-    audience: "adult",
+    audience: "both",
     quote:
-      "After the stroke, the AAC Device felt built for adults — not a children's toy with big icons. He builds full phrases again.",
-    name: "Daniel K., M.S. CCC-SLP",
-    role: "Speech-Language Pathologist",
-    initials: "DK",
-  },
-  {
-    audience: "adult",
-    quote:
-      "Our rehab floor onboarded Adult AAC without confusing pediatric workflows. Clear product, clear training.",
-    name: "Priya R.",
-    role: "Clinical Director",
-    initials: "PR",
-  },
-  {
-    audience: "child",
-    quote:
-      "Progress used to be a guessing game. Now I see speech, OT, and AAC curves week over week on the Therapy App.",
+      "Progress used to be a guessing game. Now I can show our therapist what happened at home this week.",
     name: "Marcus T.",
     role: "Parent",
     initials: "MT",
   },
   {
-    audience: "child",
+    audience: "both",
     quote:
-      "She asks for her Therapy games every morning — speech AI drills and education videos she actually finishes.",
+      "She asks for her practice every morning. I get a short summary I can actually read.",
     name: "Sofia L.",
     role: "Parent",
     initials: "SL",
   },
   {
-    audience: "child",
+    audience: "both",
     quote:
-      "As an OT, body-landmark games are the win — motor goals recalibrate mid-session instead of waiting for a plateau.",
+      "Families stay in the loop without a clinical dashboard. The parent view is the piece we were missing.",
     name: "Elena V., OTR/L",
     role: "Occupational Therapist",
     initials: "EV",
   },
-  {
-    audience: "adult",
-    quote:
-      "Phrase prediction and voice personalization finally feel designed for adult AAC clinics — not a padded kids product.",
-    name: "Jordan M.",
-    role: "Adult AAC Specialist",
-    initials: "JM",
-  },
 ];
 
-export function getTestimonialsForAudience(audience: "adult" | "child" | null): Testimonial[] {
-  if (!audience) return TESTIMONIALS.filter((t) => t.audience === "both" || !t.audience);
-  return TESTIMONIALS.filter((t) => !t.audience || t.audience === "both" || t.audience === audience);
+export function getTestimonialsForAudience(_audience: "adult" | "child" | null): Testimonial[] {
+  return TESTIMONIALS;
 }

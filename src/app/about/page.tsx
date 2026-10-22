@@ -10,7 +10,7 @@ import { CtaBand } from "@/components/sections/shared/cta-band";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "ARVIT AI builds two purpose-built therapy tablets — an Adult AAC Tablet and a Child Therapy Tablet — to make world-class communication and therapy accessible through Artificial Intelligence.",
+    "ARVIT AI builds one AAC Device for children and the parents who support them — communication, practice, and progress through Artificial Intelligence.",
 };
 
 export default function AboutPage() {
@@ -19,18 +19,18 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About ARVIT AI"
         eyebrowIcon={Users}
-        title="Two tablets. One mission: therapy and voice that reach further."
-        description="We build dedicated devices — not a one-size-fits-all app. Adults get focused AAC. Children get AAC plus speech AI, OT landmark games, special education, and progress parents can trust."
+        title="One device. A voice for the child, and progress for the parent."
+        description="We build a dedicated AAC Device — boards and voice for your child, a view you can actually read as a parent. Not two products to choose between."
       />
       <OurStory />
       <MissionVision />
       <Values />
       <Stats />
       <CtaBand
-        title="See both tablets in action"
-        description="Book a walkthrough of the Adult AAC Tablet, the Child Therapy Tablet, or both."
+        title="See the AAC Device in action"
+        description="Book a walkthrough of the device your child uses and the parent view you follow."
         primaryHref="/#tablets"
-        primaryLabel="Compare tablets"
+        primaryLabel="Pre-book AAC Device"
       />
     </>
   );

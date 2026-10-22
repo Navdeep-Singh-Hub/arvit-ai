@@ -9,7 +9,6 @@ import { useLenis } from "lenis/react";
 import { cn } from "@/lib/utils";
 import { CTA } from "@/lib/constants";
 import { ButtonLink } from "@/components/ui/button";
-import { AudienceSwitcher } from "@/components/audience/audience-switcher";
 import { getAudienceNavGroups } from "@/lib/audience/filter";
 import { useAudience } from "@/components/providers/audience-provider";
 
@@ -123,9 +122,6 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             </nav>
 
             <div className="mt-6 flex flex-col gap-3 border-t border-border/60 pt-6">
-              <div className="flex justify-center">
-                <AudienceSwitcher />
-              </div>
               <ButtonLink
                 href={productHref}
                 variant="outline"

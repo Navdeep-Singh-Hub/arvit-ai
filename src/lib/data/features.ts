@@ -88,9 +88,9 @@ export const FEATURES: Feature[] = [
   },
   {
     icon: Tablet,
-    title: "Adult AAC Device",
+    title: "AAC Device",
     description:
-      "A dedicated device for adults who are non-speaking or have lost speech — communication first, without pediatric therapy clutter.",
+      "One device for your child — boards, voice, and practice — with a parent view of progress and home tips.",
     category: "AAC Tablet",
     href: "/aac-communication",
   },
@@ -98,7 +98,7 @@ export const FEATURES: Feature[] = [
     icon: Mic,
     title: "AI Text-to-Speech",
     description:
-      "Natural speech output with voice personalization so adults sound like themselves, not a generic synthesizer.",
+      "Natural speech output so your child can be heard — at home, at school, and on the go.",
     category: "AAC Tablet",
     href: "/aac-communication",
   },
@@ -106,7 +106,7 @@ export const FEATURES: Feature[] = [
     icon: Puzzle,
     title: "Symbol & Picture Boards",
     description:
-      "Fast symbol and picture communication boards designed for adult daily needs, emergencies, and conversation.",
+      "Symbol and picture boards for daily needs, play, school, and emergencies — sized for a child's day.",
     category: "AAC Tablet",
     href: "/aac-communication",
   },
@@ -138,7 +138,7 @@ export const FEATURES: Feature[] = [
     icon: UserRound,
     title: "Parent Dashboard",
     description:
-      "Plain-language Therapy Tablet summaries, home-practice suggestions, and messaging with the care team.",
+      "Plain-language summaries, home-practice suggestions, and messaging with the care team — written for parents.",
     category: "Shared & Insights",
     href: "/parents",
   },
@@ -146,7 +146,7 @@ export const FEATURES: Feature[] = [
     icon: ShieldCheck,
     title: "Secure Cloud Platform",
     description:
-      "Encrypted in transit and at rest, with role-based access and audit trails for both tablets.",
+      "Encrypted in transit and at rest, with role-based access for parents and clinicians.",
     category: "Shared & Insights",
     href: "/features",
   },
@@ -154,7 +154,7 @@ export const FEATURES: Feature[] = [
     icon: Users2,
     title: "Multi-language Support",
     description:
-      "AAC and therapy content across languages so families and adults can communicate in the voice that fits home and clinic.",
+      "AAC and practice content across languages so home and school can share the same voice.",
     category: "Shared & Insights",
     href: "/aac-communication",
   },
@@ -162,7 +162,7 @@ export const FEATURES: Feature[] = [
     icon: Zap,
     title: "Offline AAC Mode",
     description:
-      "Core AAC works offline on both tablets — communication never depends on a connection.",
+      "Core AAC works offline — your child can communicate without a connection.",
     category: "Shared & Insights",
     href: "/aac-communication",
   },
@@ -170,7 +170,7 @@ export const FEATURES: Feature[] = [
     icon: Brain,
     title: "Adaptive AI Plans",
     description:
-      "On the Therapy Tablet, AI adapts speech, OT, and learning plans from each session while clinicians stay in control.",
+      "Plans adapt from each session while your child's clinician stays in control.",
     category: "Shared & Insights",
     href: "/ai-therapy",
   },

@@ -16,16 +16,19 @@ export function FeatureGrid() {
   const effective = audience === "child" && THERAPY_PROGRESS_ENABLED ? "child" : "adult";
   const active = AUDIENCE_COPY[effective];
 
-  const features = FEATURES.filter((feature) => {
-    if (feature.category === "Shared & Insights") {
-      if (effective === "adult") {
-        return ["Secure Cloud Platform", "Multi-language Support", "Offline AAC Mode"].includes(feature.title);
-      }
-      return true;
-    }
-    if (effective === "adult") return feature.category === "AAC Tablet";
-    return feature.category === "Therapy Tablet";
-  });
+  const familyFeatures = new Set([
+    "AAC Device",
+    "AI Text-to-Speech",
+    "Symbol & Picture Boards",
+    "Phrase Prediction",
+    "AI Speech Model",
+    "OT Landmark Games",
+    "Therapy Progress",
+    "Parent Dashboard",
+    "Offline AAC Mode",
+    "Secure Cloud Platform",
+  ]);
+  const features = FEATURES.filter((feature) => familyFeatures.has(feature.title));
 
   return (
     <section id="features" className="section-pad section-light border-t border-black/5">

@@ -42,7 +42,7 @@ export function Footer() {
 
           <FooterColumn title="Company" links={FOOTER_LINKS.company} />
           <FooterColumn
-            title={audience === "adult" ? "AAC Device" : "Therapy App"}
+            title="AAC Device"
             links={platformLinks}
           />
           <FooterColumn title="Legal" links={FOOTER_LINKS.legal} />

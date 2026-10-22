@@ -65,7 +65,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setHydrated(true);
   }, []);
 
-  // Keep cart items aligned with Adult vs Child product only
+  // Keep the cart on the single AAC Device
   useEffect(() => {
     if (!hydrated) return;
     const allowed = productIdForAudience(audience);

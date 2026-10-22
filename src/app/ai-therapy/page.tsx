@@ -8,33 +8,33 @@ import { FeatureCategoryGrid } from "@/components/sections/features/feature-cate
 import { CtaBand } from "@/components/sections/shared/cta-band";
 
 export const metadata: Metadata = {
-  title: "Therapy Tablet",
+  title: "Practice on the AAC Device",
   description:
-    "ARVIT AI Therapy Tablet for children: AAC plus our AI speech model, occupational therapy games with body landmarks, special education, education videos, and live therapy progress for parents and therapists.",
+    "The ARVIT AI AAC Device includes speech practice, motor games, learning, and AAC — with a parent view of progress. One device, not a second product.",
 };
 
 export default function AiTherapyPage() {
   return (
     <>
       <PageHero
-        eyebrow="Therapy Tablet"
+        eyebrow="On the AAC Device"
         eyebrowIcon={BrainCircuit}
-        title="The child tablet — AAC and therapy progress together"
-        description="One device for speech (our AI model), occupational therapy games that track body landmarks, special education, education videos, AAC communication, and clear progress for the care team."
+        title="Practice for your child. A view for you."
+        description="The same AAC Device includes speech practice, motor games, learning, and communication — plus reports parents and clinicians share."
       />
       <AiTherapyTeaser />
       <DomainsGrid />
       <HowItWorks />
       <FeatureCategoryGrid
         category="Therapy Tablet"
-        eyebrow="Inside the Therapy Tablet"
+        eyebrow="On the device"
         title="Everything a child's care plan needs"
-        description="Speech AI, OT landmark games, special ed, education videos, AAC, and progress — designed as one tablet experience, not a pile of apps."
+        description="Speech, motor games, special ed, AAC, and progress — one device, not a pile of apps."
       />
       <CtaBand
-        title="See the Therapy App in a live session"
-        description="Book a walkthrough and watch assessment turn into adaptive speech, OT, and learning practice in real time."
-        primaryLabel="Pre-book Therapy App"
+        title="See the AAC Device in a live session"
+        description="Book a walkthrough and watch practice, AAC, and the parent view together."
+        primaryLabel="Pre-book AAC Device"
         primaryHref="/#tablets"
         secondaryLabel="Contact us"
         secondaryHref="/contact"

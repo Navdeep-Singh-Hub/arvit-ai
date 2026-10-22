@@ -4,65 +4,36 @@ import { LayoutGrid } from "lucide-react";
 import { PageHero } from "@/components/sections/shared/page-hero";
 import { FeatureCategoryGrid } from "@/components/sections/features/feature-category-grid";
 import { CtaBand } from "@/components/sections/shared/cta-band";
-import { useAudience } from "@/components/providers/audience-provider";
-import { AUDIENCE_COPY } from "@/lib/audience/content";
-import { THERAPY_PROGRESS_ENABLED } from "@/lib/flags";
+import { FAMILY_COPY } from "@/lib/audience/content";
 
 export function FeaturesPageContent() {
-  const { audience, copy } = useAudience();
-  const showTherapy = THERAPY_PROGRESS_ENABLED && audience === "child";
-  const active = showTherapy ? AUDIENCE_COPY.child : AUDIENCE_COPY.adult;
-
-  if (!showTherapy) {
-    return (
-      <>
-        <PageHero
-          eyebrow="AAC Device features"
-          eyebrowIcon={LayoutGrid}
-          title="Built for adult communication"
-          description="Every capability below belongs to the Adult AAC Device — no pediatric therapy modules mixed in."
-        />
-        <FeatureCategoryGrid
-          category="AAC Tablet"
-          eyebrow="AAC Device"
-          title="Communication, first and always"
-          description="Symbol boards, prediction, personalized voice, emergency phrases, and adult-first tools."
-        />
-        <FeatureCategoryGrid
-          category="Shared & Insights"
-          eyebrow="Account & cloud"
-          title="Secure insights for adult AAC"
-          description="Caregiver access, offline AAC, multi-language support, and clinical-grade security."
-        />
-        <CtaBand
-          title={active.ctaTitle}
-          description={active.ctaDescription}
-          primaryLabel={active.ctaPrimaryLabel}
-          primaryHref={active.ctaPrimaryHref}
-        />
-      </>
-    );
-  }
+  const active = FAMILY_COPY;
 
   return (
     <>
       <PageHero
-        eyebrow="Therapy App features"
+        eyebrow="AAC Device features"
         eyebrowIcon={LayoutGrid}
-        title="Built for children and progress"
-        description="Every capability below belongs to the AAC + Therapy Progress App for children — speech, OT, special ed, and AAC together."
+        title="Built for the child. Clear for the parent."
+        description="Everything below lives on one AAC Device — communication for your child, progress and home practice for you."
+      />
+      <FeatureCategoryGrid
+        category="AAC Tablet"
+        eyebrow="For the child"
+        title="A voice they can use today"
+        description="Symbol boards, prediction, speech output, and emergency phrases — ready at home and at school."
       />
       <FeatureCategoryGrid
         category="Therapy Tablet"
-        eyebrow="Therapy App"
-        title="AAC plus measurable therapy"
-        description="AI speech model, OT landmark games, special education, education videos, gamified sessions, and progress."
+        eyebrow="Practice on the same device"
+        title="Speech, movement, and learning"
+        description="Speech practice, motor games, special education, and progress your clinician can review."
       />
       <FeatureCategoryGrid
         category="Shared & Insights"
-        eyebrow="Family & clinic cloud"
-        title="Dashboards parents and therapists share"
-        description="Parent and therapist views, offline AAC, multi-language support, and clinical-grade security."
+        eyebrow="For parents"
+        title="A view you can actually read"
+        description="Parent summaries, home-practice tips, offline AAC, and clinical-grade security."
       />
       <CtaBand
         title={active.ctaTitle}

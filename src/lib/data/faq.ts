@@ -7,80 +7,55 @@ export type FaqItem = {
 
 export const FAQ: FaqItem[] = [
   {
-    audience: "adult",
+    audience: "both",
     question: "What is the ARVIT AAC Device?",
     answer:
-      "The AAC Device is ARVIT's dedicated adult communication product — symbol boards, text-to-speech, phrase prediction, and voice personalization for people who are non-speaking or have lost speech.",
+      "One device for your family. Your child communicates with symbol boards, text-to-speech, and phrase prediction. You see progress, home practice, and safety controls on the same device.",
   },
   {
-    audience: "child",
-    question: "What is the AAC + Therapy Progress App?",
+    audience: "both",
+    question: "Who is it for?",
     answer:
-      "It's ARVIT's child experience: AAC plus AI speech therapy, occupational therapy games that track body landmarks, special education, education videos, and live progress for parents and therapists.",
+      "Children who are non-speaking or still building speech — including autism, ADHD, speech delay, developmental delay, apraxia, and more — and the parents and caregivers who support them.",
   },
   {
-    audience: "adult",
-    question: "Who is the AAC Device for?",
+    audience: "both",
+    question: "Does the device replace my child's therapist?",
     answer:
-      "Adults who are non-speaking or have lost speech — including stroke recovery, ALS, cerebral palsy, TBI, and progressive neurological conditions. Caregivers and clinicians can support them, but the product is adult-first.",
+      "No. ARVIT extends a therapist's plan at home. Licensed clinicians stay in control of goals. Parents get a plain-language view of what happened this week.",
   },
   {
-    audience: "child",
-    question: "Does AI replace my child's therapist?",
+    audience: "both",
+    question: "What does my child use, and what do I see?",
     answer:
-      "No. The Therapy App extends a therapist's reach — it does not replace clinical judgment. Plans and progress stay reviewable by licensed clinicians.",
+      "Your child uses boards, voice, speech practice, and games. You see session summaries, trends, home-practice tips, and parent controls for vocabulary and usage.",
   },
   {
-    audience: "child",
-    question: "How does speech therapy work?",
-    answer:
-      "Our AI speech model listens, analyzes, and guides articulation and language practice in real time — adaptive feedback every session, not a fixed playlist.",
-  },
-  {
-    audience: "child",
-    question: "How does occupational therapy work?",
-    answer:
-      "OT games track landmarks of the child's body so motor and daily-living practice is interactive, measurable, and adjusted to how they move.",
-  },
-  {
-    audience: "adult",
+    audience: "both",
     question: "Can AAC work offline?",
     answer:
-      "Yes. Core AAC — symbol boards, phrase prediction, and text-to-speech — works offline so communication never depends on a connection.",
-  },
-  {
-    audience: "child",
-    question: "Can AAC work offline on the Therapy App?",
-    answer:
-      "Yes. Core AAC works offline on the Therapy App, so communication never depends on a connection.",
+      "Yes. Core AAC — symbol boards, phrase prediction, and text-to-speech — works offline so your child can communicate without a connection.",
   },
   {
     audience: "both",
-    question: "Is my data secure?",
+    question: "Is my family's data secure?",
     answer:
-      "Yes. Data is encrypted in transit and at rest, access is role-based, and actions are logged for clinical-grade protection.",
-  },
-  {
-    audience: "adult",
-    question: "How do I get started with the AAC Device?",
-    answer:
-      "Pre-book from the homepage or contact our team for a live walkthrough. Most adults and clinics are onboarded quickly after a short demo.",
-  },
-  {
-    audience: "child",
-    question: "How do I get started with Therapy?",
-    answer:
-      "Pre-book from the homepage or book a demo. We'll match the Therapy App to your child's care plan — families and practices onboard in about a week.",
+      "Yes. Data is encrypted in transit and at rest, access is role-based for parents and clinicians, and actions are logged.",
   },
   {
     audience: "both",
-    question: "Do you work with clinics and hospitals?",
+    question: "How do we get started?",
     answer:
-      "Yes. We deploy through Solutions for private practices and health systems, with onboarding and admin tooling for teams.",
+      "Pre-book from the homepage or catalog, or contact us for a live walkthrough. We'll match the AAC Device to your child's care plan — families typically onboard after a short demo.",
+  },
+  {
+    audience: "both",
+    question: "Do you work with clinics and schools?",
+    answer:
+      "Yes. We deploy through Solutions for private practices, schools, and health systems, with onboarding for families and care teams.",
   },
 ];
 
-export function getFaqForAudience(audience: "adult" | "child" | null): FaqItem[] {
-  if (!audience) return FAQ.filter((f) => f.audience === "both" || !f.audience);
-  return FAQ.filter((f) => !f.audience || f.audience === "both" || f.audience === audience);
+export function getFaqForAudience(_audience: "adult" | "child" | null): FaqItem[] {
+  return FAQ;
 }

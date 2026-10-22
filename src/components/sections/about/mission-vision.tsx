@@ -6,8 +6,8 @@ import { Card, CardIcon } from "@/components/ui/card";
 const PRINCIPLES = [
   {
     icon: Tablet,
-    title: "Right device, right person",
-    body: "Adults get an AAC-first tablet. Children get therapy plus AAC. We never blur those jobs into one confusing product.",
+    title: "One device, two jobs",
+    body: "The child gets a voice and practice. The parent gets a view they can follow. We never split that into two products.",
   },
   {
     icon: HeartHandshake,
@@ -33,13 +33,12 @@ export function MissionVision() {
               </CardIcon>
               <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">Our Mission</h2>
               <p className="mt-4 text-lg font-medium leading-snug text-foreground/90">
-                To make world-class therapy and communication accessible, affordable, and engaging through Artificial
-                Intelligence — on the right tablet for each person.
+                To make world-class communication and practice accessible, affordable, and engaging through Artificial
+                Intelligence — on one AAC Device for children and parents.
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                We partner with licensed clinicians so adults regain a voice on the AAC Tablet, and children build
-                speech, motor, and learning skills on the Therapy Tablet — at home, in clinic, and everywhere in
-                between.
+                We partner with licensed clinicians so children build a voice and practice on the AAC Device, and
+                parents stay in the loop at home, in clinic, and everywhere in between.
               </p>
             </Card>
           </Reveal>

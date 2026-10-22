@@ -15,7 +15,6 @@ import {
   type Audience,
   type AudienceCopy,
 } from "@/lib/audience/content";
-import { THERAPY_PROGRESS_ENABLED } from "@/lib/flags";
 
 type AudienceContextValue = {
   audience: Audience | null;
@@ -44,40 +43,15 @@ export function AudienceProvider({ children }: { children: ReactNode }) {
   const [gateOpen, setGateOpen] = useState(false);
 
   useEffect(() => {
+    const value: Audience = "child";
+    setAudienceState(value);
+    applyAudienceAttr(value);
     try {
-      const saved = localStorage.getItem(AUDIENCE_STORAGE_KEY);
-      // Therapy Progress temporarily offline — never restore child mode
-      if (!THERAPY_PROGRESS_ENABLED || saved === "adult") {
-        const value = "adult" as Audience;
-        setAudienceState(value);
-        applyAudienceAttr(value);
-        try {
-          localStorage.setItem(AUDIENCE_STORAGE_KEY, value);
-        } catch {
-          // ignore
-        }
-        // Skip gate when only adult is available, or open gate once if new visitor
-        if (!THERAPY_PROGRESS_ENABLED) {
-          setGateOpen(false);
-        } else {
-          setGateOpen(false);
-        }
-      } else if (saved === "child" && THERAPY_PROGRESS_ENABLED) {
-        setAudienceState("child");
-        applyAudienceAttr("child");
-        setGateOpen(false);
-      } else {
-        setGateOpen(true);
-      }
+      localStorage.setItem(AUDIENCE_STORAGE_KEY, value);
     } catch {
-      if (!THERAPY_PROGRESS_ENABLED) {
-        setAudienceState("adult");
-        applyAudienceAttr("adult");
-        setGateOpen(false);
-      } else {
-        setGateOpen(true);
-      }
+      // ignore
     }
+    setGateOpen(false);
     setReady(true);
   }, []);
 
@@ -107,9 +81,8 @@ export function AudienceProvider({ children }: { children: ReactNode }) {
     }
   }, [gateOpen, ready]);
 
-  const setAudience = useCallback((value: Audience) => {
-    // Block child selection while Therapy Progress is offline
-    const next = !THERAPY_PROGRESS_ENABLED ? "adult" : value;
+  const setAudience = useCallback((_value: Audience) => {
+    const next: Audience = "child";
     setAudienceState(next);
     applyAudienceAttr(next);
     try {
@@ -132,7 +105,7 @@ export function AudienceProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const openGate = useCallback(() => {
-    setGateOpen(true);
+    setGateOpen(false);
   }, []);
 
   const copy = audience ? AUDIENCE_COPY[audience] : null;

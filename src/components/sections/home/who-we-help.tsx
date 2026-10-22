@@ -10,13 +10,7 @@ import { useAudience } from "@/components/providers/audience-provider";
 import { THERAPY_PROGRESS_ENABLED } from "@/lib/flags";
 import { cn } from "@/lib/utils";
 
-function filterConditions(audience: "adult" | "child" | null): Condition[] {
-  if (!THERAPY_PROGRESS_ENABLED || audience === "adult" || !audience) {
-    return WHO_WE_HELP.filter((c) => c.tablet === "aac" || c.tablet === "both");
-  }
-  if (audience === "child") {
-    return WHO_WE_HELP.filter((c) => c.tablet === "therapy" || c.tablet === "both");
-  }
+function filterConditions(_audience: "adult" | "child" | null): Condition[] {
   return WHO_WE_HELP;
 }
 
@@ -30,8 +24,7 @@ function MarqueeRow({
   audience: "adult" | "child" | null;
 }) {
   const loop = [...items, ...items];
-  const fitLabel =
-    audience === "adult" ? "AAC Device" : audience === "child" ? "Therapy App" : null;
+  const fitLabel = "AAC Device";
   return (
     <div className="mask-fade-edges overflow-hidden py-2">
       <div
@@ -105,13 +98,11 @@ export function WhoWeHelp() {
                     <condition.icon className="size-4 sm:size-5" />
                   </span>
                   <span className="rounded-full bg-[#12151a] px-2 py-1 text-[9px] font-semibold tracking-wide text-white uppercase sm:px-2.5 sm:text-[10px]">
-                    {effective === "adult" ? "AAC Device" : "Therapy App"}
+                    AAC Device
                   </span>
                 </div>
                 <p className="mt-3 text-sm font-semibold text-black sm:mt-4">{condition.title}</p>
-                <p className="mt-1.5 text-xs leading-relaxed text-black/60">
-                  {(effective === "child" ? condition.child : condition.adult) ?? condition.description}
-                </p>
+                <p className="mt-1.5 text-xs leading-relaxed text-black/60">{condition.description}</p>
               </div>
             </StaggerItem>
           ))}

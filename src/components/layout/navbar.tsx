@@ -10,7 +10,6 @@ import { Logo } from "@/components/icons/logo";
 import { ButtonLink } from "@/components/ui/button";
 import { MobileMenu } from "@/components/layout/mobile-menu";
 import { useCart } from "@/components/commerce/cart-provider";
-import { AudienceSwitcher } from "@/components/audience/audience-switcher";
 import { useAudience } from "@/components/providers/audience-provider";
 import { getAudienceNavGroups } from "@/lib/audience/filter";
 
@@ -123,7 +122,6 @@ export function Navbar() {
           </nav>
 
           <div className="hidden items-center gap-3 text-white lg:flex">
-            <AudienceSwitcher />
             <Link
               href="/cart"
               aria-label={`Cart${count ? `, ${count} items` : ""}`}
@@ -148,7 +146,6 @@ export function Navbar() {
           </div>
 
           <div className="flex min-w-0 items-center gap-0.5 sm:gap-1 lg:hidden">
-            <AudienceSwitcher className="mr-0.5 max-w-[7.5rem] truncate px-2 py-1.5 text-[0.65rem] sm:max-w-none sm:px-3 sm:text-[0.8125rem]" />
             <Link
               href="/cart"
               aria-label="Cart"

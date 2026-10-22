@@ -123,9 +123,9 @@ export function HowItWorks() {
       <section className="relative section-pad">
         <Container>
           <SectionHeading
-            eyebrow="How the Therapy Tablet works"
-            title="From first assessment to lasting progress"
-            description="Six steps on the Child Therapy Tablet — speech AI, OT landmarks, special ed, AAC, and reports families and clinicians share."
+            eyebrow="How the AAC Device works"
+            title="From first session to progress you can see"
+            description="Six steps on one device — speech, motor practice, learning, AAC, and reports parents and clinicians share."
           />
           <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {HOW_IT_WORKS.map((step) => (
@@ -144,9 +144,9 @@ export function HowItWorks() {
       <div className="sticky top-0 flex min-h-[100svh] items-center py-16 sm:py-20">
         <Container>
           <SectionHeading
-            eyebrow="How the Therapy Tablet works"
-            title="From first assessment to lasting progress"
-            description="Six steps on the Child Therapy Tablet — speech AI, OT landmarks, special ed, AAC, and reports families and clinicians share."
+            eyebrow="How the AAC Device works"
+            title="From first session to progress you can see"
+            description="Six steps on one device — speech, motor practice, learning, AAC, and reports parents and clinicians share."
           />
 
           <div className="relative mt-12 grid grid-cols-1 gap-10 lg:mt-16 lg:grid-cols-[auto_1fr] lg:gap-16">

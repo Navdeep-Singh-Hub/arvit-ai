@@ -6,25 +6,25 @@ import { AacWhoItHelps } from "@/components/sections/aac/aac-who-it-helps";
 import { CtaBand } from "@/components/sections/shared/cta-band";
 
 export const metadata: Metadata = {
-  title: "AAC Tablet",
+  title: "AAC Device",
   description:
-    "ARVIT AI AAC Tablet for adults: dedicated Augmentative & Alternative Communication with AI text-to-speech, symbol boards, phrase prediction, voice personalization, and offline mode — for stroke, ALS, cerebral palsy, TBI, and more.",
+    "ARVIT AI AAC Device for children and parents: symbol boards, AI text-to-speech, phrase prediction, speech practice, and a parent view of progress — one device for the whole family.",
 };
 
 export default function AacCommunicationPage() {
   return (
     <>
       <PageHero
-        eyebrow="AAC Tablet"
+        eyebrow="AAC Device"
         eyebrowIcon={MessagesSquare}
-        title="Giving adults their voice back"
-        description="A dedicated AAC tablet for adults who are non-speaking or have lost the ability to communicate due to stroke, ALS, cerebral palsy, traumatic brain injury, apraxia, or other neurological conditions — focused on communication, not pediatric therapy."
+        title="A voice for your child. Progress you can follow."
+        description="One AAC Device for the family. Your child communicates with boards and voice. You see practice, progress, and home tips — without a second product to learn."
       />
       <AacFeaturesShowcase />
       <AacWhoItHelps />
       <CtaBand
         title="Ready to pre-book the AAC Device?"
-        description="Reserve the Adult AAC Device, book a live walkthrough, or talk with our team. Built for adult communicators."
+        description="Reserve one device for your family, book a live walkthrough, or talk with our team."
         primaryLabel="Pre-book AAC Device"
         primaryHref="/#tablets"
         secondaryLabel="Contact us"

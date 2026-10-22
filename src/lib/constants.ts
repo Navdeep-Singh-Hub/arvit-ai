@@ -1,9 +1,9 @@
 export const SITE = {
   name: "ARVIT AI",
   legalName: "ARVIT AI, Inc.",
-  tagline: "Two therapy tablets. Clear purpose for every age.",
+  tagline: "One AAC Device for children and parents.",
   description:
-    "ARVIT AI builds purpose-built therapy tablets: an Adult AAC Tablet for communication, and a Child Therapy Tablet that combines AAC with AI speech therapy, occupational therapy games using body landmarks, special education, education videos, and progress tracking.",
+    "ARVIT AI builds one AAC Device for children and the parents who support them: symbol boards, AI voice, speech practice, and a parent view of progress on a single device.",
   url: "https://www.arvit.ai",
   email: "hello@arvit.ai",
   supportEmail: "support@arvit.ai",
