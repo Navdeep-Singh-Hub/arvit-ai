@@ -34,7 +34,7 @@ export const FEATURES: Feature[] = [
     icon: Mic,
     title: "AI Speech Model",
     description:
-      "Our own speech AI listens, analyzes, and guides articulation and language practice in real time on the Therapy Tablet.",
+      "Our own speech AI listens, analyzes, and guides articulation and language practice in real time on the AAC Device.",
     category: "Therapy Tablet",
     href: "/ai-therapy",
   },

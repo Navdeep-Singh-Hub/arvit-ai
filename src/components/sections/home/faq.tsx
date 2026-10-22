@@ -21,8 +21,8 @@ export function Faq() {
       <Container size="narrow">
         <SectionHeading
           eyebrow="FAQ"
-          title="Answers for your path"
-          description="Questions tailored to the experience you chose — adult AAC or child therapy."
+          title="Answers for families"
+          description="Questions for the child who uses the AAC Device and the parent who follows along."
         />
 
         <StaggerGroup key={effective} className="mt-14 space-y-4">
