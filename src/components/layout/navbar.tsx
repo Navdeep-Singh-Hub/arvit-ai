@@ -56,6 +56,9 @@ export function Navbar() {
           </Link>
 
           <nav aria-label="Primary" className="hidden flex-1 items-center justify-center gap-1 lg:flex">
+            <NavItem href="/#how-it-works" active={false}>
+              How it works
+            </NavItem>
             <NavItem href="/about" active={pathname === "/about"}>
               About
             </NavItem>
@@ -101,7 +104,7 @@ export function Navbar() {
                             className="block px-4 py-3 transition-colors hover:bg-white/5"
                           >
                             <p className="text-sm font-semibold text-white">{item.label}</p>
-                            <p className="mt-0.5 text-xs leading-relaxed text-white/50">
+                            <p className="mt-0.5 text-xs leading-relaxed text-white/70">
                               {item.description}
                             </p>
                           </Link>
@@ -141,7 +144,7 @@ export function Navbar() {
               magnetic={false}
               className="text-nav h-9 min-h-9 px-4"
             >
-              Pre-book
+              Book now
             </ButtonLink>
           </div>
 

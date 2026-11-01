@@ -46,7 +46,7 @@ export const FAQ: FaqItem[] = [
     audience: "both",
     question: "How do we get started?",
     answer:
-      "Pre-book from the homepage or catalog, or contact us for a live walkthrough. We'll match the AAC Device to your child's care plan — families typically onboard after a short demo.",
+      "Book from the homepage or catalog, or contact us for a live walkthrough. We'll match the AAC Device to your child's care plan — families typically onboard after a short demo.",
   },
   {
     audience: "both",

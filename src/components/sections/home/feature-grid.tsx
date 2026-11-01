@@ -16,19 +16,18 @@ export function FeatureGrid() {
   const effective = audience === "child" && THERAPY_PROGRESS_ENABLED ? "child" : "adult";
   const active = AUDIENCE_COPY[effective];
 
-  const familyFeatures = new Set([
-    "AAC Device",
-    "AI Text-to-Speech",
+  // The six things a parent asks about first. Everything else lives on /features.
+  const familyFeatures = [
     "Symbol & Picture Boards",
+    "AI Text-to-Speech",
     "Phrase Prediction",
-    "AI Speech Model",
-    "OT Landmark Games",
-    "Therapy Progress",
     "Parent Dashboard",
     "Offline AAC Mode",
     "Secure Cloud Platform",
-  ]);
-  const features = FEATURES.filter((feature) => familyFeatures.has(feature.title));
+  ];
+  const features = familyFeatures
+    .map((title) => FEATURES.find((feature) => feature.title === title))
+    .filter((feature): feature is (typeof FEATURES)[number] => Boolean(feature));
 
   return (
     <section id="features" className="section-pad section-light border-t border-black/5">
@@ -70,13 +69,20 @@ export function FeatureGrid() {
                 <h3 className="mt-8 text-lg font-semibold tracking-tight text-[#12151a] transition-colors group-hover:text-white">
                   {feature.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-black/60 transition-colors group-hover:text-white/65">
+                <p className="mt-3 text-sm leading-relaxed text-black/70 transition-colors group-hover:text-white/65">
                   {feature.description}
                 </p>
               </Link>
             </StaggerItem>
           ))}
         </StaggerGroup>
+
+        <div className="mt-10">
+          <Link href="/features" className="text-nav inline-flex items-center gap-2 text-[#0a6b64] hover:opacity-70">
+            See all features
+            <ArrowUpRight className="size-3.5" />
+          </Link>
+        </div>
       </Container>
     </section>
   );

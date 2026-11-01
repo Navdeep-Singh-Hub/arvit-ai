@@ -41,9 +41,9 @@ const FAMILY_NAV: NavGroup[] = [
         description: "Boards and voice for your child. Progress you can follow.",
       },
       {
-        label: "Pre-book",
+        label: "Book now",
         href: "/#tablets",
-        description: "Reserve the AAC Device for your family.",
+        description: "Book the AAC Device for your family.",
       },
       {
         label: "Features",
@@ -83,7 +83,7 @@ export function getAudienceFooterPlatform(_audience: Audience | null) {
   return [
     { label: "AAC Device", href: "/aac-communication" },
     { label: "For Parents", href: "/parents" },
-    { label: "Pre-book / Cart", href: "/cart" },
+    { label: "Book / Cart", href: "/cart" },
     { label: "Features", href: "/features" },
     { label: "For Therapists", href: "/therapists" },
   ];

@@ -17,11 +17,11 @@ export default function CartPage() {
           <div>
             <p className="text-sm font-semibold tracking-wide text-brand-primary uppercase">Cart</p>
             <h1 className="mt-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              Your pre-bookings
+              Your booking
             </h1>
             <p className="mt-2 text-muted-foreground">
               {count === 0
-                ? "Your cart is empty. Choose an app to pre-book."
+                ? "Your cart is empty. Choose a device to book."
                 : `${count} item${count === 1 ? "" : "s"} ready for checkout.`}
             </p>
           </div>
@@ -100,7 +100,7 @@ export default function CartPage() {
                 <span className="text-2xl font-semibold text-foreground">{formatMoney(totalCents)}</span>
               </div>
               <p className="mt-2 text-xs text-muted-foreground">
-                Pre-booking reserves your place. Our team will confirm payment and delivery details after
+                Booking reserves your device. Our team will contact you to confirm payment and delivery details after
                 checkout.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-end">

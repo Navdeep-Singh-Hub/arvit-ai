@@ -17,10 +17,10 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
           <CheckCircle2 className="size-8" />
         </div>
         <h1 className="mt-6 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Pre-booking received
+          Booking received
         </h1>
         <p className="mt-3 text-muted-foreground">
-          Thanks — our team will follow up by email to confirm your AAC Device and/or AAC + Therapy Progress
+          Thanks — our team will contact you shortly to confirm payment and delivery for your AAC Device.
           App reservation.
         </p>
         {id ? (

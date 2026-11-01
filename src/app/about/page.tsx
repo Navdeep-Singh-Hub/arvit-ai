@@ -4,7 +4,6 @@ import { PageHero } from "@/components/sections/shared/page-hero";
 import { OurStory } from "@/components/sections/about/our-story";
 import { MissionVision } from "@/components/sections/about/mission-vision";
 import { Values } from "@/components/sections/about/values";
-import { Stats } from "@/components/sections/home/stats";
 import { CtaBand } from "@/components/sections/shared/cta-band";
 
 export const metadata: Metadata = {
@@ -25,12 +24,11 @@ export default function AboutPage() {
       <OurStory />
       <MissionVision />
       <Values />
-      <Stats />
       <CtaBand
         title="See the AAC Device in action"
         description="Book a walkthrough of the device your child uses and the parent view you follow."
         primaryHref="/#tablets"
-        primaryLabel="Pre-book AAC Device"
+        primaryLabel="Book AAC Device"
       />
     </>
   );

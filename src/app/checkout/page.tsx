@@ -53,7 +53,7 @@ export default function CheckoutPage() {
 
       const data = (await response.json()) as { error?: string; bookingId?: string };
       if (!response.ok) {
-        throw new Error(data.error || "Could not complete pre-booking.");
+        throw new Error(data.error || "Could not complete your booking.");
       }
 
       clearCart();
@@ -84,10 +84,10 @@ export default function CheckoutPage() {
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold tracking-wide text-brand-primary uppercase">Checkout</p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Complete your pre-booking
+            Complete your booking
           </h1>
           <p className="mt-3 text-muted-foreground">
-            Share your details and we&apos;ll confirm both apps and next steps by email.
+            Share your details and we&apos;ll confirm your order, payment and delivery by email or phone.
           </p>
         </div>
 
@@ -133,7 +133,7 @@ export default function CheckoutPage() {
                 ← Back to cart
               </Link>
               <Button type="submit" variant="gradient" disabled={status === "submitting"} magnetic={false}>
-                {status === "submitting" ? "Submitting…" : "Confirm pre-booking"}
+                {status === "submitting" ? "Submitting…" : "Confirm booking"}
               </Button>
             </div>
           </form>

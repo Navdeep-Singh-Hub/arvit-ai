@@ -44,13 +44,13 @@ export const FAMILY_COPY: AudienceCopy = {
   heroTitle: "A voice for your child, and progress you can follow",
   heroDescription:
     "One AAC Device. Your child communicates with boards and voice. You see practice, progress, and home tips on the same device.",
-  primaryCta: "Pre-book now",
+  primaryCta: "Book now",
   primaryHref: "/#tablets",
   secondaryCta: "Explore the AAC Device",
   tabletsEyebrow: "The device",
   tabletsTitle: "One device for your child — and for you",
   tabletsDescription:
-    "Symbol boards and speech for the child. Clear progress and home practice for parents. Pre-book today.",
+    "Symbol boards and speech for the child. Clear progress and home practice for parents. Book yours today.",
   featuresEyebrow: "On the device",
   featuresTitle: "Built for the child. Clear for the parent.",
   featuresDescription:
@@ -58,10 +58,10 @@ export const FAMILY_COPY: AudienceCopy = {
   whoTitle: "Support for every stage of childhood communication",
   whoDescription:
     "Autism, ADHD, speech delay, developmental delay, and more — one device that meets the child where they are, with a parent view you can actually read.",
-  ctaTitle: "Ready to pre-book the AAC Device?",
+  ctaTitle: "Ready to book the AAC Device?",
   ctaDescription:
-    "Reserve one device for your family. Book a live walkthrough, or ask our team anything.",
-  ctaPrimaryLabel: "Pre-book AAC Device",
+    "Book a device for your family. Book a live walkthrough, or ask our team anything.",
+  ctaPrimaryLabel: "Book AAC Device",
   ctaPrimaryHref: "/#tablets",
   footerBlurb:
     "ARVIT AI builds one AAC Device for children and the parents who support them — boards, voice, and progress in one place.",
@@ -76,24 +76,3 @@ export const AUDIENCE_COPY: Record<Audience, AudienceCopy> = {
   adult: FAMILY_COPY,
   child: FAMILY_COPY,
 };
-
-export const GATE_OPTIONS = [
-  {
-    id: "adult" as const,
-    title: "I'm a parent",
-    subtitle: "Or I care for a child",
-    description: "One AAC Device — boards and voice for your child, progress you can follow.",
-    product: "AAC Device",
-    highlights: ["Symbol & picture boards", "AI text-to-speech", "Parent progress", "Home practice"],
-    accent: "secondary" as const,
-  },
-  {
-    id: "child" as const,
-    title: "I'm here for a child",
-    subtitle: "Parent, caregiver, or clinician",
-    description: "The same AAC Device — communication plus speech, motor practice, and live reports.",
-    product: "AAC Device",
-    highlights: ["AAC for the child", "Speech practice", "Parent progress", "Therapist view"],
-    accent: "primary" as const,
-  },
-] as const;

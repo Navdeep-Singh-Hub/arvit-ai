@@ -4,11 +4,11 @@ import { Fraunces, Outfit } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/constants";
 import { Providers } from "@/components/providers/providers";
-import { Preloader } from "@/components/effects/preloader";
 import { ScrollProgressBar } from "@/components/layout/scroll-progress-bar";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { BackToTop } from "@/components/layout/back-to-top";
+import { MobileBookBar } from "@/components/layout/mobile-book-bar";
 import { PageTransition } from "@/components/providers/page-transition";
 
 /** Precise UI sans */
@@ -95,7 +95,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning className={`${outfit.variable} ${fraunces.variable}`}>
       <body className="flex min-h-dvh flex-col overflow-x-clip bg-background text-foreground antialiased">
         <Providers>
-          <Preloader />
           <ScrollProgressBar />
           <a
             href="#main-content"
@@ -109,6 +108,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </main>
           <Footer />
           <BackToTop />
+          <MobileBookBar />
         </Providers>
       </body>
     </html>

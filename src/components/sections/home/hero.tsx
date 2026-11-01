@@ -17,8 +17,20 @@ import { Reveal } from "@/components/motion/reveal";
 import { TabletViewer } from "@/components/three/tablet-viewer";
 import { AUDIENCE_COPY } from "@/lib/audience/content";
 import { useAudience } from "@/components/providers/audience-provider";
+import { CATALOG_PRODUCTS, formatProductPrice } from "@/lib/commerce/products";
+import { LineChart, MessageSquare, ShieldCheck, WifiOff } from "lucide-react";
 
-const springSoft = { stiffness: 42, damping: 28, mass: 0.72 };
+const PRODUCT = CATALOG_PRODUCTS[0];
+
+/** Only product facts that are true today — no unverified numbers. */
+const HERO_POINTS = [
+  { icon: MessageSquare, label: "Symbol boards + voice" },
+  { icon: LineChart, label: "Parent progress view" },
+  { icon: WifiOff, label: "Works offline" },
+  { icon: ShieldCheck, label: "Private & secure" },
+] as const;
+
+const springSoft ={ stiffness: 42, damping: 28, mass: 0.72 };
 const springCursor = { stiffness: 50, damping: 30, mass: 0.55 };
 
 /**
@@ -132,19 +144,46 @@ export function Hero() {
           </SplitHeading>
 
           <Reveal delay={0.15} className="mt-5 sm:mt-7">
-            <p className="text-body-lg max-w-md text-pretty text-white/65">{active.heroDescription}</p>
+            <p className="text-body-lg max-w-md text-pretty text-white/80">{active.heroDescription}</p>
           </Reveal>
 
-          <Reveal delay={0.28} className="mt-8 sm:mt-10">
+          <Reveal delay={0.28} className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center">
             <ButtonLink
               href={active.primaryHref}
               size="xl"
               variant="gradient"
               magnetic={false}
-              className="text-nav h-12 min-h-12 w-full max-w-xs px-8 sm:w-auto"
+              className="text-nav h-12 min-h-12 w-full px-8 sm:w-auto"
             >
               {active.primaryCta}
             </ButtonLink>
+            <ButtonLink
+              href="/contact"
+              size="xl"
+              variant="glass"
+              magnetic={false}
+              className="text-nav h-12 min-h-12 w-full px-8 sm:w-auto"
+            >
+              Book a free demo
+            </ButtonLink>
+          </Reveal>
+
+          <Reveal delay={0.36} className="mt-5">
+            <p className="text-sm text-white/75">
+              <span className="font-semibold text-white">{formatProductPrice(PRODUCT)}</span> inclusive ·
+              Our team calls you to confirm delivery
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.44} className="mt-8 border-t border-white/10 pt-6">
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm text-white/80 sm:flex sm:flex-wrap sm:gap-x-6">
+              {HERO_POINTS.map(({ icon: Icon, label }) => (
+                <li key={label} className="flex items-center gap-2">
+                  <Icon className="size-4 shrink-0 text-[#5eead4]" strokeWidth={1.75} aria-hidden />
+                  {label}
+                </li>
+              ))}
+            </ul>
           </Reveal>
         </motion.div>
 

@@ -54,7 +54,7 @@ function ProductCard({ product }: { product: PrebookProduct }) {
 
           <h3 className="text-h3 mt-6 text-black sm:mt-8">{product.name}</h3>
           <p className="mt-2 text-base font-medium tracking-tight text-black/70 sm:mt-3 sm:text-lg">{product.tagline}</p>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-black/60 sm:mt-6 sm:text-base">{product.description}</p>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-black/70 sm:mt-6 sm:text-base">{product.description}</p>
 
           <ul className="mt-6 grid grid-cols-1 gap-2 sm:mt-10 sm:grid-cols-2">
             {highlights.map(({ icon: Icon, label }) => (
@@ -71,13 +71,13 @@ function ProductCard({ product }: { product: PrebookProduct }) {
           <div className="mt-8 flex flex-col gap-6 border-t border-black/10 pt-8 sm:mt-12 sm:gap-8 sm:pt-10 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-eyebrow">
-                {product.comingSoon ? "Pre-book price" : "Price"}
+                Price
               </p>
               <p className="font-display mt-2 text-[clamp(2rem,8vw,3.5rem)] font-medium tracking-tight text-[#12151a]">
                 {formatProductPrice(product)}
               </p>
-              <p className="mt-2 text-xs text-black/50">
-                {product.comingSoon ? "Inclusive INR · ships when ready" : "Inclusive price in INR"}
+              <p className="mt-2 text-xs text-black/60">
+                Inclusive price in INR · our team confirms payment and delivery after you book
               </p>
             </div>
             <Link
@@ -92,7 +92,7 @@ function ProductCard({ product }: { product: PrebookProduct }) {
           <div className="mt-6 sm:mt-8">
             <AddToCartButton
               productId={product.id}
-              label={`Pre-book ${product.shortName}`}
+              label={`Book ${product.shortName}`}
               variant="gradient"
               size="xl"
               className="w-full justify-center sm:max-w-xs"

@@ -24,7 +24,7 @@ export function AddToCartButton({
   className,
   size = "default",
   variant = "gradient",
-  label = "Pre-book",
+  label = "Book now",
 }: AddToCartButtonProps) {
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);

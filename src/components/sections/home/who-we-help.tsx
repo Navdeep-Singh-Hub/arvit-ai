@@ -102,7 +102,7 @@ export function WhoWeHelp() {
                   </span>
                 </div>
                 <p className="mt-3 text-sm font-semibold text-black sm:mt-4">{condition.title}</p>
-                <p className="mt-1.5 text-xs leading-relaxed text-black/60">{condition.description}</p>
+                <p className="mt-1.5 text-xs leading-relaxed text-black/70">{condition.description}</p>
               </div>
             </StaggerItem>
           ))}

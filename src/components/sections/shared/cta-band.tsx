@@ -27,7 +27,7 @@ export function CtaBand({
           <h2 className="text-h2 max-w-3xl text-balance text-white">{title}</h2>
         </Reveal>
         <Reveal delay={0.08}>
-          <p className="text-body-lg mt-8 max-w-lg text-white/60">{description}</p>
+          <p className="text-body-lg mt-8 max-w-lg text-white/75">{description}</p>
         </Reveal>
         <Reveal delay={0.16} className="mt-8 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:items-center">
           <ButtonLink

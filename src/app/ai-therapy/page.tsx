@@ -34,7 +34,7 @@ export default function AiTherapyPage() {
       <CtaBand
         title="See the AAC Device in a live session"
         description="Book a walkthrough and watch practice, AAC, and the parent view together."
-        primaryLabel="Pre-book AAC Device"
+        primaryLabel="Book AAC Device"
         primaryHref="/#tablets"
         secondaryLabel="Contact us"
         secondaryHref="/contact"

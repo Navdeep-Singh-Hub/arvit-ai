@@ -71,7 +71,7 @@ export default function AdminLoginPage() {
           <p className="text-sm font-semibold tracking-wide text-brand-primary uppercase">Admin</p>
           <h1 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">Sign in</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            View and manage AAC / Therapy app pre-bookings.
+            View and manage AAC / Therapy app bookings.
           </p>
 
           <form onSubmit={onSubmit} className="mt-8 space-y-4">

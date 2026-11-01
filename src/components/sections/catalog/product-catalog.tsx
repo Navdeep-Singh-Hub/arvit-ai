@@ -25,7 +25,7 @@ export function ProductCatalog() {
       <PageHero
         eyebrow="Catalog"
         title="One AAC Device."
-        description="Built for the child who needs a voice, and the parent who needs to see progress. Pre-book the same device for your family."
+        description="Built for the child who needs a voice, and the parent who needs to see progress. Book the same device for your family."
         align="left"
       />
 
@@ -125,7 +125,7 @@ function CatalogEntry({
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <AddToCartButton
               productId={product.id}
-              label={`Pre-book ${product.shortName}`}
+              label={`Book ${product.shortName}`}
               variant="gradient"
               size="lg"
             />

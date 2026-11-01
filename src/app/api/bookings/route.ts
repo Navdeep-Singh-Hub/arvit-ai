@@ -60,7 +60,7 @@ export async function POST(request: Request) {
     }
     if (!isProductPurchasable(product) || product.priceCents == null) {
       return NextResponse.json(
-        { error: `${product.name} is not available for pre-booking yet.` },
+        { error: `${product.name} is not available for booking right now.` },
         { status: 400 }
       );
     }
@@ -81,7 +81,7 @@ export async function POST(request: Request) {
     currency: "INR",
   });
 
-  console.info("[booking] new pre-book created", {
+  console.info("[booking] new booking created", {
     id: booking.id,
     email,
     itemCount: items.length,

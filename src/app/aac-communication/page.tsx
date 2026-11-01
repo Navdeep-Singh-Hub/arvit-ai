@@ -23,9 +23,9 @@ export default function AacCommunicationPage() {
       <AacFeaturesShowcase />
       <AacWhoItHelps />
       <CtaBand
-        title="Ready to pre-book the AAC Device?"
+        title="Ready to book the AAC Device?"
         description="Reserve one device for your family, book a live walkthrough, or talk with our team."
-        primaryLabel="Pre-book AAC Device"
+        primaryLabel="Book AAC Device"
         primaryHref="/#tablets"
         secondaryLabel="Contact us"
         secondaryHref="/contact"

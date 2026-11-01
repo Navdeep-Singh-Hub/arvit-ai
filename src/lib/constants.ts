@@ -57,9 +57,9 @@ export const NAV_GROUPS: NavGroup[] = [
         description: "See the side-by-side difference between both devices.",
       },
       {
-        label: "Pre-book apps",
+        label: "Book your device",
         href: "/cart",
-        description: "Reserve the AAC Device or AAC + Therapy Progress App.",
+        description: "Book the AAC Device for your family.",
       },
       {
         label: "All features",
@@ -104,7 +104,7 @@ export const FOOTER_LINKS = {
     { label: "AAC Tablet", href: "/aac-communication" },
     { label: "Therapy Tablet", href: "/ai-therapy" },
     { label: "Compare tablets", href: "/#tablets" },
-    { label: "Pre-book / Cart", href: "/cart" },
+    { label: "Book / Cart", href: "/cart" },
     { label: "For Parents", href: "/parents" },
     { label: "For Therapists", href: "/therapists" },
   ],
@@ -126,6 +126,6 @@ export const CTA = {
   bookDemo: "Book a Demo",
   watchVideo: "Watch Video",
   chooseTablet: "Choose your tablet",
-  preBook: "Pre-book",
+  preBook: "Book now",
   checkout: "Checkout",
 };

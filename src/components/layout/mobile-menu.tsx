@@ -26,7 +26,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
   const productLabel = copy?.productPageLabel ?? "AAC Device";
 
   const sections = [
-    { label: "", items: [{ label: "Home", href: "/" }, { label: "About", href: "/about" }, { label: "Catalog", href: "/catalog" }] },
+    { label: "", items: [{ label: "Home", href: "/" }, { label: "About", href: "/about" }, { label: "How it works", href: "/#how-it-works" }, { label: "Catalog", href: "/catalog" }] },
     ...navGroups.map((group) => ({
       label: group.label,
       items: group.items.map((i) => ({ label: i.label, href: i.href })),

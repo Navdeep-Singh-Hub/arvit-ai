@@ -1,40 +1,34 @@
-"use client";
-
-import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/home/hero";
+import { Steps } from "@/components/sections/home/steps";
 import { TabletProducts } from "@/components/sections/home/tablet-products";
 import { FeatureGrid } from "@/components/sections/home/feature-grid";
+import { DemoSection } from "@/components/sections/home/demo-section";
 import { WhoWeHelp } from "@/components/sections/home/who-we-help";
-import { Stats } from "@/components/sections/home/stats";
 import { Faq } from "@/components/sections/home/faq";
 import { CtaBand } from "@/components/sections/shared/cta-band";
 import { FAMILY_COPY } from "@/lib/audience/content";
-import { useAudience } from "@/components/providers/audience-provider";
 
-const Testimonials = dynamic(() => import("@/components/sections/home/testimonials").then((m) => m.Testimonials));
-
+/**
+ * Story order: promise (hero) → how easy it is (steps) → the offer (device + price)
+ * → what it does (features) → see it (demo) → is it for my child (who we help)
+ * → remaining doubts (FAQ) → act (CTA).
+ */
 export default function HomePage() {
-  const { ready } = useAudience();
-  const active = FAMILY_COPY;
-
-  if (!ready) {
-    return <div className="min-h-[40vh]" aria-hidden />;
-  }
-
   return (
     <>
       <Hero />
+      <Steps />
       <TabletProducts />
       <FeatureGrid />
+      <DemoSection />
       <WhoWeHelp />
-      <Stats />
-      <Testimonials />
       <Faq />
       <CtaBand
-        title={active.ctaTitle}
-        description={active.ctaDescription}
-        primaryLabel={active.ctaPrimaryLabel}
-        primaryHref={active.ctaPrimaryHref}
+        title={FAMILY_COPY.ctaTitle}
+        description={FAMILY_COPY.ctaDescription}
+        primaryLabel={FAMILY_COPY.ctaPrimaryLabel}
+        primaryHref={FAMILY_COPY.ctaPrimaryHref}
+        secondaryLabel="Book a free demo"
       />
     </>
   );
