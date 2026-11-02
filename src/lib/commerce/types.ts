@@ -22,6 +22,16 @@ export type Booking = {
   items: BookingLineItem[];
   totalCents: number;
   currency: "INR";
+  /** Missing on bookings made before online payment existed (treated as pay-later). */
+  payment?: BookingPayment;
+};
+
+export type BookingPayment = {
+  method: "online" | "later";
+  status: "unpaid" | "paid";
+  razorpayOrderId?: string;
+  razorpayPaymentId?: string;
+  paidAt?: string;
 };
 
 export type CartItem = {

@@ -100,8 +100,7 @@ export default function CartPage() {
                 <span className="text-2xl font-semibold text-foreground">{formatMoney(totalCents)}</span>
               </div>
               <p className="mt-2 text-xs text-muted-foreground">
-                Booking reserves your device. Our team will contact you to confirm payment and delivery details after
-                checkout.
+                Pay securely online at checkout, or book now and pay after our team calls you to confirm delivery.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-end">
                 <ButtonLink href="/#tablets" variant="outline" magnetic={false}>

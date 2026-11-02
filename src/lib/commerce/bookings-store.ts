@@ -64,6 +64,45 @@ export async function createBooking(
   });
 }
 
+export async function getBooking(id: string): Promise<Booking | null> {
+  const store = await ensureStore();
+  return store.bookings.find((booking) => booking.id === id) ?? null;
+}
+
+/** Applies a patch computed from the current booking, atomically. Returns null if not found. */
+export async function updateBooking(
+  find: (booking: Booking) => boolean,
+  patch: (booking: Booking) => Partial<Booking>
+): Promise<Booking | null> {
+  return withLock(async () => {
+    const store = await ensureStore();
+    const index = store.bookings.findIndex(find);
+    if (index === -1) return null;
+    store.bookings[index] = { ...store.bookings[index], ...patch(store.bookings[index]) };
+    await writeStore(store);
+    return store.bookings[index];
+  });
+}
+
+/** Marks the booking that owns this Razorpay order as paid. Idempotent. */
+export async function markBookingPaid(razorpayOrderId: string, razorpayPaymentId: string) {
+  return updateBooking(
+    (booking) => booking.payment?.razorpayOrderId === razorpayOrderId,
+    (booking) =>
+      booking.payment?.status === "paid"
+        ? {}
+        : {
+            status: booking.status === "pending" ? "confirmed" : booking.status,
+            payment: {
+              ...booking.payment!,
+              status: "paid",
+              razorpayPaymentId,
+              paidAt: new Date().toISOString(),
+            },
+          }
+  );
+}
+
 export async function updateBookingStatus(
   id: string,
   status: BookingStatus

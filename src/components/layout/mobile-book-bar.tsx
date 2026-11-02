@@ -38,7 +38,7 @@ export function MobileBookBar() {
           <div className="mx-auto flex max-w-xl items-center justify-between gap-3">
             <div className="min-w-0">
               <p className="truncate text-sm font-semibold">{PRODUCT.name}</p>
-              <p className="text-xs text-white/70">{formatProductPrice(PRODUCT)} · pay after our call</p>
+              <p className="text-xs text-white/70">{formatProductPrice(PRODUCT)} · pay online or later</p>
             </div>
             <div className="flex shrink-0 items-center gap-2">
               <Link

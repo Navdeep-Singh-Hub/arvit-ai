@@ -1,14 +1,14 @@
-import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { ButtonLink } from "@/components/ui/button";
 
 type Props = {
-  searchParams: Promise<{ id?: string }>;
+  searchParams: Promise<{ id?: string; paid?: string }>;
 };
 
 export default async function CheckoutSuccessPage({ searchParams }: Props) {
-  const { id } = await searchParams;
+  const { id, paid } = await searchParams;
+  const isPaid = paid === "1";
 
   return (
     <section className="section-pad pt-28 sm:pt-32">
@@ -17,11 +17,12 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
           <CheckCircle2 className="size-8" />
         </div>
         <h1 className="mt-6 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Booking received
+          {isPaid ? "Payment received — thank you!" : "Booking received"}
         </h1>
         <p className="mt-3 text-muted-foreground">
-          Thanks — our team will contact you shortly to confirm payment and delivery for your AAC Device.
-          App reservation.
+          {isPaid
+            ? "Your AAC Device is confirmed. Our team will call you shortly to arrange delivery and help you get started."
+            : "Thanks — our team will call you shortly to confirm payment and delivery for your AAC Device."}
         </p>
         {id ? (
           <p className="mt-4 rounded-2xl bg-muted/60 px-4 py-3 text-sm text-foreground">
@@ -36,12 +37,6 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
             Contact support
           </ButtonLink>
         </div>
-        <p className="mt-8 text-sm text-muted-foreground">
-          Admin?{" "}
-          <Link href="/admin" className="font-medium text-brand-primary hover:underline">
-            View bookings
-          </Link>
-        </p>
       </Container>
     </section>
   );

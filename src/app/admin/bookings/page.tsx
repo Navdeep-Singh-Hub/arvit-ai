@@ -141,6 +141,18 @@ export default function AdminBookingsPage() {
                     <p className="mt-3 text-base font-semibold">
                       Total {formatMoney(booking.totalCents)}
                     </p>
+                    <p className="mt-1 text-sm">
+                      {booking.payment?.status === "paid" ? (
+                        <span className="font-semibold text-emerald-600">
+                          Paid online
+                          {booking.payment.razorpayPaymentId ? ` · ${booking.payment.razorpayPaymentId}` : ""}
+                        </span>
+                      ) : booking.payment?.method === "online" ? (
+                        <span className="font-semibold text-amber-600">Online payment not completed</span>
+                      ) : (
+                        <span className="text-muted-foreground">Pay later — collect on call</span>
+                      )}
+                    </p>
                   </div>
 
                   <div className="flex flex-wrap gap-2 lg:max-w-xs lg:justify-end">

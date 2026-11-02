@@ -77,7 +77,7 @@ function ProductCard({ product }: { product: PrebookProduct }) {
                 {formatProductPrice(product)}
               </p>
               <p className="mt-2 text-xs text-black/60">
-                Inclusive price in INR · our team confirms payment and delivery after you book
+                Inclusive price in INR · pay securely online, or book now and pay later
               </p>
             </div>
             <Link
