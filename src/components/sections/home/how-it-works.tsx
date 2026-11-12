@@ -12,7 +12,7 @@ function StepContent({ step }: { step: (typeof HOW_IT_WORKS)[number] }) {
       <div className="flex items-center gap-4">
         <div className="glow-ring relative flex size-16 shrink-0 items-center justify-center rounded-2xl bg-background text-brand-primary ring-1 ring-border">
           <step.icon className="size-6" />
-          <span className="absolute -right-2 -top-2 flex size-6 items-center justify-center rounded-full bg-[#c2410c] text-[0.65rem] font-bold text-white">
+          <span className="absolute -right-2 -top-2 flex size-6 items-center justify-center rounded-full bg-[#28958a] text-[0.65rem] font-bold text-white">
             {step.step}
           </span>
         </div>
@@ -63,7 +63,7 @@ function StepCard({
       className="absolute inset-0 flex items-center"
       aria-hidden={true}
     >
-      <article className="w-full max-w-2xl rounded-3xl border border-[#12151a]/8 bg-[#fffdf9] p-7 text-[#12151a] shadow-[0_18px_40px_-28px_rgb(18_21_26_/_0.35)] sm:p-9">
+      <article className="w-full max-w-2xl rounded-3xl border border-[#15102b]/8 bg-[#ffffff] p-7 text-[#15102b] shadow-[0_18px_40px_-28px_rgb(21_16_43_/_0.35)] sm:p-9">
         <StepContent step={step} />
       </article>
     </motion.div>
@@ -129,7 +129,7 @@ export function HowItWorks() {
           />
           <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {HOW_IT_WORKS.map((step) => (
-              <article key={step.step} className="rounded-3xl border border-[#12151a]/8 bg-[#fffdf9] p-7 text-[#12151a] shadow-[0_18px_40px_-28px_rgb(18_21_26_/_0.35)]">
+              <article key={step.step} className="rounded-3xl border border-[#15102b]/8 bg-[#ffffff] p-7 text-[#15102b] shadow-[0_18px_40px_-28px_rgb(21_16_43_/_0.35)]">
                 <StepContent step={step} />
               </article>
             ))}
@@ -155,7 +155,7 @@ export function HowItWorks() {
             {/* Mobile / tablet: readable stacked list */}
             <div className="space-y-5 lg:hidden">
               {HOW_IT_WORKS.map((step) => (
-                <article key={step.step} className="rounded-3xl border border-[#12151a]/8 bg-[#fffdf9] p-7 text-[#12151a] shadow-[0_18px_40px_-28px_rgb(18_21_26_/_0.35)]">
+                <article key={step.step} className="rounded-3xl border border-[#15102b]/8 bg-[#ffffff] p-7 text-[#15102b] shadow-[0_18px_40px_-28px_rgb(21_16_43_/_0.35)]">
                   <StepContent step={step} />
                 </article>
               ))}

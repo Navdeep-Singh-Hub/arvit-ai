@@ -56,7 +56,7 @@ export default function AdminLoginPage() {
 
   if (checking) {
     return (
-      <section className="section-pad pt-28 sm:pt-32">
+      <section className="section-pad pt-36 sm:pt-40">
         <Container size="narrow" className="text-center text-muted-foreground">
           Checking session…
         </Container>
@@ -65,7 +65,7 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <section className="section-pad pt-28 sm:pt-32">
+    <section className="section-pad pt-36 sm:pt-40">
       <Container size="narrow">
         <div className="mx-auto max-w-md rounded-3xl border border-border bg-card/70 p-6 sm:p-8">
           <p className="text-sm font-semibold tracking-wide text-brand-primary uppercase">Admin</p>

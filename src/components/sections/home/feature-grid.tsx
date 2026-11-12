@@ -1,87 +1,68 @@
-"use client";
-
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { Star } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { ButtonLink } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { StaggerGroup, StaggerItem } from "@/components/motion/stagger";
 import { FEATURES } from "@/lib/data/features";
-import { AUDIENCE_COPY } from "@/lib/audience/content";
-import { useAudience } from "@/components/providers/audience-provider";
-import { THERAPY_PROGRESS_ENABLED } from "@/lib/flags";
+
+/** The six things a parent asks about first. Everything else lives on /features. */
+const HOME_FEATURES: { title: string; name: string; tag: string; tint: string }[] = [
+  { title: "Symbol & Picture Boards", name: "Picture Boards", tag: "Communication", tint: "bg-[#dbf0f9]" },
+  { title: "AI Text-to-Speech", name: "Text-to-Speech", tag: "Voice", tint: "bg-[#ffeba4]" },
+  { title: "Phrase Prediction", name: "Phrase Prediction", tag: "Faster sentences", tint: "bg-[#d9d3f5]" },
+  { title: "Parent Dashboard", name: "Parent View", tag: "For parents", tint: "bg-[#e0f5f4]" },
+  { title: "Offline AAC Mode", name: "Offline Mode", tag: "Works anywhere", tint: "bg-[#ffd9d2]" },
+  { title: "Secure Cloud Platform", name: "Private & Secure", tag: "Safety", tint: "bg-[#dff3c4]" },
+];
 
 export function FeatureGrid() {
-  const { audience } = useAudience();
-  const effective = audience === "child" && THERAPY_PROGRESS_ENABLED ? "child" : "adult";
-  const active = AUDIENCE_COPY[effective];
-
-  // The six things a parent asks about first. Everything else lives on /features.
-  const familyFeatures = [
-    "Symbol & Picture Boards",
-    "AI Text-to-Speech",
-    "Phrase Prediction",
-    "Parent Dashboard",
-    "Offline AAC Mode",
-    "Secure Cloud Platform",
-  ];
-  const features = familyFeatures
-    .map((title) => FEATURES.find((feature) => feature.title === title))
-    .filter((feature): feature is (typeof FEATURES)[number] => Boolean(feature));
+  const features = HOME_FEATURES.flatMap((item) => {
+    const feature = FEATURES.find((f) => f.title === item.title);
+    return feature ? [{ ...item, feature }] : [];
+  });
 
   return (
-    <section id="features" className="section-pad section-light border-t border-black/5">
-      <Container className="max-w-[1400px]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={effective}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <SectionHeading
-              eyebrow={active.featuresEyebrow}
-              title={active.featuresTitle}
-              description={active.featuresDescription}
-              align="left"
-            />
-          </motion.div>
-        </AnimatePresence>
+    <section className="bg-zigzag-warm py-16 sm:py-20">
+      <Container className="max-w-[1280px]">
+        <SectionHeading
+          align="center"
+          title="Everything Works Together"
+          accent="Together"
+          description="Communication for your child, clarity for you"
+        />
 
-        <StaggerGroup
-          key={`features-${effective}`}
-          className="mt-12 grid grid-cols-1 gap-4 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {features.map((feature) => (
+        <p className="pill mx-auto mt-8 flex w-max max-w-full">
+          <Star className="size-4 fill-[#ffb82e] text-[#ffb82e]" aria-hidden />
+          On every ARVIT device
+        </p>
+
+        <StaggerGroup className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {features.map(({ feature, name, tag, tint }) => (
             <StaggerItem key={feature.title} className="h-full">
               <Link
                 href={feature.href ?? "/features"}
-                className="group flex h-full flex-col rounded-3xl border border-[#12151a]/8 bg-[#fffdf9] p-6 shadow-[0_18px_40px_-28px_rgb(18_21_26_/_0.35)] transition-colors hover:border-[#0e1418] hover:bg-[#0e1418] hover:text-white sm:p-8"
+                className="group flex h-full items-start gap-5 rounded-[20px] border border-black/20 bg-white p-6 transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-[0_14px_30px_-14px_rgb(21_16_43_/_0.35)]"
               >
-                <div className="flex items-start justify-between gap-3">
-                  <feature.icon
-                    className="size-6 text-[#0c8f86] transition-colors group-hover:text-[#5eead4]"
-                    strokeWidth={1.5}
-                  />
-                  <ArrowUpRight className="size-4 opacity-0 transition-opacity group-hover:opacity-100" />
-                </div>
-                <h3 className="mt-8 text-lg font-semibold tracking-tight text-[#12151a] transition-colors group-hover:text-white">
-                  {feature.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-black/70 transition-colors group-hover:text-white/65">
-                  {feature.description}
-                </p>
+                <span
+                  className={`flex size-[76px] shrink-0 items-center justify-center rounded-full ${tint} transition-transform duration-200 group-hover:scale-105`}
+                >
+                  <feature.icon className="size-9 text-[#15102b]" strokeWidth={1.6} aria-hidden />
+                </span>
+                <span className="block">
+                  <span className="font-display block text-[1.375rem] leading-tight text-black">{name}</span>
+                  <span className="mt-1 block text-sm font-semibold uppercase text-[#28958a]">{tag}</span>
+                  <span className="mt-2.5 block text-lg leading-snug text-black/75">{feature.description}</span>
+                </span>
               </Link>
             </StaggerItem>
           ))}
         </StaggerGroup>
 
-        <div className="mt-10">
-          <Link href="/features" className="text-nav inline-flex items-center gap-2 text-[#0a6b64] hover:opacity-70">
-            See all features
-            <ArrowUpRight className="size-3.5" />
-          </Link>
+        <div className="mt-10 flex justify-center">
+          <ButtonLink href="/features" variant="solid" magnetic={false} className="px-10">
+            All Features
+          </ButtonLink>
         </div>
       </Container>
     </section>

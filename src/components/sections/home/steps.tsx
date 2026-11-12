@@ -27,31 +27,32 @@ const STEPS = [
 
 export function Steps() {
   return (
-    <section id="how-it-works" className="section-pad section-light border-t border-black/5">
-      <Container className="max-w-[1400px]">
+    <section id="how-it-works" className="scroll-mt-24 bg-white py-16 sm:py-20">
+      <Container className="max-w-[1280px]">
         <SectionHeading
-          eyebrow="How it works"
-          title="From booking to first words, in three steps"
+          align="center"
+          title="From Booking To First Words In 3 Steps"
+          accent="3 Steps"
           description="No complicated setup and no app store hunting. We guide you the whole way."
         />
 
-        <StaggerGroup role="list" className="mt-12 grid grid-cols-1 gap-4 sm:mt-16 md:grid-cols-3">
+        <StaggerGroup role="list" className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-8">
           {STEPS.map((step, index) => (
             <StaggerItem
               key={step.title}
               role="listitem"
-              className="relative flex h-full flex-col rounded-3xl border border-[#12151a]/8 bg-[#fffdf9] p-6 shadow-[0_18px_40px_-28px_rgb(18_21_26_/_0.35)] sm:p-8"
+              className="relative flex h-full flex-col rounded-[20px] border border-black/20 bg-white p-7"
             >
               <div className="flex items-center justify-between">
-                <span className="flex size-12 items-center justify-center rounded-2xl bg-[#e7f4f2] text-[#0a6b64]">
-                  <step.icon className="size-5" strokeWidth={1.75} aria-hidden />
+                <span className="flex size-14 items-center justify-center rounded-full bg-[#dbf0f9] text-[#15102b]">
+                  <step.icon className="size-6" strokeWidth={1.75} aria-hidden />
                 </span>
-                <span className="font-display text-4xl font-medium text-[#12151a]/15" aria-hidden>
-                  0{index + 1}
+                <span className="font-display text-5xl leading-none text-[#007ad1]" aria-hidden>
+                  {index + 1}
                 </span>
               </div>
-              <h3 className="mt-8 text-lg font-semibold tracking-tight text-[#12151a]">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-black/65">{step.description}</p>
+              <h3 className="font-display mt-6 text-[1.375rem] leading-tight text-black">{step.title}</h3>
+              <p className="mt-2.5 text-lg leading-snug text-black/75">{step.description}</p>
             </StaggerItem>
           ))}
         </StaggerGroup>

@@ -17,15 +17,16 @@ export function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="section-pad section-light border-t border-black/5">
+    <section className="bg-white py-16 sm:py-20">
       <Container size="narrow">
         <SectionHeading
-          eyebrow="FAQ"
-          title="Answers for families"
+          align="center"
+          title="Answers For Families"
+          accent="Families"
           description="Questions for the child who uses the AAC Device and the parent who follows along."
         />
 
-        <StaggerGroup key={effective} className="mt-14 space-y-4">
+        <StaggerGroup key={effective} className="mt-10 space-y-4">
           {items.map((item, index) => (
             <StaggerItem key={item.question}>
               <AccordionItem

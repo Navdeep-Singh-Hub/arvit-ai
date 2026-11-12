@@ -33,7 +33,7 @@ export function MobileBookBar() {
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[#0e1418]/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] text-white backdrop-blur-md lg:hidden"
+          className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[#15102b]/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] text-white backdrop-blur-md lg:hidden"
         >
           <div className="mx-auto flex max-w-xl items-center justify-between gap-3">
             <div className="min-w-0">
@@ -49,7 +49,7 @@ export function MobileBookBar() {
               </Link>
               <Link
                 href="/#tablets"
-                className="text-nav flex h-11 items-center bg-[#c2410c] px-5 text-white hover:bg-[#9a3412]"
+                className="flex h-11 items-center rounded-[10px] bg-[#ffd235] px-5 text-base font-semibold text-[#15102b] shadow-[0_3px_0_0_rgb(0_0_0_/_0.8)]"
               >
                 Book now
               </Link>

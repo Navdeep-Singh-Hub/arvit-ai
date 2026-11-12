@@ -12,18 +12,18 @@ type AccordionItemProps = {
 
 export function AccordionItem({ question, answer, isOpen, onToggle }: AccordionItemProps) {
   return (
-    <div className="card-surface overflow-hidden rounded-2xl">
+    <div className="overflow-hidden rounded-[20px] border border-black/20 bg-white">
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
         className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
       >
-        <span className="text-sm font-medium text-foreground sm:text-base">{question}</span>
+        <span className="font-display text-lg leading-snug text-black sm:text-xl">{question}</span>
         <span
           className={cn(
-            "flex size-8 shrink-0 items-center justify-center rounded-full bg-muted text-foreground transition-all duration-300",
-            isOpen && "rotate-180 bg-gradient-brand text-white"
+            "flex size-9 shrink-0 items-center justify-center rounded-full bg-[#dbf0f9] text-[#15102b] transition-all duration-300",
+            isOpen && "rotate-180 bg-[#007ad1] text-white"
           )}
         >
           <ChevronDown className="size-4" />
@@ -34,7 +34,7 @@ export function AccordionItem({ question, answer, isOpen, onToggle }: AccordionI
         style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
       >
         <div className="overflow-hidden">
-          <p className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground">{answer}</p>
+          <p className="px-6 pb-6 text-lg leading-snug text-black/75">{answer}</p>
         </div>
       </div>
     </div>

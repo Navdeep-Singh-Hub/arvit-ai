@@ -10,17 +10,17 @@ export function Badge({ className, icon: Icon, variant = "default", children, ..
   return (
     <div
       className={cn(
-        "text-eyebrow inline-flex items-center gap-1.5 px-2.5 py-1",
+        "inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-semibold uppercase",
         /* hex + ! so parent light/dark tokens never wash out labels */
-        variant === "default" && "bg-[#000000] !text-[#ffffff]",
-        variant === "outline" && "border border-black/20 bg-transparent !text-[#000000]",
-        variant === "solid" && "bg-[#000000] !text-[#ffffff]",
-        variant === "glass" && "border border-white/30 bg-[#000000] !text-[#ffffff]",
+        variant === "default" && "border border-black/10 bg-[#e0f5f4] !text-[#28958a]",
+        variant === "outline" && "border border-black/20 bg-white !text-[#15102b]",
+        variant === "solid" && "bg-[#28958a] !text-[#ffffff]",
+        variant === "glass" && "border border-white/20 bg-white/10 !text-[#7fe0d4]",
         className
       )}
       {...props}
     >
-      {Icon ? <Icon className="size-3.5 shrink-0 text-inherit" aria-hidden="true" /> : null}
+      {Icon ? <Icon className="size-4 shrink-0 text-inherit" aria-hidden="true" /> : null}
       {children}
     </div>
   );

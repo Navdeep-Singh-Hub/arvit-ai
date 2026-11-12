@@ -31,11 +31,11 @@ export function ProductCatalog() {
 
       <section className="section-pad pt-0">
         <Container className="max-w-[1400px]">
-          <div className="grid items-end gap-8 border-b border-[#12151a]/10 pb-10 lg:grid-cols-[minmax(0,1fr)_280px]">
-            <p className="max-w-xl text-sm leading-relaxed text-[#12151a]/65">
+          <div className="grid items-end gap-8 border-b border-[#15102b]/10 pb-10 lg:grid-cols-[minmax(0,1fr)_280px]">
+            <p className="max-w-xl text-sm leading-relaxed text-[#15102b]/65">
               Inclusive INR. One device — not a child product and an adult product.
             </p>
-            <div className="relative hidden h-40 overflow-hidden rounded-3xl bg-[#e7f4f2] lg:block">
+            <div className="relative hidden h-40 overflow-hidden rounded-3xl bg-[#e0f5f4] lg:block">
               <Image
                 src={TABLET_MODEL.beauty}
                 alt="ARVIT AAC Device"
@@ -54,24 +54,24 @@ export function ProductCatalog() {
         </Container>
       </section>
 
-      <section className="section-pad border-t border-[#12151a]/8 pt-0">
+      <section className="section-pad border-t border-[#15102b]/8 pt-0">
         <Container className="max-w-[1400px]">
-          <h2 className="text-h3 text-[#12151a]">On the same device</h2>
+          <h2 className="text-h3 text-[#15102b]">On the same device</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
-            <div className="rounded-3xl border border-[#12151a]/8 bg-[#e7f4f2] p-6 sm:p-8">
+            <div className="rounded-3xl border border-[#15102b]/8 bg-[#e0f5f4] p-6 sm:p-8">
               <p className="text-eyebrow">For the child</p>
-              <p className="mt-4 text-lg font-medium tracking-tight text-[#12151a]">A voice they can use today</p>
-              <ul className="mt-5 space-y-2 text-sm leading-relaxed text-[#12151a]/70">
+              <p className="mt-4 text-lg font-medium tracking-tight text-[#15102b]">A voice they can use today</p>
+              <ul className="mt-5 space-y-2 text-sm leading-relaxed text-[#15102b]/70">
                 <li>Symbol and picture boards</li>
                 <li>AI text-to-speech</li>
                 <li>Speech practice and motor games</li>
                 <li>Works offline for core AAC</li>
               </ul>
             </div>
-            <div className="rounded-3xl border border-[#12151a]/8 bg-[#fffdf9] p-6 sm:p-8">
+            <div className="rounded-3xl border border-[#15102b]/8 bg-[#ffffff] p-6 sm:p-8">
               <p className="text-eyebrow">For the parent</p>
-              <p className="mt-4 text-lg font-medium tracking-tight text-[#12151a]">Progress you can actually read</p>
-              <ul className="mt-5 space-y-2 text-sm leading-relaxed text-[#12151a]/70">
+              <p className="mt-4 text-lg font-medium tracking-tight text-[#15102b]">Progress you can actually read</p>
+              <ul className="mt-5 space-y-2 text-sm leading-relaxed text-[#15102b]/70">
                 <li>Plain-language session summaries</li>
                 <li>Home-practice suggestions</li>
                 <li>Vocabulary and safety controls</li>
@@ -93,29 +93,29 @@ function CatalogEntry({
   highlights: { label: string }[];
 }) {
   return (
-    <article className="overflow-hidden rounded-3xl border border-[#12151a]/8 bg-[#fffdf9] shadow-[0_18px_40px_-28px_rgb(18_21_26_/_0.35)]">
+    <article className="overflow-hidden rounded-3xl border border-[#15102b]/8 bg-[#ffffff] shadow-[0_18px_40px_-28px_rgb(21_16_43_/_0.35)]">
       <div className="grid lg:grid-cols-[220px_minmax(0,1fr)]">
-        <div className="flex flex-col justify-between gap-6 bg-[#e7f4f2] p-6 sm:p-8">
-          <p className="font-display text-5xl font-medium tracking-tight text-[#0a6b64]">01</p>
+        <div className="flex flex-col justify-between gap-6 bg-[#e0f5f4] p-6 sm:p-8">
+          <p className="font-display text-5xl font-medium tracking-tight text-[#1f7a71]">01</p>
           <div>
             <p className="text-eyebrow">{product.audience}</p>
-            <p className="font-display mt-3 text-4xl font-medium tracking-tight text-[#12151a]">
+            <p className="font-display mt-3 text-4xl font-medium tracking-tight text-[#15102b]">
               {formatProductPrice(product)}
             </p>
-            <p className="mt-2 text-xs text-[#12151a]/55">Inclusive price in INR</p>
+            <p className="mt-2 text-xs text-[#15102b]/55">Inclusive price in INR</p>
           </div>
         </div>
 
         <div className="p-6 sm:p-8 lg:p-10">
-          <h2 className="text-h3 text-[#12151a]">{product.name}</h2>
-          <p className="mt-3 text-lg font-medium tracking-tight text-[#12151a]/75">{product.tagline}</p>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#12151a]/65 sm:text-base">{product.description}</p>
+          <h2 className="text-h3 text-[#15102b]">{product.name}</h2>
+          <p className="mt-3 text-lg font-medium tracking-tight text-[#15102b]/75">{product.tagline}</p>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#15102b]/65 sm:text-base">{product.description}</p>
 
           <ul className="mt-6 flex flex-wrap gap-2">
             {highlights.map((item) => (
               <li
                 key={item.label}
-                className="rounded-full bg-[#f3eee6] px-3 py-1.5 text-xs font-medium text-[#12151a]"
+                className="rounded-full bg-[#f7f4f3] px-3 py-1.5 text-xs font-medium text-[#15102b]"
               >
                 {item.label}
               </li>
@@ -134,7 +134,7 @@ function CatalogEntry({
               <ArrowRight className="size-4" />
             </ButtonLink>
           </div>
-          <Link href="/cart" className="mt-4 inline-flex text-xs text-[#0a6b64] hover:underline">
+          <Link href="/cart" className="mt-4 inline-flex text-xs text-[#1f7a71] hover:underline">
             Review cart
           </Link>
         </div>

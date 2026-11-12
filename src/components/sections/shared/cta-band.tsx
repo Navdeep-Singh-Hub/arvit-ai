@@ -1,6 +1,6 @@
 import { Container } from "@/components/ui/container";
 import { ButtonLink } from "@/components/ui/button";
-import { Reveal } from "@/components/motion/reveal";
+import { BoardScreen, DeviceFrame } from "@/components/illustrations/device";
 import { CTA } from "@/lib/constants";
 
 type CtaBandProps = {
@@ -12,6 +12,7 @@ type CtaBandProps = {
   secondaryHref?: string;
 };
 
+/** Sunny yellow band that closes every page: the ask on the left, the device on the right. */
 export function CtaBand({
   title,
   description,
@@ -21,34 +22,27 @@ export function CtaBand({
   secondaryHref = "/contact",
 }: CtaBandProps) {
   return (
-    <section className="section-dark section-pad">
-      <Container className="max-w-[1400px]">
-        <Reveal>
-          <h2 className="text-h2 max-w-3xl text-balance text-white">{title}</h2>
-        </Reveal>
-        <Reveal delay={0.08}>
-          <p className="text-body-lg mt-8 max-w-lg text-white/75">{description}</p>
-        </Reveal>
-        <Reveal delay={0.16} className="mt-8 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:items-center">
-          <ButtonLink
-            href={primaryHref}
-            size="xl"
-            variant="gradient"
-            magnetic={false}
-            className="text-nav h-12 min-h-12 w-full px-8 sm:w-auto"
-          >
-            {primaryLabel}
-          </ButtonLink>
-          <ButtonLink
-            href={secondaryHref}
-            size="xl"
-            variant="outline-invert"
-            magnetic={false}
-            className="text-nav h-12 min-h-12 w-full rounded-none sm:w-auto"
-          >
-            {secondaryLabel}
-          </ButtonLink>
-        </Reveal>
+    <section className="bg-[#ffd235] py-12 sm:py-14">
+      <Container className="max-w-[1280px]">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+          <div>
+            <h2 className="text-h2 max-w-2xl text-balance !text-[#15102b]">{title}</h2>
+            <p className="mt-3 max-w-xl text-lg text-[#15102b]/85">{description}</p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <ButtonLink href={primaryHref} size="xl" variant="solid" magnetic={false} className="w-full sm:w-auto">
+                {primaryLabel}
+              </ButtonLink>
+              <ButtonLink href={secondaryHref} size="xl" variant="white" magnetic={false} className="w-full sm:w-auto">
+                {secondaryLabel}
+              </ButtonLink>
+            </div>
+          </div>
+          <div className="mx-auto hidden w-full max-w-[380px] rounded-[20px] bg-white p-6 lg:block">
+            <DeviceFrame>
+              <BoardScreen />
+            </DeviceFrame>
+          </div>
+        </div>
       </Container>
     </section>
   );

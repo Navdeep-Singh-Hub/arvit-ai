@@ -15,12 +15,12 @@ export function Footer() {
   const platformLinks = getAudienceFooterPlatform(audience);
 
   return (
-    <footer className="bg-[#0e1418] text-white">
-      <Container className="max-w-[1400px] py-16 sm:py-20">
+    <footer className="bg-[#15102b] text-white">
+      <Container className="max-w-[1280px] py-12 sm:py-16">
         <div className="grid grid-cols-1 gap-14 border-b border-white/10 pb-14 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
-            <Logo className="text-white" />
-            <p className="mt-5 text-sm leading-relaxed text-white/70">{blurb}</p>
+            <Logo className="text-white" markClassName="size-10" />
+            <p className="mt-5 text-base leading-relaxed text-white/80">{blurb}</p>
             <div className="mt-6 flex items-center gap-3">
               {SOCIAL_LINKS.map((social) => {
                 const Icon = SOCIAL_ICON_MAP[social.icon];
@@ -31,7 +31,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="flex size-9 items-center justify-center border border-white/15 text-white/60 transition-colors hover:border-white/40 hover:text-white"
+                    className="flex size-10 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition-colors hover:bg-[#ffd235] hover:text-[#15102b]"
                   >
                     <Icon className="size-4" />
                   </a>
@@ -49,10 +49,10 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col items-start justify-between gap-4 pt-8 sm:flex-row sm:items-center">
-          <p className="text-xs text-white/60">
+          <p className="text-sm text-white/70">
             © {year} {SITE.legalName}
           </p>
-          <p className="text-xs text-white/60">{SITE.email}</p>
+          <p className="text-sm text-white/70">{SITE.email}</p>
         </div>
       </Container>
     </footer>
@@ -68,13 +68,13 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <p className="text-eyebrow !text-[#5eead4]">{title}</p>
+      <p className="text-sm font-semibold uppercase text-[#7fe0d4]">{title}</p>
       <ul className="mt-5 space-y-3">
         {links.map((link) => (
           <li key={link.href + link.label}>
             <Link
               href={link.href}
-              className="text-sm text-white/70 transition-opacity hover:text-white hover:opacity-100"
+              className="text-base font-light text-white/85 transition-colors hover:text-[#ffd235]"
             >
               {link.label}
             </Link>

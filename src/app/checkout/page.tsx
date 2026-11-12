@@ -137,7 +137,7 @@ export default function CheckoutPage() {
         description: "AAC Device",
         prefill: { name: order.customer.name, email: order.customer.email, contact: order.customer.phone },
         notes: { booking_id: order.bookingId },
-        theme: { color: "#0c8f86" },
+        theme: { color: "#28958a" },
         modal: {
           ondismiss: () => {
             setStatus("idle");
@@ -173,7 +173,7 @@ export default function CheckoutPage() {
 
   if (lines.length === 0) {
     return (
-      <section className="section-pad pt-28 sm:pt-32">
+      <section className="section-pad pt-36 sm:pt-40">
         <Container size="narrow" className="text-center">
           <h1 className="text-3xl font-semibold tracking-tight">Nothing to check out</h1>
           <p className="mt-3 text-muted-foreground">Add the AAC Device to your cart first.</p>
@@ -186,7 +186,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <section className="section-pad pt-28 sm:pt-32">
+    <section className="section-pad pt-36 sm:pt-40">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold tracking-wide text-brand-primary uppercase">Checkout</p>

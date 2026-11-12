@@ -1,30 +1,29 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Fraunces, Outfit } from "next/font/google";
+import { Nunito, Poppins } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/constants";
 import { Providers } from "@/components/providers/providers";
-import { ScrollProgressBar } from "@/components/layout/scroll-progress-bar";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { BackToTop } from "@/components/layout/back-to-top";
 import { MobileBookBar } from "@/components/layout/mobile-book-bar";
 import { PageTransition } from "@/components/providers/page-transition";
 
-/** Precise UI sans */
-const outfit = Outfit({
+/** Body: Poppins — round, friendly, very readable */
+const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
 });
 
-/** Soft editorial display — human, not a generic geometric sans */
-const fraunces = Fraunces({
+/** Headings: Nunito Black — soft, chunky, child-friendly */
+const nunito = Nunito({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["800", "900"],
 });
 
 const TITLE = `${SITE.name} — AAC Device for children & parents`;
@@ -85,17 +84,16 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#0E1418",
+  themeColor: "#28958a",
   colorScheme: "light",
   viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${outfit.variable} ${fraunces.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${poppins.variable} ${nunito.variable}`}>
       <body className="flex min-h-dvh flex-col overflow-x-clip bg-background text-foreground antialiased">
         <Providers>
-          <ScrollProgressBar />
           <a
             href="#main-content"
           className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:left-4 focus-visible:top-4 focus-visible:z-[200] focus-visible:bg-black focus-visible:px-5 focus-visible:py-2.5 focus-visible:text-sm focus-visible:font-semibold focus-visible:text-white"

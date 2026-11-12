@@ -8,30 +8,31 @@ import { cn } from "@/lib/utils";
 import { useMagnetic } from "@/hooks/use-magnetic";
 
 export const buttonVariants = cva(
-  "group/btn relative isolate inline-flex shrink-0 select-none items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full font-semibold outline-none transition-[transform,background-color,color,border-color,opacity] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-[#0c8f86] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f3eee6] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
+  "group/btn relative isolate inline-flex shrink-0 select-none items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-[10px] font-semibold outline-none transition-[transform,background-color,color,border-color,box-shadow,opacity] duration-150 ease-out active:translate-y-[2px] focus-visible:ring-2 focus-visible:ring-[#28958a] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        /* Explicit hex + !color so parent text-white (hero/nav) never wins */
+        /* Primary: sunny yellow with a hard "pressable" shadow. Explicit !color so parent text colors never win. */
         gradient:
-          "bg-[#c2410c] !text-[#ffffff] hover:bg-[#9a3412] hover:!text-[#ffffff]",
+          "border border-[#ffd235] bg-[#ffd235] !text-[#15102b] shadow-[0_3px_0_0_rgb(0_0_0_/_0.8)] hover:bg-[#ffdc5c] hover:!text-[#15102b] active:shadow-[0_1px_0_0_rgb(0_0_0_/_0.8)]",
+        /* Secondary: teal with the same pressable shadow */
         solid:
-          "bg-[#0e1418] !text-[#ffffff] hover:bg-[#1c2630] hover:!text-[#ffffff]",
+          "border border-[#28958a] bg-[#28958a] !text-[#ffffff] shadow-[0_3px_0_0_rgb(0_0_0_/_0.8)] hover:bg-[#1f7a71] hover:!text-[#ffffff] active:shadow-[0_1px_0_0_rgb(0_0_0_/_0.8)]",
         white:
-          "bg-[#ffffff] !text-[#000000] hover:bg-[#f0f0f0] hover:!text-[#000000]",
+          "border border-black/15 bg-[#ffffff] !text-[#15102b] shadow-[0_3px_0_0_rgb(0_0_0_/_0.8)] hover:bg-[#f7f4f3] hover:!text-[#15102b]",
         outline:
-          "border border-black bg-transparent !text-[#000000] hover:bg-[#000000] hover:!text-[#ffffff]",
+          "border-2 border-[#15102b] bg-[#ffffff] !text-[#15102b] hover:bg-[#15102b] hover:!text-[#ffffff]",
         "outline-invert":
-          "border border-white bg-transparent !text-[#ffffff] hover:bg-[#ffffff] hover:!text-[#000000]",
+          "border-2 border-white bg-transparent !text-[#ffffff] hover:bg-[#ffffff] hover:!text-[#15102b]",
         ghost: "!text-inherit hover:bg-black/5",
         glass:
-          "border border-white/30 bg-transparent !text-[#ffffff] hover:bg-[#ffffff] hover:!text-[#000000]",
+          "border-2 border-white/40 bg-transparent !text-[#ffffff] hover:bg-[#ffffff] hover:!text-[#15102b]",
       },
       size: {
-        sm: "h-10 min-h-10 px-4 text-xs uppercase tracking-wide",
-        default: "h-12 min-h-12 px-6 text-sm uppercase tracking-wide",
-        lg: "h-12 min-h-12 px-7 text-sm uppercase tracking-wide",
-        xl: "h-14 min-h-12 px-8 text-sm uppercase tracking-wide",
+        sm: "h-11 min-h-11 px-5 text-[0.95rem]",
+        default: "h-12 min-h-12 px-6 text-base",
+        lg: "h-12 min-h-12 px-7 text-base",
+        xl: "h-[52px] min-h-12 px-8 text-lg",
         icon: "size-12 min-h-12 min-w-12",
       },
     },

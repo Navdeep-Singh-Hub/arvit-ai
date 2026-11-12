@@ -68,7 +68,7 @@ export default function AdminBookingsPage() {
   }
 
   return (
-    <section className="section-pad pt-28 sm:pt-32">
+    <section className="section-pad pt-36 sm:pt-40">
       <Container>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>

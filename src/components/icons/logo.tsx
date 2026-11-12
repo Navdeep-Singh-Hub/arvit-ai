@@ -4,19 +4,17 @@ type LogoMarkProps = {
   className?: string;
 };
 
-/** Monochrome mark — white square + black waveform (reads on black nav) */
+/** Friendly mark: rounded teal tile with a speech bubble + sound wave (a voice). */
 export function LogoMark({ className }: LogoMarkProps) {
   return (
     <svg viewBox="0 0 40 40" fill="none" className={className} aria-hidden="true">
-      <rect x="1" y="1" width="38" height="38" rx="2" fill="#ffffff" />
+      <rect width="40" height="40" rx="10" fill="#28958a" />
       <path
-        d="M7 21h4.4l2.6-6.5L18 27l3.6-14 2.6 8h5.8"
-        stroke="#c2410c"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
+        d="M10 11.5h20a2.5 2.5 0 0 1 2.5 2.5v10a2.5 2.5 0 0 1-2.5 2.5H19l-5.5 4.5v-4.5H10A2.5 2.5 0 0 1 7.5 24V14a2.5 2.5 0 0 1 2.5-2.5Z"
+        fill="#ffffff"
       />
+      <path d="M14 19v0M18 16.5v5M22 14.5v9M26 17v4" stroke="#15102b" strokeWidth="2.4" strokeLinecap="round" />
+      <circle cx="14" cy="19" r="1.3" fill="#ffd235" stroke="#15102b" strokeWidth="1" />
     </svg>
   );
 }
@@ -32,8 +30,8 @@ export function Logo({ className, markClassName, mark = false }: LogoProps) {
     <span className={cn("inline-flex items-center gap-2.5 tracking-tight", className)}>
       <LogoMark className={cn("size-7 shrink-0", markClassName)} />
       {!mark && (
-        <span className="text-[1.05rem] font-semibold uppercase leading-none tracking-[0.06em]">
-          ARVIT
+        <span className="font-display text-[1.6rem] leading-none">
+          Arvit
         </span>
       )}
     </span>

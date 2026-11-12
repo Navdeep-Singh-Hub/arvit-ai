@@ -11,7 +11,7 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
   const isPaid = paid === "1";
 
   return (
-    <section className="section-pad pt-28 sm:pt-32">
+    <section className="section-pad pt-36 sm:pt-40">
       <Container size="narrow" className="text-center">
         <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-brand-primary/15 text-brand-primary">
           <CheckCircle2 className="size-8" />

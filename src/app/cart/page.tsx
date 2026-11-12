@@ -11,7 +11,7 @@ export default function CartPage() {
   const { lines, count, totalCents, setQuantity, removeItem, clearCart } = useCart();
 
   return (
-    <section className="section-pad pt-28 sm:pt-32">
+    <section className="section-pad pt-36 sm:pt-40">
       <Container size="narrow">
         <div className="flex items-end justify-between gap-4">
           <div>

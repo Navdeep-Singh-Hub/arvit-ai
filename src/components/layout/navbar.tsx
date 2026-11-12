@@ -49,10 +49,14 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0e1418]/90 text-white backdrop-blur-md">
-        <div className="mx-auto flex h-14 max-w-[1400px] items-center justify-between gap-2 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:px-8">
+      <header className="fixed inset-x-0 top-0 z-50 text-white">
+        <p className="flex h-9 items-center justify-center bg-[#28958a] px-4 text-center text-sm font-medium sm:text-base">
+          Now available · Book your AAC Device today
+        </p>
+        <div className="bg-[#15102b] shadow-[0_2px_12px_rgb(0_0_0_/_0.25)]">
+        <div className="mx-auto flex h-[60px] max-w-[1280px] items-center justify-between gap-2 px-4 sm:h-[68px] sm:gap-4 sm:px-6 lg:px-8">
           <Link href="/" aria-label="ARVIT AI — home" className="min-w-0 shrink-0">
-            <Logo className="text-white [&_span]:text-[0.95rem] sm:[&_span]:text-[1.05rem]" markClassName="size-6 sm:size-7" />
+            <Logo className="text-white" markClassName="size-9 sm:size-10" />
           </Link>
 
           <nav aria-label="Primary" className="hidden flex-1 items-center justify-center gap-1 lg:flex">
@@ -78,13 +82,13 @@ export function Navbar() {
                     onClick={() => setOpenGroup(isOpen ? null : group.label)}
                     aria-expanded={isOpen}
                     className={cn(
-                      "text-nav flex items-center gap-1 px-3 py-2 transition-opacity hover:opacity-70",
-                      isActive ? "text-white" : "text-white/80"
+                      "flex items-center gap-1.5 px-4 py-2 text-base font-light transition-colors hover:text-[#ffd235]",
+                      isActive ? "text-[#ffd235]" : "text-white"
                     )}
                   >
                     {group.label}
                     <ChevronDown
-                      className={cn("size-3 transition-transform duration-200", isOpen && "rotate-180")}
+                      className={cn("size-4 transition-transform duration-200", isOpen && "rotate-180")}
                     />
                   </button>
 
@@ -95,16 +99,16 @@ export function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 6 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute left-1/2 top-full z-10 mt-3 w-80 -translate-x-1/2 border border-white/10 bg-black p-2 shadow-2xl"
+                        className="absolute left-1/2 top-full z-10 mt-3 w-80 -translate-x-1/2 rounded-2xl border border-black/10 bg-white p-2 shadow-[0_18px_40px_-12px_rgb(21_16_43_/_0.35)]"
                       >
                         {group.items.map((item) => (
                           <Link
                             key={item.href}
                             href={item.href}
-                            className="block px-4 py-3 transition-colors hover:bg-white/5"
+                            className="block rounded-xl px-4 py-3 transition-colors hover:bg-[#e0f5f4]"
                           >
-                            <p className="text-sm font-semibold text-white">{item.label}</p>
-                            <p className="mt-0.5 text-xs leading-relaxed text-white/70">
+                            <p className="font-display text-base text-[#15102b]">{item.label}</p>
+                            <p className="mt-0.5 text-sm leading-snug text-black/65">
                               {item.description}
                             </p>
                           </Link>
@@ -128,11 +132,11 @@ export function Navbar() {
             <Link
               href="/cart"
               aria-label={`Cart${count ? `, ${count} items` : ""}`}
-              className="relative flex size-9 items-center justify-center text-white transition-opacity hover:opacity-70"
+              className="relative flex size-11 items-center justify-center rounded-[10px] text-white transition-colors hover:bg-white/10"
             >
-              <ShoppingBag className="size-[18px] stroke-[1.5]" />
+              <ShoppingBag className="size-5 stroke-[1.75]" />
               {count > 0 ? (
-                <span className="absolute -right-0.5 -top-0.5 flex size-4 items-center justify-center rounded-full bg-[#c2410c] text-[10px] font-bold text-white">
+                <span className="absolute -right-0.5 -top-0.5 flex size-4 items-center justify-center rounded-full bg-[#ffd235] text-[10px] font-bold text-[#15102b]">
                   {count}
                 </span>
               ) : null}
@@ -142,7 +146,7 @@ export function Navbar() {
               variant="gradient"
               size="sm"
               magnetic={false}
-              className="text-nav h-9 min-h-9 px-4"
+              className="h-11 min-h-11 px-6 text-base"
             >
               Book now
             </ButtonLink>
@@ -152,11 +156,11 @@ export function Navbar() {
             <Link
               href="/cart"
               aria-label="Cart"
-              className="relative flex size-9 shrink-0 items-center justify-center text-white sm:size-10"
+              className="relative flex size-10 shrink-0 items-center justify-center rounded-[10px] bg-[#ffd235] text-[#15102b]"
             >
               <ShoppingBag className="size-5 stroke-[1.5]" />
               {count > 0 ? (
-                <span className="absolute right-0.5 top-0.5 flex size-4 items-center justify-center rounded-full bg-[#c2410c] text-[10px] font-bold text-white sm:right-1 sm:top-1">
+                <span className="absolute -right-1 -top-1 flex size-4 items-center justify-center rounded-full bg-[#ff7463] text-[10px] font-bold text-white">
                   {count}
                 </span>
               ) : null}
@@ -166,11 +170,12 @@ export function Navbar() {
               aria-label="Open menu"
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen(true)}
-              className="flex size-9 shrink-0 items-center justify-center text-white sm:size-10"
+              className="ml-1 flex size-10 shrink-0 items-center justify-center text-white"
             >
-              <Menu className="size-5" />
+              <Menu className="size-7" />
             </button>
           </div>
+        </div>
         </div>
       </header>
 
@@ -185,8 +190,8 @@ function NavItem({ href, active, children }: { href: string; active: boolean; ch
       href={href}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "text-nav px-3 py-2 transition-opacity hover:opacity-70",
-        active ? "text-white" : "text-white/80"
+        "px-4 py-2 text-base font-light transition-colors hover:text-[#ffd235]",
+        active ? "text-[#ffd235]" : "text-white"
       )}
     >
       {children}
