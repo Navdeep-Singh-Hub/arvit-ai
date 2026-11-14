@@ -42,16 +42,20 @@ export default function ContactPage() {
                         {SITE.email}
                       </a>
                     </li>
+                    {SITE.phone ? (
                     <li className="flex items-start gap-3">
                       <PhoneCall className="mt-0.5 size-4 shrink-0 text-brand-primary dark:text-brand-primary-light" />
                       <a href={SITE.phoneHref} className="text-foreground/85 hover:text-brand-primary">
                         {SITE.phone}
                       </a>
                     </li>
+                    ) : null}
+                    {SITE.address ? (
                     <li className="flex items-start gap-3">
                       <MapPin className="mt-0.5 size-4 shrink-0 text-brand-primary dark:text-brand-primary-light" />
                       <span className="text-foreground/85">{SITE.address}</span>
                     </li>
+                    ) : null}
                   </ul>
 
                   <div className="mt-6 flex items-center gap-2 border-t border-border pt-6">

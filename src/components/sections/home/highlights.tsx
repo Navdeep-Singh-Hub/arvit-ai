@@ -1,4 +1,4 @@
-import { HeartHandshake, LineChart, WifiOff } from "lucide-react";
+import { BellRing, Languages, WifiOff } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { StaggerGroup, StaggerItem } from "@/components/motion/stagger";
@@ -7,8 +7,8 @@ import { CATALOG_PRODUCTS, formatProductPrice } from "@/lib/commerce/products";
 /** Three plain facts in place of award logos — add real badges/press here when you have them. */
 const TRUST = [
   { icon: WifiOff, tint: "bg-[#ffeba4]", title: "Works Offline", text: "Talks anywhere, no Wi-Fi needed" },
-  { icon: LineChart, tint: "bg-[#dbf0f9]", title: "Parent View Built In", text: "See practice and progress" },
-  { icon: HeartHandshake, tint: "bg-[#e0f5f4]", title: "Real People Help You", text: "Our team calls and sets you up" },
+  { icon: Languages, tint: "bg-[#dbf0f9]", title: "5 Indian Languages", text: "English, Hindi, Punjabi, Tamil, Telugu" },
+  { icon: BellRing, tint: "bg-[#ffd9d2]", title: "One-Tap Caregiver Alert", text: "WhatsApp call to both caregivers" },
 ];
 
 export function TrustRow() {

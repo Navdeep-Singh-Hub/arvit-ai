@@ -1,4 +1,4 @@
-import { ArrowRight, Headset, MessageCircleHeart, PhoneCall, ShieldCheck, WifiOff } from "lucide-react";
+import { ArrowRight, BellRing, Headset, Languages, PhoneCall, ShieldCheck, WifiOff } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { ButtonLink } from "@/components/ui/button";
 import { HeroScene } from "@/components/illustrations/hero-scene";
@@ -8,10 +8,10 @@ const PRODUCT = CATALOG_PRODUCTS[0];
 
 /** Only product facts that are true today — no unverified numbers. */
 const POINTS = [
-  { dot: "bg-[#e11d48]", label: "Text-to-speech" },
-  { dot: "bg-[#007ad1]", label: "Symbol boards + voice" },
-  { dot: "bg-[#28958a]", label: "Works offline" },
-  { dot: "bg-[#ff9d3c]", label: "Parent progress view" },
+  { dot: "bg-[#e11d48]", label: "Real-photo symbol boards" },
+  { dot: "bg-[#007ad1]", label: "5 Indian languages" },
+  { dot: "bg-[#28958a]", label: "Eye control" },
+  { dot: "bg-[#ff9d3c]", label: "Weekly report to your phone" },
 ];
 
 const ASSURANCES = [
@@ -57,17 +57,17 @@ export function Hero() {
           <div className="relative mx-auto w-full max-w-[560px] lg:mx-0 lg:max-w-none">
             <HeroScene />
             <FloatChip
-              icon={MessageCircleHeart}
-              title="Gives Your Child A Voice"
-              text="Tap pictures, hear words"
+              icon={Languages}
+              title="Speaks 5 Indian Languages"
+              text="हिंदी · ਪੰਜਾਬੀ · தமிழ் · తెలుగు"
               tint="bg-[#d9d3f5]"
               className="-top-5 right-2 flex animate-float sm:-right-8"
             />
             <FloatChip
-              icon={WifiOff}
-              title="Works Offline"
-              text="No Wi-Fi needed"
-              tint="bg-[#ffeba4]"
+              icon={BellRing}
+              title="One-Tap Alert"
+              text="WhatsApp call to caregivers"
+              tint="bg-[#ffd9d2]"
               className="-left-10 top-[38%] hidden animate-float-slow sm:flex"
             />
           </div>
@@ -76,7 +76,7 @@ export function Hero() {
             <p className="pill">For children &amp; parents</p>
             <h1 className="text-display mt-5 text-[#15102b]">ARVIT AAC Device</h1>
             <p className="mt-3 text-lg text-black/70">
-              A voice for your child, and progress you can follow
+              Every child deserves to be heard. In English, Hindi, Punjabi, Tamil or Telugu.
             </p>
 
             <ul className="mt-7 flex flex-wrap gap-2.5">

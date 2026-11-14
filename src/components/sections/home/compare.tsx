@@ -15,8 +15,23 @@ const ROWS = [
     other: ["Extra apps", "Find, buy and set up yourself"],
   },
   {
+    feature: "Languages",
+    arvit: ["5 Indian languages", "English, Hindi, Punjabi, Tamil, Telugu"],
+    other: ["Mostly English", "Indian-language AAC is hard to find"],
+  },
+  {
+    feature: "Emergency alert",
+    arvit: ["One tap", "WhatsApp call to both caregivers"],
+    other: ["Not built in", "Child must unlock and find an app"],
+  },
+  {
+    feature: "Hands-free access",
+    arvit: ["Eye control", "Look to highlight, blink to select"],
+    other: ["Touch only", "Hard for children who can't tap"],
+  },
+  {
     feature: "Parent progress",
-    arvit: ["Built in", "Practice and progress in one view"],
+    arvit: ["Weekly report", "Sent to caregiver phones every Sunday"],
     other: ["Not included", "No picture of how it's going"],
   },
   {

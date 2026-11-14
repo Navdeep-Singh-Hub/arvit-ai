@@ -1,15 +1,30 @@
 "use client";
 
 import { useState } from "react";
-import { Grid2x2, Keyboard, LineChart, Sparkles, Star, Volume2, Wand2, type LucideIcon } from "lucide-react";
+import {
+  BellRing,
+  Camera,
+  Gamepad2,
+  Grid2x2,
+  Keyboard,
+  Languages,
+  LineChart,
+  MessageCircle,
+  Smartphone,
+  Sparkles,
+  Volume2,
+  type LucideIcon,
+} from "lucide-react";
 import { Container } from "@/components/ui/container";
 import {
-  BoardScreen,
   DeviceFrame,
   ParentScreen,
-  PredictScreen,
+  RealScreen,
+  SCREENS,
   SpeechScreen,
 } from "@/components/illustrations/device";
+
+type ChipData = { icon: LucideIcon; title: string; text: string; tint: string };
 
 type Tab = {
   id: string;
@@ -18,54 +33,60 @@ type Tab = {
   titleAccent: string;
   titleRest: string;
   screen: React.ReactNode;
-  chipTop: { icon: LucideIcon; title: string; text: string; tint: string };
-  chipBottom: { icon: LucideIcon; title: string; text: string; tint: string };
+  /** Real app screenshot, or an illustration of a real feature. */
+  real: boolean;
+  chipTop: ChipData;
+  chipBottom: ChipData;
 };
 
 const TABS: Tab[] = [
   {
     id: "boards",
-    label: "Symbol Boards",
+    label: "Picture Boards",
     icon: Grid2x2,
-    titleAccent: "Tap A Picture",
-    titleRest: " To Say It",
-    screen: <BoardScreen />,
-    chipTop: { icon: Volume2, title: "Speaks Out Loud", text: "Every tap has a voice", tint: "bg-[#dbf0f9]" },
-    chipBottom: { icon: Star, title: "Made For Small Hands", text: "Big, clear pictures", tint: "bg-[#ffeba4]" },
+    titleAccent: "Real Pictures",
+    titleRest: ", Real Words",
+    screen: <RealScreen {...SCREENS.aac} />,
+    real: true,
+    chipTop: { icon: Camera, title: "Real-Photo Symbols", text: "Easy to recognise", tint: "bg-[#dbf0f9]" },
+    chipBottom: { icon: BellRing, title: "One-Tap Alert", text: "WhatsApp call to caregivers", tint: "bg-[#ffd9d2]" },
+  },
+  {
+    id: "buddy",
+    label: "Therapy Buddy",
+    icon: Gamepad2,
+    titleAccent: "Learn Through Play",
+    titleRest: " With Buddy",
+    screen: <RealScreen {...SCREENS.buddy} />,
+    real: true,
+    chipTop: { icon: Languages, title: "English, हिंदी, ਪੰਜਾਬੀ", text: "Play in your language", tint: "bg-[#ffeba4]" },
+    chipBottom: { icon: Sparkles, title: "Listen, Tap Or Talk", text: "Three ways to answer", tint: "bg-[#d9d3f5]" },
   },
   {
     id: "speech",
-    label: "Text-to-Speech",
+    label: "Type & Speak",
     icon: Keyboard,
     titleAccent: "Type Anything",
     titleRest: ", Hear It Spoken",
     screen: <SpeechScreen />,
+    real: false,
     chipTop: { icon: Volume2, title: "Reads It Out Loud", text: "Any word, any sentence", tint: "bg-[#e0f5f4]" },
-    chipBottom: { icon: Sparkles, title: "Grows With Your Child", text: "From pictures to typing", tint: "bg-[#d9d3f5]" },
+    chipBottom: { icon: Sparkles, title: "Word Prediction", text: "Fewer taps to be heard", tint: "bg-[#ffeba4]" },
   },
   {
-    id: "predict",
-    label: "Phrase Prediction",
-    icon: Wand2,
-    titleAccent: "The Next Word",
-    titleRest: " Is One Tap Away",
-    screen: <PredictScreen />,
-    chipTop: { icon: Wand2, title: "Faster Sentences", text: "Suggests what comes next", tint: "bg-[#ffeba4]" },
-    chipBottom: { icon: Star, title: "Less Frustration", text: "Fewer taps to be heard", tint: "bg-[#e0f5f4]" },
-  },
-  {
-    id: "parent",
-    label: "Parent View",
+    id: "report",
+    label: "Weekly Report",
     icon: LineChart,
     titleAccent: "Progress",
-    titleRest: " You Can Actually Read",
+    titleRest: " Sent To Your Phone",
     screen: <ParentScreen />,
-    chipTop: { icon: LineChart, title: "See What Changed", text: "A simple weekly picture", tint: "bg-[#dbf0f9]" },
-    chipBottom: { icon: Sparkles, title: "Home Practice Tips", text: "Small ideas for today", tint: "bg-[#ffeba4]" },
+    real: false,
+    chipTop: { icon: Smartphone, title: "Every Sunday Evening", text: "Straight to caregiver phones", tint: "bg-[#dbf0f9]" },
+    chipBottom: { icon: MessageCircle, title: "Easy To Read", text: "No clinical jargon", tint: "bg-[#ffeba4]" },
   },
 ];
 
-function Chip({ chip, className }: { chip: Tab["chipTop"]; className: string }) {
+function Chip({ chip, className }: { chip: ChipData; className: string }) {
   return (
     <div
       className={`animate-in fade-in zoom-in-95 absolute z-10 hidden items-center gap-3 rounded-2xl bg-white py-3 pl-3 pr-5 shadow-[0_10px_30px_-8px_rgb(21_16_43_/_0.35)] duration-300 sm:flex ${className}`}
@@ -106,10 +127,14 @@ export function Showcase() {
           </DeviceFrame>
         </div>
 
+        <p className="mt-4 text-center text-sm text-black/55">
+          {active.real ? "Real screen from the ARVIT app" : "Illustration of a real ARVIT feature"}
+        </p>
+
         <div
           role="tablist"
           aria-label="Device features"
-          className="no-scrollbar-x mx-auto mt-8 flex w-full max-w-max gap-1 overflow-x-auto rounded-[14px] bg-[#dbf0f9] p-1"
+          className="no-scrollbar-x mx-auto mt-5 flex w-full max-w-max gap-1 overflow-x-auto rounded-[14px] bg-[#dbf0f9] p-1"
         >
           {TABS.map((tab) => {
             const selected = tab.id === active.id;

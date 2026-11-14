@@ -1,15 +1,16 @@
 export const SITE = {
   name: "ARVIT AI",
-  legalName: "ARVIT AI, Inc.",
+  legalName: "Arvit Healthtech Private Limited",
   tagline: "One AAC Device for children and parents.",
   description:
-    "ARVIT AI builds one AAC Device for children and the parents who support them: symbol boards, AI voice, speech practice, and a parent view of progress on a single device.",
+    "The ARVIT AAC Device gives non-speaking children a voice in English, Hindi, Punjabi, Tamil and Telugu: real-photo symbol boards, eye control, a one-tap caregiver alert, therapy games and a weekly report for parents.",
   url: "https://www.arvit.ai",
   email: "hello@arvit.ai",
   supportEmail: "support@arvit.ai",
-  phone: "+1 (415) 555-0198",
-  phoneHref: "tel:+14155550198",
-  address: "1 Market Street, Suite 400, San Francisco, CA 94105",
+  /** TODO: add the real support number and full office address. The phone row is hidden while empty. */
+  phone: "" as string,
+  phoneHref: "",
+  address: "India",
 } as const;
 
 export type NavLink = {

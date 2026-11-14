@@ -1,6 +1,6 @@
 import { Container } from "@/components/ui/container";
 import { ButtonLink } from "@/components/ui/button";
-import { BoardScreen, DeviceFrame } from "@/components/illustrations/device";
+import { DeviceFrame, RealScreen, SCREENS } from "@/components/illustrations/device";
 import { CTA } from "@/lib/constants";
 
 type CtaBandProps = {
@@ -39,7 +39,7 @@ export function CtaBand({
           </div>
           <div className="mx-auto hidden w-full max-w-[380px] rounded-[20px] bg-white p-6 lg:block">
             <DeviceFrame>
-              <BoardScreen />
+              <RealScreen {...SCREENS.buddy} />
             </DeviceFrame>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import {
   Apple,
   BedDouble,
@@ -22,10 +23,24 @@ import { cn } from "@/lib/utils";
  * Everything inside is sized in container units (cqw) so the whole device scales
  * with its width — drop it into any box.
  */
-export function DeviceFrame({ children, className }: { children: ReactNode; className?: string }) {
+export function DeviceFrame({
+  children,
+  className,
+  portrait = false,
+}: {
+  children: ReactNode;
+  className?: string;
+  /** Upright tablet (3:4) instead of landscape (4:3). */
+  portrait?: boolean;
+}) {
   return (
     <div className={cn("@container w-full", className)}>
-      <div className="relative aspect-[4/3] rounded-[9cqw] bg-[#7fa7dd] p-[6.5cqw] shadow-[inset_0_-1.6cqw_0_rgb(0_0_0_/_0.12),inset_0_1.2cqw_0_rgb(255_255_255_/_0.28),0_4cqw_6cqw_-3cqw_rgb(21_16_43_/_0.45)]">
+      <div
+        className={cn(
+          "relative rounded-[9cqw] bg-[#7fa7dd] p-[6.5cqw] shadow-[inset_0_-1.6cqw_0_rgb(0_0_0_/_0.12),inset_0_1.2cqw_0_rgb(255_255_255_/_0.28),0_4cqw_6cqw_-3cqw_rgb(21_16_43_/_0.45)]",
+          portrait ? "aspect-[3/4]" : "aspect-[4/3]"
+        )}
+      >
         {/* Handle cut-outs in each corner */}
         <span className="absolute left-[2.6cqw] top-[5cqw] h-[2.6cqw] w-[7cqw] -rotate-45 rounded-full bg-white/85 shadow-[inset_0_0.4cqw_0.6cqw_rgb(0_0_0_/_0.25)]" />
         <span className="absolute right-[2.6cqw] top-[5cqw] h-[2.6cqw] w-[7cqw] rotate-45 rounded-full bg-white/85 shadow-[inset_0_0.4cqw_0.6cqw_rgb(0_0_0_/_0.25)]" />
@@ -41,6 +56,32 @@ export function DeviceFrame({ children, className }: { children: ReactNode; clas
     </div>
   );
 }
+
+/**
+ * A real screenshot from the ARVIT app, filling the device screen.
+ * Files live in /public/screens (exported from the app store screenshots).
+ */
+export function RealScreen({ src, alt, priority = false }: { src: string; alt: string; priority?: boolean }) {
+  return (
+    <div className="relative h-full w-full">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        preload={priority}
+        sizes="(min-width: 1024px) 800px, 90vw"
+        className="object-cover object-top"
+      />
+    </div>
+  );
+}
+
+export const SCREENS = {
+  aac: { src: "/screens/aac-board-landscape.webp", alt: "ARVIT AAC board with real-photo symbols, quick words and an Alert button" },
+  aacTall: { src: "/screens/aac-board-portrait.webp", alt: "ARVIT AAC board with categories, quick words and favourites" },
+  buddy: { src: "/screens/therapy-buddy-landscape.webp", alt: "ARVIT Therapy Buddy games with English, Hindi and Punjabi options" },
+  buddyTall: { src: "/screens/therapy-buddy-portrait.webp", alt: "ARVIT Therapy Buddy: basic learning and social skills games" },
+} as const;
 
 type Tile = { icon: LucideIcon; label: string; bg: string };
 
@@ -186,9 +227,9 @@ export function ParentScreen() {
   return (
     <div className="flex h-full flex-col gap-[1.8cqw] bg-[#f7f4f3] p-[2.6cqw]">
       <div className="flex items-center justify-between">
-        <p className="font-display text-[3.6cqw] leading-none text-[#15102b]">This week</p>
+        <p className="font-display text-[3.6cqw] leading-none text-[#15102b]">Weekly report</p>
         <span className="rounded-full bg-[#e0f5f4] px-[2cqw] py-[0.8cqw] text-[2.1cqw] font-semibold uppercase text-[#28958a]">
-          Parent view · sample
+          Sample · sent every Sunday
         </span>
       </div>
       <div className="grid flex-1 grid-cols-[1.5fr_1fr] gap-[1.8cqw]">

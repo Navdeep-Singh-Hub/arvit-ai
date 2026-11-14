@@ -1,7 +1,7 @@
-import { BoardScreen, DeviceFrame } from "@/components/illustrations/device";
+import { DeviceFrame, RealScreen, SCREENS } from "@/components/illustrations/device";
 
 /**
- * Hero picture, drawn in code: a happy child holding up the AAC Device.
+ * Hero picture: a drawn child holding the AAC Device, showing a real screenshot of the app.
  * Swap this for a real photo when one is available (same rounded frame, same size).
  */
 export function HeroScene() {
@@ -44,7 +44,7 @@ export function HeroScene() {
       {/* Device held up to the camera */}
       <div className="absolute -bottom-[2%] left-1/2 w-[68%] -translate-x-1/2 -rotate-[5deg]">
         <DeviceFrame>
-          <BoardScreen />
+          <RealScreen {...SCREENS.aac} priority />
         </DeviceFrame>
         {/* Hands gripping the case */}
         <span className="absolute -left-[5%] top-[38%] h-[30%] w-[11%] rounded-full bg-[#f7d2b0] shadow-[inset_-4px_0_0_rgb(0_0_0_/_0.08)]" />

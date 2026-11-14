@@ -3,20 +3,21 @@ import { Check, Headset, PhoneCall, ShieldCheck, X } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { AddToCartButton } from "@/components/commerce/add-to-cart-button";
 import { LogoMark } from "@/components/icons/logo";
-import { BoardScreen, DeviceFrame } from "@/components/illustrations/device";
+import { DeviceFrame, RealScreen, SCREENS } from "@/components/illustrations/device";
 import { CATALOG_PRODUCTS, formatProductPrice } from "@/lib/commerce/products";
 
 const PRODUCT = CATALOG_PRODUCTS[0];
 
 const INCLUDED = [
-  "Symbol boards, text-to-speech and phrase prediction",
-  "Parent view with progress and home practice",
-  "Offline mode, so it talks anywhere",
+  "Real-photo symbol boards in 5 Indian languages",
+  "Therapy Buddy learning games and Type & Speak",
+  "One-tap caregiver alert and eye control",
+  "Weekly report to your phone, works offline",
   "A setup call with our team",
 ];
 
 const GENERIC = ["Built to entertain, not to talk", "Communication apps cost extra", "No view of progress", "You set it all up alone"];
-const ARVIT = ["Built for communication", "Boards and voice from day one", "Progress you can read", "Our team helps you start"];
+const ARVIT = ["Built for communication", "Talks in 5 Indian languages", "One-tap alert to caregivers", "Our team helps you start"];
 
 /** Navy band: the buy card, then the "regular tablet vs ARVIT" pair. */
 export function Pricing() {
@@ -26,7 +27,7 @@ export function Pricing() {
         <div className="mx-auto max-w-[560px] rounded-[20px] bg-white p-6 text-black shadow-[0_30px_60px_-20px_rgb(0_0_0_/_0.6)] sm:p-8">
           <div className="mx-auto w-[78%]">
             <DeviceFrame>
-              <BoardScreen />
+              <RealScreen {...SCREENS.aac} />
             </DeviceFrame>
           </div>
 
