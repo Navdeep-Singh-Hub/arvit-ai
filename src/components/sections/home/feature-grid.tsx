@@ -25,10 +25,10 @@ const FEATURES = [
   },
   {
     icon: Languages,
-    name: "5 Indian Languages",
+    name: "Multiple Languages",
     tag: "Your language",
     tint: "bg-[#ffeba4]",
-    text: "English, Hindi, Punjabi, Tamil and Telugu, so your child can talk the way your family talks.",
+    text: "Switch the board language so your child can talk the way your family talks at home.",
   },
   {
     icon: Gamepad2,

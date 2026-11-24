@@ -216,7 +216,7 @@ export default function CheckoutPage() {
                 type="tel"
                 required
                 autoComplete="tel"
-                placeholder="+91 98765 43210"
+                placeholder="Your phone number"
               />
             </div>
             <div className="space-y-2">
@@ -269,7 +269,7 @@ export default function CheckoutPage() {
                 {status === "booking" ? "Booking…" : "Book now, pay later"}
               </Button>
               <p className="text-center text-xs text-muted-foreground">
-                Secure payments by Razorpay · UPI, cards, net banking & wallets
+                Secure payments by Razorpay · Cards, bank transfer & wallets
               </p>
             </div>
 

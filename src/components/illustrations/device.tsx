@@ -79,7 +79,7 @@ export function RealScreen({ src, alt, priority = false }: { src: string; alt: s
 export const SCREENS = {
   aac: { src: "/screens/aac-board-landscape.webp", alt: "ARVIT AAC board with real-photo symbols, quick words and an Alert button" },
   aacTall: { src: "/screens/aac-board-portrait.webp", alt: "ARVIT AAC board with categories, quick words and favourites" },
-  buddy: { src: "/screens/therapy-buddy-landscape.webp", alt: "ARVIT Therapy Buddy games with English, Hindi and Punjabi options" },
+  buddy: { src: "/screens/therapy-buddy-landscape.webp", alt: "ARVIT Therapy Buddy: listen, tap or talk learning games" },
   buddyTall: { src: "/screens/therapy-buddy-portrait.webp", alt: "ARVIT Therapy Buddy: basic learning and social skills games" },
 } as const;
 

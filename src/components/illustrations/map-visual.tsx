@@ -59,7 +59,9 @@ export function MapVisual({ className }: { className?: string }) {
           </span>
           <div>
             <p className="text-sm font-semibold text-foreground">{SITE.name}</p>
-            <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{SITE.address}</p>
+            {SITE.address ? (
+              <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{SITE.address}</p>
+            ) : null}
           </div>
         </div>
       </div>

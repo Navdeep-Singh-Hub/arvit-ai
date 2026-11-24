@@ -1,7 +1,7 @@
 import { Hero } from "@/components/sections/home/hero";
 import { Highlights, TrustRow } from "@/components/sections/home/highlights";
 import { Showcase } from "@/components/sections/home/showcase";
-import { MadeForIndia } from "@/components/sections/home/made-for-india";
+import { WhatIsAac } from "@/components/sections/home/what-is-aac";
 import { FeatureGrid } from "@/components/sections/home/feature-grid";
 import { DemoSection } from "@/components/sections/home/demo-section";
 import { Compare } from "@/components/sections/home/compare";
@@ -23,7 +23,7 @@ export default function HomePage() {
       <TrustRow />
       <Highlights />
       <Showcase />
-      <MadeForIndia />
+      <WhatIsAac />
       <FeatureGrid />
       <DemoSection />
       <Compare />

@@ -9,7 +9,7 @@ const PRODUCT = CATALOG_PRODUCTS[0];
 /** Only product facts that are true today — no unverified numbers. */
 const POINTS = [
   { dot: "bg-[#e11d48]", label: "Real-photo symbol boards" },
-  { dot: "bg-[#007ad1]", label: "5 Indian languages" },
+  { dot: "bg-[#007ad1]", label: "Multiple languages" },
   { dot: "bg-[#28958a]", label: "Eye control" },
   { dot: "bg-[#ff9d3c]", label: "Weekly report to your phone" },
 ];
@@ -58,8 +58,8 @@ export function Hero() {
             <HeroScene />
             <FloatChip
               icon={Languages}
-              title="Speaks 5 Indian Languages"
-              text="हिंदी · ਪੰਜਾਬੀ · தமிழ் · తెలుగు"
+              title="Tap A Picture, Hear It Spoken"
+              text="Words for every moment"
               tint="bg-[#d9d3f5]"
               className="-top-5 right-2 flex animate-float sm:-right-8"
             />
@@ -76,7 +76,16 @@ export function Hero() {
             <p className="pill">For children &amp; parents</p>
             <h1 className="text-display mt-5 text-[#15102b]">ARVIT AAC Device</h1>
             <p className="mt-3 text-lg text-black/70">
-              Every child deserves to be heard. In English, Hindi, Punjabi, Tamil or Telugu.
+              Every child deserves to be heard. Your child taps a picture and ARVIT says it out loud.
+            </p>
+            <p className="mt-2 text-base text-black/60">
+              <abbr title="Augmentative and Alternative Communication" className="font-semibold text-[#28958a] no-underline">
+                AAC
+              </abbr>{" "}
+              = Augmentative and Alternative Communication: tools that help children talk when speech is hard.{" "}
+              <a href="#what-is-aac" className="font-semibold text-[#28958a] underline-offset-4 hover:underline">
+                Learn more
+              </a>
             </p>
 
             <ul className="mt-7 flex flex-wrap gap-2.5">

@@ -16,8 +16,8 @@ const ROWS = [
   },
   {
     feature: "Languages",
-    arvit: ["5 Indian languages", "English, Hindi, Punjabi, Tamil, Telugu"],
-    other: ["Mostly English", "Indian-language AAC is hard to find"],
+    arvit: ["Multilingual", "Switch the board language any time"],
+    other: ["Mostly one language", "Other languages often cost extra"],
   },
   {
     feature: "Emergency alert",

@@ -8,6 +8,18 @@ export type FaqItem = {
 export const FAQ: FaqItem[] = [
   {
     audience: "both",
+    question: "What does AAC mean?",
+    answer:
+      "AAC stands for Augmentative and Alternative Communication. It covers any tool that helps a person communicate when speech is hard or not yet there, from picture cards to talking devices. Augmentative means it adds to the speech a child already has; alternative means it can stand in for speech completely. ARVIT is a speech-generating AAC device: your child taps pictures or types, and the device speaks the words out loud.",
+  },
+  {
+    audience: "both",
+    question: "Will using AAC stop my child from learning to talk?",
+    answer:
+      "No. This is the most common worry, and research does not support it. Studies show AAC does not hold back speech, and many children say more words once they have a reliable way to be understood.",
+  },
+  {
+    audience: "both",
     question: "What is the ARVIT AAC Device?",
     answer:
       "One device for your family. Your child communicates with symbol boards, text-to-speech, and phrase prediction. You see progress, home practice, and safety controls on the same device.",

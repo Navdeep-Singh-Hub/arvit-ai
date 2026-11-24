@@ -59,7 +59,7 @@ const TABS: Tab[] = [
     titleRest: " With Buddy",
     screen: <RealScreen {...SCREENS.buddy} />,
     real: true,
-    chipTop: { icon: Languages, title: "English, हिंदी, ਪੰਜਾਬੀ", text: "Play in your language", tint: "bg-[#ffeba4]" },
+    chipTop: { icon: Languages, title: "Play In Your Language", text: "More than one to choose from", tint: "bg-[#ffeba4]" },
     chipBottom: { icon: Sparkles, title: "Listen, Tap Or Talk", text: "Three ways to answer", tint: "bg-[#d9d3f5]" },
   },
   {
@@ -117,8 +117,8 @@ export function Showcase() {
 
         <div className="relative mx-auto mt-10 w-full max-w-[860px]">
           {/* Keys remount the chips and screen on tab change so the CSS enter animation replays. */}
-          <Chip key={`${active.id}-top`} chip={active.chipTop} className="-right-6 top-[5%] lg:-right-28" />
-          <Chip key={`${active.id}-bottom`} chip={active.chipBottom} className="-left-6 bottom-[7%] lg:-left-28" />
+          <Chip key={`${active.id}-top`} chip={active.chipTop} className="-right-6 top-[5%] xl:-right-28" />
+          <Chip key={`${active.id}-bottom`} chip={active.chipBottom} className="-left-6 bottom-[7%] xl:-left-28" />
 
           <DeviceFrame>
             <div key={active.id} className="animate-in fade-in slide-in-from-right-4 h-full duration-300">

@@ -9,7 +9,7 @@ import { CATALOG_PRODUCTS, formatProductPrice } from "@/lib/commerce/products";
 const PRODUCT = CATALOG_PRODUCTS[0];
 
 const INCLUDED = [
-  "Real-photo symbol boards in 5 Indian languages",
+  "Real-photo symbol boards in multiple languages",
   "Therapy Buddy learning games and Type & Speak",
   "One-tap caregiver alert and eye control",
   "Weekly report to your phone, works offline",
@@ -17,7 +17,7 @@ const INCLUDED = [
 ];
 
 const GENERIC = ["Built to entertain, not to talk", "Communication apps cost extra", "No view of progress", "You set it all up alone"];
-const ARVIT = ["Built for communication", "Talks in 5 Indian languages", "One-tap alert to caregivers", "Our team helps you start"];
+const ARVIT = ["Built for communication", "Talks in multiple languages", "One-tap alert to caregivers", "Our team helps you start"];
 
 /** Navy band: the buy card, then the "regular tablet vs ARVIT" pair. */
 export function Pricing() {
@@ -75,7 +75,7 @@ export function Pricing() {
             </li>
           </ul>
           <p className="mt-4 text-center text-sm text-black/60">
-            Inclusive price in INR.{" "}
+            All-inclusive price.{" "}
             <Link href={PRODUCT.href} className="font-semibold text-[#28958a] underline-offset-4 hover:underline">
               See everything it does
             </Link>

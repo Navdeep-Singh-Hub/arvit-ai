@@ -33,7 +33,7 @@ export function ProductCatalog() {
         <Container className="max-w-[1400px]">
           <div className="grid items-end gap-8 border-b border-[#15102b]/10 pb-10 lg:grid-cols-[minmax(0,1fr)_280px]">
             <p className="max-w-xl text-sm leading-relaxed text-[#15102b]/65">
-              Inclusive INR. One device — not a child product and an adult product.
+              All-inclusive price. One device — not a child product and an adult product.
             </p>
             <div className="relative hidden h-40 overflow-hidden rounded-3xl bg-[#e0f5f4] lg:block">
               <Image
@@ -102,7 +102,7 @@ function CatalogEntry({
             <p className="font-display mt-3 text-4xl font-medium tracking-tight text-[#15102b]">
               {formatProductPrice(product)}
             </p>
-            <p className="mt-2 text-xs text-[#15102b]/55">Inclusive price in INR</p>
+            <p className="mt-2 text-xs text-[#15102b]/55">All-inclusive price</p>
           </div>
         </div>
 
