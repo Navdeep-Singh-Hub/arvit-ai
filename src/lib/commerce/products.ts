@@ -7,9 +7,9 @@ export type PrebookProduct = {
   audience: string;
   tagline: string;
   description: string;
-  /** Price in minor units (paise for INR). Null when not priced yet. */
+  /** Price in minor units (cents for USD). Null when not priced yet. */
   priceCents: number | null;
-  currency: "INR";
+  currency: "USD";
   /** Product not shipping yet — still allowed for pre-book when priced. */
   comingSoon: boolean;
   href: string;
@@ -26,9 +26,9 @@ export const PREBOOK_PRODUCTS: PrebookProduct[] = [
     tagline: "Communication for your child. Progress you can follow.",
     description:
       "One device with symbol boards, text-to-speech, and phrase prediction for your child — plus live progress and home practice for parents.",
-    // ₹24,999
-    priceCents: 2_499_900,
-    currency: "INR",
+    // $249
+    priceCents: 24_900,
+    currency: "USD",
     comingSoon: false,
     href: "/aac-communication",
     accent: "secondary",
@@ -41,8 +41,8 @@ export const PREBOOK_PRODUCTS: PrebookProduct[] = [
     tagline: "Communication for your child. Progress you can follow.",
     description:
       "One device with symbol boards, text-to-speech, and phrase prediction for your child — plus live progress and home practice for parents.",
-    priceCents: 2_499_900,
-    currency: "INR",
+    priceCents: 24_900,
+    currency: "USD",
     comingSoon: false,
     href: "/aac-communication",
     accent: "primary",
@@ -56,8 +56,8 @@ export function getPrebookProduct(id: string): PrebookProduct | undefined {
   return PREBOOK_PRODUCTS.find((product) => product.id === id);
 }
 
-/** Format INR (or other) from minor units (paise). */
-export function formatMoney(cents: number, currency: string = "INR"): string {
+/** Format a price from minor units (cents). Older bookings may still be in INR. */
+export function formatMoney(cents: number, currency: string = "USD"): string {
   return new Intl.NumberFormat(currency === "INR" ? "en-IN" : "en-US", {
     style: "currency",
     currency,

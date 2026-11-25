@@ -24,7 +24,7 @@ export type RazorpayOrder = {
 
 export async function createRazorpayOrder(
   config: RazorpayConfig,
-  input: { amount: number; currency: "INR"; receipt: string; notes: Record<string, string> }
+  input: { amount: number; currency: "USD" | "INR"; receipt: string; notes: Record<string, string> }
 ): Promise<RazorpayOrder> {
   const auth = Buffer.from(`${config.keyId}:${config.keySecret}`).toString("base64");
   const response = await fetch("https://api.razorpay.com/v1/orders", {

@@ -21,7 +21,8 @@ export type Booking = {
   };
   items: BookingLineItem[];
   totalCents: number;
-  currency: "INR";
+  /** New bookings are USD; bookings made before the switch are INR. */
+  currency: "USD" | "INR";
   /** Missing on bookings made before online payment existed (treated as pay-later). */
   payment?: BookingPayment;
 };

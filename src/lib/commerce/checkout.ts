@@ -48,6 +48,6 @@ export function parseCheckout(body: CheckoutPayload): { ok: true; data: ParsedCh
 
   return {
     ok: true,
-    data: { customer: { name, email, phone, notes }, items, totalCents, currency: "INR" },
+    data: { customer: { name, email, phone, notes }, items, totalCents, currency: "USD" },
   };
 }

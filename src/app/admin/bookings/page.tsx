@@ -133,13 +133,13 @@ export default function AdminBookingsPage() {
                             {item.name} × {item.quantity}
                           </span>
                           <span className="font-medium">
-                            {formatMoney(item.unitPriceCents * item.quantity)}
+                            {formatMoney(item.unitPriceCents * item.quantity, booking.currency)}
                           </span>
                         </li>
                       ))}
                     </ul>
                     <p className="mt-3 text-base font-semibold">
-                      Total {formatMoney(booking.totalCents)}
+                      Total {formatMoney(booking.totalCents, booking.currency)}
                     </p>
                     <p className="mt-1 text-sm">
                       {booking.payment?.status === "paid" ? (
